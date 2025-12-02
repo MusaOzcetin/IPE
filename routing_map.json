@@ -1,0 +1,691 @@
+{
+  "program_sources": {
+    "notes": "Defines the canonical file for program-specific answers (both Bachelor and Master).",
+    "bachelor": {
+      "file": [
+        "study_program_stupos_01.md",
+        "study_program_stupos_02.md",
+        "study_program_stupos_03.md",
+        "study_program_stupos_04.md",
+        "study_program_stupos_05.md",
+        "study_program_webpages.json"
+      ]
+    },
+    "master": {
+      "file": [
+        "study_program_stupos_01.md",
+        "study_program_stupos_02.md",
+        "study_program_stupos_03.md",
+        "study_program_stupos_04.md",
+        "study_program_stupos_05.md",
+        "study_program_webpages.json"
+      ]
+    }
+  },
+  "general": {
+    "description": "Questions relevant to all prospective students, not specific to Bachelor or Master studies.",
+    "detect_keywords": [
+      "general",
+      "all students",
+      "visa",
+      "deadline",
+      "financing",
+      "family",
+      "disability",
+      "allocation",
+      "health insurance",
+      "beratung",
+      "studienberatung",
+      "fristen",
+      "termine",
+      "kosten"
+    ],
+    "sources": {
+      "dates-deadlines": {
+        "url": "https://www.tu.berlin/studieren/bewerben-und-einschreiben/fristen-termine",
+        "keywords": [
+          "deadline",
+          "application date",
+          "admission date",
+          "termin",
+          "frist",
+          "fristen",
+          "termine"
+        ]
+      },
+      "other-studies": {
+        "url": "https://www.tu.berlin/studieren/studienangebot/weitere-studienmoeglichkeiten",
+        "keywords": [
+          "other study",
+          "weiteres studium",
+          "weiterbildung",
+          "summer school",
+          "winter school",
+          "studieren ab 16"
+        ]
+      },
+      "health-insurance": {
+        "url": "https://www.tu.berlin/studierendensekretariat/themen-a-z/krankenversicherungsnachweis",
+        "keywords": [
+          "health insurance",
+          "krankenkasse",
+          "versicherung",
+          "krankenversicherungsnachweis"
+        ]
+      },
+      "allocation-procedure": {
+        "url": "https://www.tu.berlin/studieren/bewerben-und-einschreiben/vergabeverfahren-fuer-studienplaetze",
+        "keywords": [
+          "allocation",
+          "admission process",
+          "selection",
+          "vergabeverfahren"
+        ]
+      },
+      "families": {
+        "url": "https://www.tu.berlin/familienbuero",
+        "keywords": [
+          "family",
+          "child",
+          "parent",
+          "pregnant",
+          "pflege",
+          "familienbüro"
+        ]
+      },
+      "disabilities": {
+        "url": "https://www.tu.berlin/studieren/beratung/krankheit-behinderung",
+        "keywords": [
+          "disability",
+          "impairment",
+          "barrier-free",
+          "inklusion",
+          "krankheit",
+          "behinderung"
+        ]
+      },
+      "finance": {
+        "url": "https://www.tu.berlin/studieren/studienorganisation/finanzierung",
+        "keywords": [
+          "cost",
+          "tuition",
+          "fee",
+          "BAföG",
+          "finanzierung",
+          "stipendium",
+          "semesterbeitrag"
+        ]
+      },
+      "orientation": {
+        "url": "https://www.tu.berlin/studienberatung",
+        "keywords": [
+          "orientation",
+          "choose program",
+          "beratung",
+          "study choice",
+          "studienberatung"
+        ]
+      },
+      "student-administration": {
+        "url": "https://www.tu.berlin/studierendensekretariat/kontakt-sprechzeiten",
+        "keywords": [
+          "application office",
+          "enrolment",
+          "student administration",
+          "bewerbung",
+          "immatrikulation",
+          "sprechzeiten",
+          "kontakt"
+        ]
+      }
+    }
+  },
+  "bachelor": {
+    "description": "Questions related to Bachelor's degree studies at TU Berlin.",
+    "detect_keywords": [
+      "bachelor",
+      "bsc",
+      "undergraduate",
+      "erststudium",
+      "studiengang bachelor"
+    ],
+    "programs": {
+      "source": {
+        "type": "file",
+        "name": "study_program_webpages.json",
+        "key_field": "url",
+        "level": "bachelor"
+      },
+      "aliases": {
+        "notes": "Convenience mappings for common abbreviations or German names to bachelor slugs.",
+        "ism": "information-systems-management-bsc",
+        "arch": "architecture-bsc",
+        "architektur": "architecture-bsc",
+        "cs": "computer-science-bsc",
+        "informatik": "computer-science-bsc"
+      },
+      "generic-topics": {
+        "degree-type": {
+          "keywords": [
+            "degree type",
+            "bachelor of",
+            "abschluss",
+            "abschlussart",
+            "art",
+            "science"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Extract the value of the key `Degree` inside `sections.headings.tables.rows`"
+        },
+        "standard-period": {
+          "keywords": [
+            "standard period",
+            "duration",
+            "regelstudienzeit",
+            "semester",
+            "study length"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Extract the value of the key `Standard period of study` inside `sections.headings.tables.rows`"
+        },
+        "credits": {
+          "keywords": ["credit points", "ects", "credits", "cp"],
+          "source": "study_program_webpages.json",
+          "action": "Extract the value of the key `Credit points` inside `sections.headings.tables.rows`"
+        },
+        "starting-semester": {
+          "keywords": [
+            "start",
+            "begin",
+            "start semester",
+            "winter",
+            "summer",
+            "beginn"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Extract the value of the key `Program start` inside `sections.headings.tables.rows`"
+        },
+        "admission": {
+          "keywords": [
+            "restricted",
+            "open",
+            "zulassungsfrei",
+            "zulassungsbeschränkt",
+            "admission"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Extract the value of the key `Admission` inside `sections.headings.tables.rows`"
+        },
+        "language": {
+          "keywords": [
+            "language of instruction",
+            "teaching language",
+            "unterrichtssprache",
+            "german",
+            "english"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Extract the value of the key `Language of instruction` inside `sections.headings.tables.rows`"
+        },
+        "entry-requirements": {
+          "keywords": [
+            "entry requirements",
+            "admission requirements",
+            "requirements",
+            "zugangsvoraussetzungen"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Admission requirements`"
+        },
+        "internship": {
+          "keywords": ["internship", "praktikum"],
+          "source": "study_program_webpages.json",
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Internships`"
+        },
+        "skills": {
+          "keywords": [
+            "skills",
+            "competencies",
+            "learning outcomes",
+            "kompetenzen"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Acquired skills`"
+        },
+        "after-study": {
+          "keywords": [
+            "career",
+            "after graduation",
+            "prospects",
+            "job opportunities",
+            "berufliche perspektiven"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `After your studies`"
+        },
+        "program-url": {
+          "source": "study_program_webpages.json",
+          "action": "Extract the value of the key `url`"
+        },
+        "stupo": {
+          "keywords": [
+            "Modules",
+            "Admission",
+            "admission requirements",
+            "selection criteria",
+            "selection process"
+          ],
+          "source": [
+            "study_program_stupos_01.md",
+            "study_program_stupos_02.md",
+            "study_program_stupos_03.md",
+            "study_program_stupos_04.md",
+            "study_program_stupos_05.md"
+          ],
+          "info": "Extract information from StuPo."
+        }
+      }
+    },
+    "general": {
+      "pre-study-orientation": {
+        "url": "https://www.tu.berlin/studieren/studienangebot/orientierungsstudium",
+        "keywords": [
+          "pre-study",
+          "orientation",
+          "MINTgrün",
+          "choose program",
+          "orientierung"
+        ]
+      },
+      "other-study-offers": {
+        "url": "https://www.tu.berlin/studieren/studienangebot/weitere-studienmoeglichkeiten",
+        "keywords": [
+          "other study",
+          "summer school",
+          "winter school",
+          "studieren ab 16",
+          "weitere studienmöglichkeiten"
+        ]
+      },
+      "language-requirements": {
+        "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-auslaendischen-bildungsnachweisen/zugangsvoraussetzungen/sprachkenntnisse",
+        "keywords": [
+          "language requirements",
+          "german requirement",
+          "english requirement",
+          "sprachkenntnisse"
+        ]
+      },
+      "office-of-student-affairs": {
+        "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor",
+        "keywords": [
+          "student affairs",
+          "office",
+          "contact",
+          "bewerbung",
+          "enrolment",
+          "immatrikulation"
+        ]
+      },
+      "admission-requirements": {
+        "overview_url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor",
+        "ask_for_case": true,
+        "case_question": "Welche Kategorie trifft auf dich zu: deutsche Hochschulzugangsberechtigung, ausländische Hochschulzugangsberechtigung oder berufliche Qualifikation?",
+        "cases": {
+          "german-qualification": {
+            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-deutschen-bildungsnachweisen/zugangsvoraussetzungen",
+            "keywords": [
+              "deutsche HZB",
+              "deutscher Abschluss",
+              "Abitur",
+              "German qualification"
+            ]
+          },
+          "international-qualification": {
+            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-auslaendischen-bildungsnachweisen/zugangsvoraussetzungen",
+            "keywords": [
+              "international",
+              "ausländische HZB",
+              "non-German",
+              "international qualification"
+            ]
+          },
+          "professional-qualification": {
+            "advanced-training": {
+              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-beruflicher-qualifikation/mit-aufstiegsfortbildung",
+              "keywords": ["aufstiegsfortbildung", "advanced training"]
+            },
+            "vocational-training": {
+              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-beruflicher-qualifikation/mit-berufsausbildung",
+              "keywords": ["berufsausbildung", "vocational training"]
+            },
+            "transfer": {
+              "url": "https://www.tu.berlin/en/studierendensekretariat/bachelors-application-enrollment/prospective-students-with-a-professional-qualification/with-at-least-one-years-study-at-a-university-in-another-federal-state",
+              "keywords": [
+                "hochschulwechsel",
+                "transfer",
+                "professional qualification transfer"
+              ]
+            }
+          }
+        }
+      },
+      "application-registration": {
+        "overview_url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor",
+        "ask_for_case": true,
+        "case_question": "Für die Bewerbung/Registrierung: Deutsche HZB, ausländische HZB oder berufliche Qualifikation?",
+        "cases": {
+          "german-qualification": {
+            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-deutschen-bildungsnachweisen/bewerbung-und-registrierung"
+          },
+          "international-qualification": {
+            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-auslaendischen-bildungsnachweisen/zugangsvoraussetzungen"
+          },
+          "professional-qualification": {
+            "advanced-training": {
+              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-beruflicher-qualifikation/mit-aufstiegsfortbildung"
+            },
+            "vocational-training": {
+              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-beruflicher-qualifikation/mit-berufsausbildung"
+            },
+            "transfer": {
+              "url": "https://www.tu.berlin/en/studierendensekretariat/bachelors-application-enrollment/prospective-students-with-a-professional-qualification/with-at-least-one-years-study-at-a-university-in-another-federal-state"
+            }
+          }
+        }
+      },
+      "enrollment": {
+        "overview_url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor",
+        "ask_for_case": true,
+        "case_question": "Für die Immatrikulation: Deutsche HZB, ausländische HZB oder berufliche Qualifikation?",
+        "cases": {
+          "german-qualification": {
+            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-deutschen-bildungsnachweisen/immatrikulation"
+          },
+          "international-qualification": {
+            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-auslaendischen-bildungsnachweisen/zugangsvoraussetzungen"
+          },
+          "professional-qualification": {
+            "advanced-training": {
+              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-beruflicher-qualifikation/mit-aufstiegsfortbildung"
+            },
+            "vocational-training": {
+              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-beruflicher-qualifikation/mit-berufsausbildung"
+            },
+            "transfer": {
+              "url": "https://www.tu.berlin/en/studierendensekretariat/bachelors-application-enrollment/prospective-students-with-a-professional-qualification/with-at-least-one-years-study-at-a-university-in-another-federal-state"
+            }
+          }
+        }
+      }
+    }
+  },
+  "master": {
+    "description": "Questions related to Master's degree studies at TU Berlin.",
+    "detect_keywords": [
+      "master",
+      "msc",
+      "graduate",
+      "postgraduate",
+      "masterstudium",
+      "studiengang master"
+    ],
+    "programs": {
+      "source": {
+        "type": "file",
+        "name": "study_program_webpages.json",
+        "key_field": "url",
+        "level": "master"
+      },
+      "aliases": {
+        "notes": "Convenience mappings for common abbreviations or German names to master slugs.",
+        "ism": "information-systems-management-msc",
+        "arch": "architecture-msc",
+        "architektur": "architecture-msc",
+        "cs": "computer-science-informatik-msc",
+        "informatik": "computer-science-informatik-msc"
+      },
+      "generic-topics": {
+        "degree-type": {
+          "keywords": [
+            "degree type",
+            "master of",
+            "abschluss",
+            "abschlussart",
+            "art",
+            "science"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Extract the value of the key `Degree` inside `sections.headings.tables.rows`"
+        },
+        "standard-period": {
+          "keywords": [
+            "standard period",
+            "duration",
+            "regelstudienzeit",
+            "semester",
+            "study length"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Extract the value of the key `Standard period of study` inside `sections.headings.tables.rows`"
+        },
+        "credits": {
+          "keywords": ["credit points", "ects", "credits", "cp"],
+          "source": "study_program_webpages.json",
+          "action": "Extract the value of the key `Credit points` inside `sections.headings.tables.rows`"
+        },
+        "starting-semester": {
+          "keywords": [
+            "start",
+            "begin",
+            "start semester",
+            "winter",
+            "summer",
+            "beginn"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Extract the value of the key `Program start` inside `sections.headings.tables.rows`"
+        },
+        "admission": {
+          "keywords": [
+            "restricted",
+            "open",
+            "zulassungsfrei",
+            "zulassungsbeschränkt",
+            "admission"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Extract the value of the key `Admission` inside `sections.headings.tables.rows`"
+        },
+        "language": {
+          "keywords": [
+            "language of instruction",
+            "teaching language",
+            "unterrichtssprache",
+            "german",
+            "english"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Extract the value of the key `Language of instruction` inside `sections.headings.tables.rows`"
+        },
+        "entry-requirements": {
+          "keywords": [
+            "entry requirements",
+            "admission requirements",
+            "requirements",
+            "zugangsvoraussetzungen"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Admission requirements`"
+        },
+        "internship": {
+          "keywords": ["internship", "praktikum"],
+          "source": "study_program_webpages.json",
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Internships`"
+        },
+        "skills": {
+          "keywords": [
+            "skills",
+            "competencies",
+            "learning outcomes",
+            "kompetenzen"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Acquired skills`"
+        },
+        "after-study": {
+          "keywords": [
+            "career",
+            "after graduation",
+            "prospects",
+            "job opportunities",
+            "berufliche perspektiven"
+          ],
+          "source": "study_program_webpages.json",
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `After your studies`"
+        },
+        "program-url": {
+          "source": "study_program_webpages.json",
+          "action": "Extract the value of the key `url"
+        },
+        "stupo": {
+          "keywords": [
+            "Modules",
+            "Admission",
+            "admission requirements",
+            "selection criteria",
+            "selection process"
+          ],
+          "source": [
+            "study_program_stupos_01.md",
+            "study_program_stupos_02.md",
+            "study_program_stupos_03.md",
+            "study_program_stupos_04.md",
+            "study_program_stupos_05.md"
+          ]
+        }
+      }
+    },
+    "general": {
+      "continuing-master": {
+        "url": "https://www.tu.berlin/studieren/studienangebot/weitere-studienmoeglichkeiten",
+        "keywords": [
+          "continuing education",
+          "weiterbildender master",
+          "berufsbegleitend",
+          "other master options",
+          "weiterqualifizierung"
+        ]
+      },
+      "language-requirements": {
+        "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/zugangsvoraussetzungen/sprachkenntnisse",
+        "keywords": [
+          "language requirements",
+          "german requirement",
+          "english requirement",
+          "sprachkenntnisse"
+        ]
+      },
+      "admission-requirements": {
+        "overview_url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/zugangsvoraussetzungen",
+        "ask_for_case": true,
+        "case_question": "Welche Kategorie trifft auf dich zu: erster Hochschulabschluss, Doppelabschluss (deutsch/ausländisch) oder berufliche Qualifikation?",
+        "cases": {
+          "general-admission-requirements": {
+            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/zugangsvoraussetzungen/formale-zugangsvoraussetzungen",
+            "keywords": [
+              "first degree",
+              "erstes hochschulstudium",
+              "dual degree",
+              "berufliche qualifikation"
+            ]
+          },
+          "subject-specific-requirements": {
+            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/zugangsvoraussetzungen/studiengangsspezifische-zugangsvoraussetzungen",
+            "keywords": [
+              "fachspezifische voraussetzungen",
+              "subject specific",
+              "inhalte voraussetzungen"
+            ]
+          },
+          "language-skills": {
+            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/zugangsvoraussetzungen/sprachkenntnisse",
+            "keywords": [
+              "sprachkenntnisse",
+              "language skills",
+              "english b2",
+              "german c1"
+            ]
+          }
+        }
+      },
+      "application": {
+        "overview_url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master",
+        "ask_for_case": true,
+        "case_question": "Bewirbst du dich für den ersten Masterabschluss (deutscher Abschluss vs. ausländischer Abschluss) oder für ein höheres Fachsemester bzw. weiterbildenden Master?",
+        "cases": {
+          "first-degree": {
+            "german-university": {
+              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/bewerbung/direktbewerbung-an-der-tu-berlin-fuer-absolventinnen-deutscher-hochschulen",
+              "keywords": [
+                "deutsche hochschule",
+                "tu berlin absolvent",
+                "direktbewerbung"
+              ]
+            },
+            "foreign-university": {
+              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/bewerbung/bewerbung-fuer-absolventinnen-von-auslaendischen-hochschulen",
+              "keywords": [
+                "ausländische hochschule",
+                "international degree",
+                "uni-assist"
+              ]
+            }
+          },
+          "higher-semester": {
+            "lateral-entry": {
+              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/bewerbung/bewerbung-fuer-ein-hoeheres-fachsemester/quereinstieg",
+              "keywords": [
+                "quereinstieg",
+                "höheres fachsemester",
+                "lateral entry",
+                "transfer"
+              ]
+            },
+            "re-enrollment": {
+              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/bewerbung/bewerbung-fuer-ein-hoeheres-fachsemester/wiedereinschreibung",
+              "keywords": ["wiedereinschreibung", "re-enrollment"]
+            }
+          },
+          "continuing-education": {
+            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/bewerbung/bewerbung-fuer-weiterbildende-masterstudiengaenge",
+            "keywords": [
+              "weiterbildender master",
+              "berufsbegleitend",
+              "continuing education applications"
+            ]
+          }
+        }
+      },
+      "enrollment": {
+        "overview_url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master",
+        "ask_for_case": true,
+        "case_question": "Für die Immatrikulation: Zulassungsbeschränkter Master oder zulassungsfreier Master?",
+        "cases": {
+          "restricted-admission": {
+            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/immatrikulation/immatrikulation-bei-zulassungsbeschraenkten-masterstudiengaenge",
+            "keywords": ["zulassungsbeschränkt", "restricted admission"]
+          },
+          "free-admission": {
+            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/immatrikulation/immatrikulation-bei-zulassungsfreien-masterstudiengaengen",
+            "keywords": ["zulassungsfrei", "free admission"]
+          }
+        }
+      },
+      "allocation": {
+        "url": "https://www.tu.berlin/en/i-a-office-of-student-affairs/masters-application-enrollment/allocation-of-study-places",
+        "keywords": ["allocation", "study places", "vergabeverfahren master"]
+      }
+    }
+  }
+}
