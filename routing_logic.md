@@ -1,131 +1,58 @@
 # TU Berlin – Routing and Retrieval Guidelines
 
-**Purpose:** Defines how routing and retrieval of verified information from the knowledge files works.  
-This file supports the main Instruction set by providing the **decision logic** for categorization, source selection, and retrieval order.
+**Purpose:** This document defines the **precise decision logic** for categorizing user queries, resolving program names, and selecting the correct source file or URL from the knowledge base (based on the provided JSON map).
 
 ---
 
-## 1. Core Routing Logic
+## I. Core Instructions and Categorization
 
-### 1.1 Detect User Intent
-
-Identify which category a question belongs to:
-
-| Category     | Applies to                                              | Examples                                                                         |
-| ------------ | ------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| **General**  | All students (deadlines, financing, support, insurance) | “When is the application deadline?”, “How do I prove my health insurance?”       |
-| **Bachelor** | Bachelor programs (**Program-specific** or **General**) | “Do I need German for bachelor studies?”, “How long is Computer Science B.Sc.?”  |
-| **Master**   | Master programs (**Program-specific** or **General**)   | “What are the master admission requirements?”, “Is ISM M.Sc. taught in English?” |
-
----
-
-### 1.2 Determine Specificity
-
-- **Program-specific** → user names a concrete degree (e.g. “Architecture B.Sc.”).
-- A concrete degree program is the bold-formatted program title that appears in the heading lines of the range of these 5 files: `study_program_stupo_01.md`–`study_program_stupo_05.md`.
-- Concretely, it is the bold part inside headings of the form: ## Studien- und Prüfungsordnung für den **[PROGRAMMTITEL]** ...
-  e.g. **Bachelorstudiengang Chemie**, **Masterstudiengang Computational Engineering Science**
-- The recognizing element is always the bold segment **[PROGRAMMTITEL]** (e.g. Bachelorstudiengang Chemie, Masterstudiengang Computational Engineering Science).
-- If the user’s text matches one of these bold program titles (case-insensitive, minor variations allowed), the request is classified as program-specific.
-
-- **General** → question applies to the study level overall.
+1.  **Analyze Intent:** Analyze the user's entire query to determine the primary academic level and core topic of interest. If the intent is unclear, ask for clarification.
+2.  **Determine Primary Category (Level):**
+    * Match keywords against the **`detect_keywords`** lists in **`general`**, **`bachelor`**, and **`master`**.
+    * **Priority Rule (Specific over General):**
+        * If the query explicitly names a study level (e.g., "**Master** application"), use that level (**`master`**).
+        * If the query explicitly names a specific **Program** (e.g., "**Computer Science**"), infer the level based on the context (e.g., "CS **BSc**") or by checking the **`aliases`** list within both `bachelor` and `master` to find the canonical program slug.
+        * If the query is generic and matches only `general` keywords (e.g., "visa," "finance," "deadlines"), use **`general`**.
+        * If keywords match **multiple categories**, route to the **most specific category mentioned or implied** (e.g., "language requirements for **Master**" $\rightarrow$ **`master.general`**).
 
 ---
 
-### 1.3 Routing Decision
+## II. Routing to Specific Sources
 
-- **General (global)** → `general.sources` in `routing_map.json`.
-- **Bachelor general** → `bachelor.general` nodes.
-- **Master general** → `master.general` nodes.
-- **Program-specific** → `study_program_webpages.json`
-  - if the information cannot be found in `study_program_webpages.json`, refer to the range of these 5 files: `study_program_stupo_01.md`–`study_program_stupo_05.md`.
+Once the primary category is determined, follow the precise steps below to find the specific topic node and source material.
 
-### 1.4 Topic Matching
+### A. General Questions (`general`)
 
-- Program-specific → match `generic-topics` in `bachelor` or `master`.
-- General → match `general` node keywords.
-- Global → match `general.sources`.
+1.  **Match Topic:** Match the user's keywords against the **`keywords`** of every topic node under **`general.sources`**.
+2.  **Retrieval Action:** Retrieve and summarize the content from the **`url`** specified in the matching node.
 
 ---
 
-## 2. Source Mapping and Retrieval Order
+### B. Program-Specific Questions (`level.programs`)
 
-External TU Berlin knowledge beyond the uploaded files must **not** be used.
+This handles questions specific to a named study program.
 
-Retrieve knowledge dynamically based on conditions:
-
-- Always start with `routing_map.json` for category and URL routing.
-- Then query `study_program_webpages.json` for general and program-specific facts.
-- If the requested info is not found in webpages, check the range of these 5 files: `study_program_stupo_01.md`–`study_program_stupo_05.md`.
-- For _Modules_, _Admission_, _Admission Requirements_, _Selection Criteria_, or _Admission Process_ always use the range of these 5 files: `study_program_stupo_01.md`–`study_program_stupo_05.md` directly.
-- If users ask for clarification or request human assistance, retrieve data from `contact_info.md`.
-- Prioritize the most contextually relevant source rather than a fixed order.
-- Stop searching once a reliable answer is found.
+1.  **Identify Program-Generic Topic:**
+    * Match the remaining keywords against the **`keywords`** in `level.programs.generic-topics`.
+2.  **Identify Program and Level:**
+    For a given study program name (e.g., 'Aeronautics and Astronautics'), find the corresponding JSON object in `study_program_webpages.json` by matching the program name and level against the object's `title` field.
+3.  **Source Retrieval and Action:**
+    * Perform the precise **`action`** defined in the matching topic node.
+    * **StuPo Files:** If the topic is **`stupo`** (e.g., "Modules," "Selection Process"), search across **all** specified `.md` files (e.g., `study_program_stupos_01.md`, etc.) for the relevant program section and extract factual information.
 
 ---
 
-## 3. Reasoning Rubric
+### C. Level-General Questions (`level.general`)
 
-### 3.1 Category Detection
+This handles application, admission, or general level-specific policies.
 
-- “bachelor”, “undergraduate”, “erststudium”, “B.Sc.” → **bachelor**.
-- “master”, “graduate”, “postgraduate”, “M.Sc.” → **master**.
-- Otherwise → **general**.
-
-### 3.2 Identify Specificity
-
-Use a three-tier specificity check:
-
-1. **Direct program mention:** Exact match with a level 2 header (##) TU Berlin program in the range of these 5 files: `study_program_stupo_01.md`–`study_program_stupo_05.md`
-2. **Program-like phrase:** Abbreviation that maps to a valid program.
-   Example:
-
-- “How many credits does ISM have?” → abbreviation → ISM B.Sc. → specific
-- “Tell me about Data Science B.Sc.” → program missing in the range of these 5 files: `study_program_stupo_01.md`–`study_program_stupo_05.md` → not found → cite the “All programs offered” page.
-
-3. **None:** No discipline or program reference → global general in `routing_map.json`.
+1.  **Identify Topic Node:** Match the user's keywords against the topics under `level.general` (e.g., `admission-requirements`, `application`, `enrollment`).
+2.  **Retrieval Action:** Retrieve and summarize the content from the final specific **`url`**.
 
 ---
 
-## 4. Program Webpage Retrieval Logic
+## III. Edge Cases and Fallback
 
-Trigger:
-When the source is marked `"source": "program_webpages"` in the source map.
-
-Instruction:
-
-1. Locate program entry in `study_program_webpages.json` by the key `title`
-2. Extract factual information by the key `sections.tables.rows`:
-   - **Degree**, **Standard period of study**, **Credit points**, **Program start**, **Admission**, **Language of instruction**
-3. Extract factual information from `paragraphs` that follow directly under `sections.headings` by the keys: `Admission requirements`, `Internship`, `Acquired skills`, `After your studies`
-   - **Entry requirements**, **Internship**, **Acquired skills**, **Career prospects**.
-4. Summarize facts concisely in the user’s language.
-5. Cite the program’s URL.
-
-### 4.3 Program Existence Rule
-
-Answer only if the requested program exists in the `study_program_webpages.json` containing:
-
-- A “Degree” field and
-- A valid TU Berlin study-course URL (`/study-programs/.../study-course/...`).  
-  If not found → reply that the program is **not listed** and cite the official overview:  
-  [https://www.tu.berlin/en/studying/study-programs/all-programs-offered](https://www.tu.berlin/en/studying/study-programs/all-programs-offered).
-
----
-
-## 5. Fallback and Verification Rules
-
-| Situation                                                 | Action                                        |
-| --------------------------------------------------------- | --------------------------------------------- |
-| Multiple matches                                          | Show best match.                              |
-| Ambiguous question                                        | Ask for clarification before retrieving data. |
-| If both **program-specific** and **general** topics match | prioritize **program-specific**.              |
-
-Trigger:
-If an entity (e.g. program name) is not found in `study_program_webpages.json` or in the range of these 5 files: `study_program_stupo_01.md`–`study_program_stupo_05.md`
-
-Instruction:
-
-1. State clearly that there is no such program at TU Berlin.
-2. Cite the official “All Programs Offered” page as the only verified fallback.
-3. Never infer or assume existence based on general TU Berlin offerings.
+* **Program Ambiguity:** If a program is named without a level, check both `bachelor` and `master` aliases. If matches exist in *both*, **ask the user to clarify** (BSc or MSc?).
+* **Unclear Program/Alias:** If no match is found for a program name, inform the user the program may not be offered or the name/slug is incorrect.
+* **No Match/Insufficient Data:** If the query is clear but cannot be matched to a keyword, or the source does not contain the answer, state clearly that the information is **not available**. **Do NOT fabricate an answer.**
