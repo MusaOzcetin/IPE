@@ -328,95 +328,32 @@
         ]
       },
       "admission-requirements": {
-        "overview_url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor",
-        "ask_for_case": true,
-        "case_question": "Welche Kategorie trifft auf dich zu: deutsche Hochschulzugangsberechtigung, ausländische Hochschulzugangsberechtigung oder berufliche Qualifikation?",
-        "cases": {
-          "german-qualification": {
-            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-deutschen-bildungsnachweisen/zugangsvoraussetzungen",
-            "keywords": [
-              "deutsche HZB",
-              "deutscher Abschluss",
-              "Abitur",
-              "German qualification"
-            ]
-          },
-          "international-qualification": {
-            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-auslaendischen-bildungsnachweisen/zugangsvoraussetzungen",
-            "keywords": [
-              "international",
-              "ausländische HZB",
-              "non-German",
-              "international qualification"
-            ]
-          },
-          "professional-qualification": {
-            "advanced-training": {
-              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-beruflicher-qualifikation/mit-aufstiegsfortbildung",
-              "keywords": ["aufstiegsfortbildung", "advanced training"]
-            },
-            "vocational-training": {
-              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-beruflicher-qualifikation/mit-berufsausbildung",
-              "keywords": ["berufsausbildung", "vocational training"]
-            },
-            "transfer": {
-              "url": "https://www.tu.berlin/en/studierendensekretariat/bachelors-application-enrollment/prospective-students-with-a-professional-qualification/with-at-least-one-years-study-at-a-university-in-another-federal-state",
-              "keywords": [
-                "hochschulwechsel",
-                "transfer",
-                "professional qualification transfer"
-              ]
-            }
-          }
-        }
+        "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor",
+        "keywords": [
+          "eligibility",
+          "admission",
+          "higher education entrance",
+          "zulassungsvoraussetzungen",
+          "hochschulzugangsberechtigung"
+        ]
       },
       "application-registration": {
-        "overview_url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor",
-        "ask_for_case": true,
-        "case_question": "Für die Bewerbung/Registrierung: Deutsche HZB, ausländische HZB oder berufliche Qualifikation?",
-        "cases": {
-          "german-qualification": {
-            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-deutschen-bildungsnachweisen/bewerbung-und-registrierung"
-          },
-          "international-qualification": {
-            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-auslaendischen-bildungsnachweisen/zugangsvoraussetzungen"
-          },
-          "professional-qualification": {
-            "advanced-training": {
-              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-beruflicher-qualifikation/mit-aufstiegsfortbildung"
-            },
-            "vocational-training": {
-              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-beruflicher-qualifikation/mit-berufsausbildung"
-            },
-            "transfer": {
-              "url": "https://www.tu.berlin/en/studierendensekretariat/bachelors-application-enrollment/prospective-students-with-a-professional-qualification/with-at-least-one-years-study-at-a-university-in-another-federal-state"
-            }
-          }
-        }
+        "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor",
+        "keywords": [
+          "uni-assist",
+          "document submission",
+          "online-bewerbung",
+          "antragsstellung"
+        ]
       },
       "enrollment": {
-        "overview_url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor",
-        "ask_for_case": true,
-        "case_question": "Für die Immatrikulation: Deutsche HZB, ausländische HZB oder berufliche Qualifikation?",
-        "cases": {
-          "german-qualification": {
-            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-deutschen-bildungsnachweisen/immatrikulation"
-          },
-          "international-qualification": {
-            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-auslaendischen-bildungsnachweisen/zugangsvoraussetzungen"
-          },
-          "professional-qualification": {
-            "advanced-training": {
-              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-beruflicher-qualifikation/mit-aufstiegsfortbildung"
-            },
-            "vocational-training": {
-              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor/studieninteressierte-mit-beruflicher-qualifikation/mit-berufsausbildung"
-            },
-            "transfer": {
-              "url": "https://www.tu.berlin/en/studierendensekretariat/bachelors-application-enrollment/prospective-students-with-a-professional-qualification/with-at-least-one-years-study-at-a-university-in-another-federal-state"
-            }
-          }
-        }
+        "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-bachelor",
+        "keywords": [
+          "matriculation",
+          "student ID",
+          "immatrikulation",
+          "studierendenausweis"
+        ]
       }
     }
   },
@@ -587,105 +524,37 @@
         ]
       },
       "admission-requirements": {
-        "overview_url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/zugangsvoraussetzungen",
-        "ask_for_case": true,
-        "case_question": "Welche Kategorie trifft auf dich zu: erster Hochschulabschluss, Doppelabschluss (deutsch/ausländisch) oder berufliche Qualifikation?",
-        "cases": {
-          "general-admission-requirements": {
-            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/zugangsvoraussetzungen/formale-zugangsvoraussetzungen",
-            "keywords": [
-              "first degree",
-              "erstes hochschulstudium",
-              "dual degree",
-              "berufliche qualifikation"
-            ]
-          },
-          "subject-specific-requirements": {
-            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/zugangsvoraussetzungen/studiengangsspezifische-zugangsvoraussetzungen",
-            "keywords": [
-              "fachspezifische voraussetzungen",
-              "subject specific",
-              "inhalte voraussetzungen"
-            ]
-          },
-          "language-skills": {
-            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/zugangsvoraussetzungen/sprachkenntnisse",
-            "keywords": [
-              "sprachkenntnisse",
-              "language skills",
-              "english b2",
-              "german c1"
-            ]
-          }
-        }
+        "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/zugangsvoraussetzungen",
+        "keywords": [
+          "eligibility",
+          "admission",
+          "higher education entrance",
+          "zulassungsvoraussetzungen",
+          "hochschulzugangsberechtigung"
+        ]
       },
       "application": {
-        "overview_url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master",
-        "ask_for_case": true,
-        "case_question": "Bewirbst du dich für den ersten Masterabschluss (deutscher Abschluss vs. ausländischer Abschluss) oder für ein höheres Fachsemester bzw. weiterbildenden Master?",
-        "cases": {
-          "first-degree": {
-            "german-university": {
-              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/bewerbung/direktbewerbung-an-der-tu-berlin-fuer-absolventinnen-deutscher-hochschulen",
-              "keywords": [
-                "deutsche hochschule",
-                "tu berlin absolvent",
-                "direktbewerbung"
-              ]
-            },
-            "foreign-university": {
-              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/bewerbung/bewerbung-fuer-absolventinnen-von-auslaendischen-hochschulen",
-              "keywords": [
-                "ausländische hochschule",
-                "international degree",
-                "uni-assist"
-              ]
-            }
-          },
-          "higher-semester": {
-            "lateral-entry": {
-              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/bewerbung/bewerbung-fuer-ein-hoeheres-fachsemester/quereinstieg",
-              "keywords": [
-                "quereinstieg",
-                "höheres fachsemester",
-                "lateral entry",
-                "transfer"
-              ]
-            },
-            "re-enrollment": {
-              "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/bewerbung/bewerbung-fuer-ein-hoeheres-fachsemester/wiedereinschreibung",
-              "keywords": ["wiedereinschreibung", "re-enrollment"]
-            }
-          },
-          "continuing-education": {
-            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/bewerbung/bewerbung-fuer-weiterbildende-masterstudiengaenge",
-            "keywords": [
-              "weiterbildender master",
-              "berufsbegleitend",
-              "continuing education applications"
-            ]
-          }
-        }
-      },
-      "enrollment": {
-        "overview_url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master",
-        "ask_for_case": true,
-        "case_question": "Für die Immatrikulation: Zulassungsbeschränkter Master oder zulassungsfreier Master?",
-        "cases": {
-          "restricted-admission": {
-            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/immatrikulation/immatrikulation-bei-zulassungsbeschraenkten-masterstudiengaenge",
-            "keywords": ["zulassungsbeschränkt", "restricted admission"]
-          },
-          "free-admission": {
-            "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master/immatrikulation/immatrikulation-bei-zulassungsfreien-masterstudiengaengen",
-            "keywords": ["zulassungsfrei", "free admission"]
-          }
-        }
-      },
-      "allocation": {
-        "url": "https://www.tu.berlin/en/i-a-office-of-student-affairs/masters-application-enrollment/allocation-of-study-places",
-        "keywords": ["allocation", "study places", "vergabeverfahren master"]
+        "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master",
+        "keywords": [
+          "uni-assist",
+          "document submission",
+          "online-bewerbung",
+          "antragsstellung"
+        ]
       }
     }
+  },
+  "enrollment": {
+    "url": "https://www.tu.berlin/studierendensekretariat/bewerbung-einschreibung-master",
+    "keywords": [
+      "matriculation",
+      "student ID",
+      "immatrikulation",
+      "studierendenausweis"
+    ]
+  },
+  "allocation": {
+    "url": "https://www.tu.berlin/en/i-a-office-of-student-affairs/masters-application-enrollment/allocation-of-study-places",
+    "keywords": ["allocation", "study places", "vergabeverfahren master"]
   }
 }
