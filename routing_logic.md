@@ -47,7 +47,9 @@ This handles questions specific to a named study program.
 This handles application, admission, or general level-specific policies.
 
 1.  **Identify Topic Node:** Match the user's keywords against the topics under `level.general` (e.g., `admission-requirements`, `application`, `enrollment`).
-2.  **Retrieval Action:** Retrieve and summarize the content from the final specific **`url`**.
+2.  **Identify Program and Level:**
+    For a given study program name (e.g., 'Aeronautics and Astronautics'), find the corresponding JSON object in `study_program_webpages.json` by matching the program name and level against the object's `title` field.
+3.  **Retrieval Action:** Retrieve and summarize the content from the final specific **`url`**.
 
 ---
 
