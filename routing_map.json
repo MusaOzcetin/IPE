@@ -267,6 +267,18 @@
           "source": "study_program_webpages.json",
           "action": "Extract the value of the key `url`"
         },
+        "dates-deadlines": {
+          "url": "https://www.tu.berlin/studieren/bewerben-und-einschreiben/fristen-termine",
+          "keywords": [
+            "deadline",
+            "application date",
+            "admission date",
+            "termin",
+            "frist",
+            "fristen",
+            "termine"
+          ]
+        },
         "stupo": {
           "keywords": [
             "Modules",
@@ -484,6 +496,18 @@
         "program-url": {
           "source": "study_program_webpages.json",
           "action": "Extract the value of the key `url"
+        },
+        "dates-deadlines": {
+          "url": "https://www.tu.berlin/studieren/bewerben-und-einschreiben/fristen-termine",
+          "keywords": [
+            "deadline",
+            "application date",
+            "admission date",
+            "termin",
+            "frist",
+            "fristen",
+            "termine"
+          ]
         },
         "stupo": {
           "keywords": [
