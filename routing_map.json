@@ -107,13 +107,20 @@
       "finance": {
         "url": "https://www.tu.berlin/studieren/studienorganisation/finanzierung",
         "keywords": [
-          "cost",
-          "tuition",
-          "fee",
+          "financing",
           "BAföG",
           "finanzierung",
-          "stipendium",
-          "semesterbeitrag"
+          "stipendium"
+        ]
+      },
+      "fees": {
+        "url": "https://www.tu.berlin/studierendensekretariat/themen-a-z/semesterbeitraege",
+          "keywords": [
+          "tuition",
+          "fee",
+          "semesterbeitrag",
+          "semesterkosten",
+          "beitrag"
         ]
       },
       "orientation": {
