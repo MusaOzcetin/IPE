@@ -24,8 +24,7 @@ Once the primary category is determined, follow the precise steps below to find 
 ### A. General Questions (`general`)
 
 1.  **Match Topic:** Match the user's keywords against the **`keywords`** of every topic node under **`general.sources`**.
-2.  **Retrieval Action:** Retrieve and summarize the content from the **`url`** specified in the matching node.
-
+2.  **Retrieval Action:** Provide the **`url`** as the official source and inform the user to find the latest information there. Do NOT attempt to summarize the information or provide your own knowledge. 
 ---
 
 ### B. Program-Specific Questions (`level.programs`)
@@ -51,7 +50,7 @@ This handles application, admission, or general level-specific policies.
 1.  **Identify Topic Node:** Match the user's keywords against the topics under `level.general` (e.g., `admission-requirements`, `application`, `enrollment`).
 2.  **Identify Program and Level:**
     For a given study program name (e.g., 'Aeronautics and Astronautics'), find the corresponding JSON object in `study_program_webpages.json` by matching the program name and level against the object's `title` field.
-3.  **Retrieval Action:** Retrieve and summarize the content from the final specific **`url`**.
+3.  **Retrieval Action:** Provide the **`url`** as the official source and inform the user to find the latest information there. Do NOT attempt to summarize the information or provide your own knowledge. 
 
 ---
 
