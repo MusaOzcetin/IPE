@@ -182,7 +182,7 @@
             "science"
           ],
           "source": "study_program_webpages.json",
-          "action": "Extract the value of the key `Degree` inside `sections.headings.tables.rows`"
+          "action": "Extract the value of the key `Degree` inside `sections.headings.tables.rows`. Cite the value of the key `url` from the same object."
         },
         "standard-period": {
           "keywords": [
@@ -193,12 +193,12 @@
             "study length"
           ],
           "source": "study_program_webpages.json",
-          "action": "Extract the value of the key `Standard period of study` inside `sections.headings.tables.rows`"
+          "action": "Extract the value of the key `Standard period of study` inside `sections.headings.tables.rows`. Cite the value of the key `url` from the same object."
         },
         "credits": {
           "keywords": ["credit points", "ects", "credits", "cp"],
           "source": "study_program_webpages.json",
-          "action": "Extract the value of the key `Credit points` inside `sections.headings.tables.rows`"
+          "action": "Extract the value of the key `Credit points` inside `sections.headings.tables.rows`. Cite the value of the key `url` from the same object."
         },
         "starting-semester": {
           "keywords": [
@@ -210,7 +210,7 @@
             "beginn"
           ],
           "source": "study_program_webpages.json",
-          "action": "Extract the value of the key `Program start` inside `sections.headings.tables.rows`"
+          "action": "Extract the value of the key `Program start` inside `sections.headings.tables.rows`. Cite the value of the key `url` from the same object."
         },
         "admission": {
           "keywords": [
@@ -221,7 +221,7 @@
             "admission"
           ],
           "source": "study_program_webpages.json",
-          "action": "Extract the value of the key `Admission` inside `sections.headings.tables.rows`"
+          "action": "Extract the value of the key `Admission` inside `sections.headings.tables.rows`. Cite the value of the key `url` from the same object."
         },
         "language": {
           "keywords": [
@@ -232,7 +232,7 @@
             "english"
           ],
           "source": "study_program_webpages.json",
-          "action": "Extract the value of the key `Language of instruction` inside `sections.headings.tables.rows`"
+          "action": "Extract the value of the key `Language of instruction` inside `sections.headings.tables.rows`. Cite the value of the key `url` from the same object."
         },
         "entry-requirements": {
           "keywords": [
@@ -242,12 +242,12 @@
             "zugangsvoraussetzungen"
           ],
           "source": "study_program_webpages.json",
-          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Admission requirements`"
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Admission requirements`. Cite the value of the key `url` from the same object."
         },
         "internship": {
           "keywords": ["internship", "praktikum"],
           "source": "study_program_webpages.json",
-          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Internships`"
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Internships`. Cite the value of the key `url` from the same object."
         },
         "skills": {
           "keywords": [
@@ -257,7 +257,7 @@
             "kompetenzen"
           ],
           "source": "study_program_webpages.json",
-          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Acquired skills`"
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Acquired skills`. Cite the value of the key `url` from the same object."
         },
         "after-study": {
           "keywords": [
@@ -268,7 +268,7 @@
             "berufliche perspektiven"
           ],
           "source": "study_program_webpages.json",
-          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `After your studies`"
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `After your studies`. Cite the value of the key `url` from the same object."
         },
         "program-url": {
           "source": "study_program_webpages.json",
@@ -301,7 +301,7 @@
             "study_program_stupos_04.md",
             "study_program_stupos_05.md"
           ],
-          "info": "Extract information from StuPo."
+          "action": "Extract information from StuPo."
         }
       }
     },
@@ -412,7 +412,7 @@
             "science"
           ],
           "source": "study_program_webpages.json",
-          "action": "Extract the value of the key `Degree` inside `sections.headings.tables.rows`"
+          "action": "Extract the value of the key `Degree` inside `sections.headings.tables.rows`. Cite the value of the key `url` from the same object."
         },
         "standard-period": {
           "keywords": [
@@ -423,12 +423,12 @@
             "study length"
           ],
           "source": "study_program_webpages.json",
-          "action": "Extract the value of the key `Standard period of study` inside `sections.headings.tables.rows`"
+          "action": "Extract the value of the key `Standard period of study` inside `sections.headings.tables.rows`. Cite the value of the key `url` from the same object."
         },
         "credits": {
           "keywords": ["credit points", "ects", "credits", "cp"],
           "source": "study_program_webpages.json",
-          "action": "Extract the value of the key `Credit points` inside `sections.headings.tables.rows`"
+          "action": "Extract the value of the key `Credit points` inside `sections.headings.tables.rows`. Cite the value of the key `url` from the same object."
         },
         "starting-semester": {
           "keywords": [
@@ -440,7 +440,7 @@
             "beginn"
           ],
           "source": "study_program_webpages.json",
-          "action": "Extract the value of the key `Program start` inside `sections.headings.tables.rows`"
+          "action": "Extract the value of the key `Program start` inside `sections.headings.tables.rows`. Cite the value of the key `url` from the same object."
         },
         "admission": {
           "keywords": [
@@ -451,7 +451,7 @@
             "admission"
           ],
           "source": "study_program_webpages.json",
-          "action": "Extract the value of the key `Admission` inside `sections.headings.tables.rows`"
+          "action": "Extract the value of the key `Admission` inside `sections.headings.tables.rows`. Cite the value of the key `url` from the same object."
         },
         "language": {
           "keywords": [
@@ -462,7 +462,7 @@
             "english"
           ],
           "source": "study_program_webpages.json",
-          "action": "Extract the value of the key `Language of instruction` inside `sections.headings.tables.rows`"
+          "action": "Extract the value of the key `Language of instruction` inside `sections.headings.tables.rows`. Cite the value of the key `url` from the same object."
         },
         "entry-requirements": {
           "keywords": [
@@ -472,12 +472,12 @@
             "zugangsvoraussetzungen"
           ],
           "source": "study_program_webpages.json",
-          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Admission requirements`"
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Admission requirements`. Cite the value of the key `url` from the same object."
         },
         "internship": {
           "keywords": ["internship", "praktikum"],
           "source": "study_program_webpages.json",
-          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Internships`"
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Internships`. Cite the value of the key `url` from the same object."
         },
         "skills": {
           "keywords": [
@@ -487,7 +487,7 @@
             "kompetenzen"
           ],
           "source": "study_program_webpages.json",
-          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Acquired skills`"
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Acquired skills`. Cite the value of the key `url` from the same object."
         },
         "after-study": {
           "keywords": [
@@ -498,7 +498,7 @@
             "berufliche perspektiven"
           ],
           "source": "study_program_webpages.json",
-          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `After your studies`"
+          "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `After your studies`. Cite the value of the key `url` from the same object."
         },
         "program-url": {
           "source": "study_program_webpages.json",
