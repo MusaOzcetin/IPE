@@ -1,0 +1,61 @@
+{
+  "required_state_variables": [
+    "target_degree",
+    "prior_degree_field",
+    "language_mode",
+    "study_focus",
+    "user_details"
+  ],
+  "routing_steps": [
+    {
+      "step_name": "determine_degree",
+      "variable_to_fill": "target_degree",
+      "type": "single_choice",
+      "question_text": "Welcome to the TU Berlin Program Finder. To get started, which academic degree are you aiming for?",
+      "options": [
+        { "label": "Bachelor of Science/Arts (B.Sc./B.A.)", "value": "bachelor" },
+        { "label": "Master of Science/Arts/Education (M.Sc./M.A./M.Ed.)", "value": "master" },
+        { "label": "PhD / Doctorate", "value": "phd" }
+      ]
+    },
+    {
+      "step_name": "determine_prior_degree",
+      "variable_to_fill": "prior_degree_field",
+      "type": "open_input",
+      "question_text": "Since you are applying for a Master's or PhD program, what was the field of your previous degree (e.g., 'Electrical Engineering', 'Philosophy', or 'Mechanical Engineering')? This helps us find programs that match your background.",
+      "options": []
+    },
+    {
+      "step_name": "determine_language",
+      "variable_to_fill": "language_mode",
+      "type": "single_choice",
+      "question_text": "What is your preferred language of instruction?",
+      "options": [
+        { "label": "German (Requires C1 certificate for most programs)", "value": "german" },
+        { "label": "English (Available mostly for Masters)", "value": "english" }
+      ]
+    },
+    {
+      "step_name": "determine_focus",
+      "variable_to_fill": "study_focus",
+      "type": "single_choice",
+      "question_text": "Which academic area fits your interests best? (Based on TU Berlin Faculties)",
+      "options": [
+        { "label": "Humanities, Culture & Education (Faculty I)", "value": "humanities_education" },
+        { "label": "Math & Natural Sciences (Faculty II)", "value": "math_physics_chem" },
+        { "label": "Process Sciences & Engineering (Faculty III)", "value": "process_sciences_energy" },
+        { "label": "Computer Science & Electrical Engineering (Faculty IV)", "value": "cs_electrical" },
+        { "label": "Mechanical Engineering & Transport Systems (Faculty V)", "value": "mechanical_transport" },
+        { "label": "Architecture, Building & Environment (Faculty VI)", "value": "architecture_planning" },
+        { "label": "Economics & Management (Faculty VII)", "value": "economics_management" }
+      ]
+    },
+    {
+      "step_name": "collect_details",
+      "variable_to_fill": "user_details",
+      "type": "open_input",
+      "question_text": "To finalize the search, please type a few keywords about your specific interests (e.g., 'sustainable urban planning', 'machine learning', 'automotive systems', 'history of technology', 'music and language').",
+      "options": []
+    }
+  ]
+}
