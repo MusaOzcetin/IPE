@@ -34,12 +34,18 @@
       "family",
       "disability",
       "allocation",
+      "dorms",
+      "housing",
+      "apartment",
       "health insurance",
       "beratung",
       "studienberatung",
       "fristen",
       "termine",
-      "kosten"
+      "kosten",
+      "semesterbeitrag",
+      "wohnen",
+      "unterkunft"
     ],
     "sources": {
       "dates-deadlines": {
