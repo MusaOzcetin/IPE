@@ -113,22 +113,21 @@
       },
       "finance": {
         "url": "https://www.tu.berlin/studieren/studienorganisation/finanzierung",
-        "keywords": [
-          "financing",
-          "BAföG",
-          "finanzierung",
-          "stipendium"
-        ]
+        "keywords": ["financing", "BAföG", "finanzierung", "stipendium"]
       },
       "fees": {
         "url": "https://www.tu.berlin/studierendensekretariat/themen-a-z/semesterbeitraege",
-          "keywords": [
+        "keywords": [
           "tuition",
           "fee",
           "semesterbeitrag",
           "semesterkosten",
           "beitrag"
         ]
+      },
+      "housing": {
+        "url": "https://www.tu.berlin/studieren/uni-leben/wohnen",
+        "keywords": ["dorms", "housing", "apartment", "wohnen", "unterkunft"]
       },
       "orientation": {
         "url": "https://www.tu.berlin/studienberatung",
