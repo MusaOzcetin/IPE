@@ -1,0 +1,241 @@
+{
+  "program_finder": {
+    "description": "Conversational Program Finder for TU Berlin with questions, verified facts, and up to three suggestions.",
+    "detect_keywords": {
+      "en": [
+        "program finder",
+        "find programs",
+        "which program",
+        "recommend a program",
+        "compare programs",
+        "programs for me",
+        "discover programs"
+      ],
+      "de": [
+        "programmfinder",
+        "studiengang finden",
+        "studienangebot",
+        "welcher studiengang",
+        "programme vergleichen",
+        "passender studiengang",
+        "studiengänge entdecken"
+      ]
+    },
+    "questions_set": {
+      "degree_type": {
+        "type": "enum",
+        "values": ["bachelor", "master"],
+        "questions": {
+          "en": "Which degree level are you interested in: Bachelor or Master?",
+          "de": "Welches Abschlussniveau interessiert Sie: Bachelor oder Master?"
+        },
+        "slot": "degree_type"
+      },
+      "language_constraint": {
+        "type": "enum",
+        "values": ["english-only", "german-only", "either"],
+        "questions": {
+          "en": "Which language of instruction do you prefer or require? (German, English, or either)",
+          "de": "Welche Unterrichtssprache bevorzugen oder benötigen Sie? (Deutsch, Englisch oder egal)"
+        },
+        "slot": "language_constraint",
+        "notes": "Do not assume language knowledge; always ask explicitly."
+      },
+      "field_interest": {
+        "type": "free-text",
+        "questions": {
+          "en": "What field or interests should the program fit? (e.g., computer science, architecture, sustainability, data, design)",
+          "de": "Welches Fachgebiet oder welche Interessen sollen zum Studiengang passen? (z. B. Informatik, Architektur, Nachhaltigkeit, Daten, Design)"
+        },
+        "slot": "field_interest"
+      }
+    },
+    "fields": {
+      "title": {
+        "source": "study_program_webpages.json",
+        "action": "Extract the value of the key `title`."
+      },
+      "degree": {
+        "source": "study_program_webpages.json",
+        "action": "Extract the value of the key `Degree` inside `sections.headings.tables.rows`."
+      },
+      "duration": {
+        "source": "study_program_webpages.json",
+        "action": "Extract the value of the key `Standard period of study` inside `sections.headings.tables.rows`."
+      },
+      "language": {
+        "source": "study_program_webpages.json",
+        "action": "Extract the value of the key `Language of instruction` inside `sections.headings.tables.rows`."
+      },
+      "admission": {
+        "source": "study_program_webpages.json",
+        "action": "Extract the value of the key `Admission` inside `sections.headings.tables.rows`."
+      },
+      "url": {
+        "source": "study_program_webpages.json",
+        "action": "Extract the value of the key `url`."
+      },
+      "program_overview": {
+        "source": "study_program_webpages.json",
+        "action": "Summarize the factual information from `paragraphs` that follow directly under `sections` by the key: `paragraphs`."
+      },
+      "acquired_skills": {
+        "source": "study_program_webpages.json",
+        "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Acquired skills`."
+      },
+      "stupo_modules": {
+        "source": [
+          "study_program_stupos_01.md",
+          "study_program_stupos_02.md",
+          "study_program_stupos_03.md",
+          "study_program_stupos_04.md",
+          "study_program_stupos_05.md"
+        ],
+        "action": "Use module titles/headings/topics for optional keyword matching; cite filenames when referring to modules."
+      }
+    },
+    "actions": {
+      "filter_by_degree": {
+        "description": "Keep programs whose `degree` matches slot `degree_type`."
+      },
+      "filter_by_language": {
+        "description": "Apply `language_constraint`: english-only → include programs where `language` contains English (or bilingual); german-only → include programs where `language` contains German (or bilingual); either → no filter."
+      },
+      "match_keywords": {
+        "description": "Score candidates using `field_interest` keywords against `title`, `acquired_skills` (study_program_webpages.json), and optionally `stupo_modules`."
+      },
+      "rank_top3": {
+        "description": "Select top 3 programs by score; break ties by exact language alignment and title/subject matches."
+      },
+      "present_table": {
+        "description": "Render a Markdown table for up to 3 programs with fields: `title`, `degree`, `duration`, `language`, `admission`, `url`."
+      },
+      "present_comparison_table": {
+        "description": "Render a Markdown table comparing 2–3 selected programs using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`."
+      },
+      "summarize_webpage_facts": {
+        "description": "Provide a brief factual summary using `program_overview` and `acquired_skills`."
+      },
+      "reference_stupo": {
+        "description": "When discussing modules, reference StuPo filenames from `stupo_modules`."
+      },
+      "present_details": {
+        "description": "Show concise details for the selected program including `title`, `degree`, `duration`, `language`, `admission`, `url`."
+      },
+      "offer_exit": {
+        "description": "After suggestions or details, offer to exit Program Finder.",
+        "phrases": {
+          "en": "Would you like to exit Program Finder?",
+          "de": "Möchten Sie den Programmfinder beenden?"
+        }
+      },
+      "confirm_reset": {
+        "description": "Ask user to confirm restarting Program Finder.",
+        "phrases": {
+          "en": "Do you want to restart Program Finder?",
+          "de": "Möchten Sie den Programmfinder neu starten?"
+        }
+      },
+      "clear_state": {
+        "description": "Clear collected slots and transient state."
+      },
+      "restart_flow": {
+        "description": "Return to the first question in questions_set (degree_type)."
+      },
+      "handoff_to_general_help": {
+        "description": "Exit Program Finder and route to general help.",
+        "phrases": {
+          "en": "Switching to general TU Berlin help to answer your question.",
+          "de": "Wechsel zur allgemeinen TU-Berlin-Hilfe, um Ihre Frage zu beantworten."
+        }
+      }
+    },
+    "intents": {
+      "program.find": {
+        "notes": "Start Program Finder; ask minimal questions, filter by degree and language, match by interest keywords, and suggest up to three programs.",
+        "ask": ["degree_type", "language_constraint", "field_interest"],
+        "actions": [
+          "filter_by_degree",
+          "filter_by_language",
+          "match_keywords",
+          "rank_top3",
+          "present_table",
+          "offer_exit"
+        ],
+        "present": {
+          "fields": [
+            "title",
+            "degree",
+            "duration",
+            "language",
+            "admission",
+            "url"
+          ]
+        }
+      },
+      "program.detail": {
+        "notes": "Provide more information for a selected program.",
+        "inputs": ["selected_program"],
+        "actions": [
+          "summarize_webpage_facts",
+          "reference_stupo",
+          "present_details",
+          "offer_exit"
+        ],
+        "present": {
+          "fields": [
+            "title",
+            "degree",
+            "duration",
+            "language",
+            "admission",
+            "url"
+          ]
+        }
+      },
+      "program.compare": {
+        "notes": "Compare 2–3 selected programs side by side using verified facts. Enforce count: 2–3.",
+        "inputs": ["selected_programs"],
+        "actions": ["present_comparison_table", "offer_exit"],
+        "present": {
+          "fields": [
+            "title",
+            "degree",
+            "duration",
+            "language",
+            "admission",
+            "url"
+          ]
+        },
+        "constraints": {
+          "selected_programs_count_min": 2,
+          "selected_programs_count_max": 3
+        }
+      },
+      "program.reset": {
+        "notes": "Clear collected slots and restart Program Finder.",
+        "actions": ["confirm_reset", "clear_state", "restart_flow"]
+      },
+      "program.exit": {
+        "notes": "Exit Program Finder and hand off to general help.",
+        "actions": ["offer_exit", "handoff_to_general_help"]
+      }
+    },
+    "messaging_rules": {
+      "bachelor_english_only": {
+        "notes": "Inform user about German instruction predominance for Bachelor while still proceeding.",
+        "phrases": {
+          "en": "Most TU Berlin Bachelor’s programs are taught in German. If you require English-only, suitable Bachelor options may be limited.",
+          "de": "Die meisten Bachelorstudiengänge an der TU Berlin werden auf Deutsch unterrichtet. Wenn Sie ausschließlich Englisch benötigen, sind passende Bacheloroptionen möglicherweise begrenzt."
+        }
+      },
+      "master_language_requirements": {
+        "notes": "Optionally remind users to check language requirements for enrollment on the official page.",
+        "phrases": {
+          "en": "Please check language requirements for enrollment on the official program page.",
+          "de": "Bitte beachten Sie die Sprachvoraussetzungen für die Immatrikulation auf der offiziellen Studiengangsseite."
+        }
+      }
+    }
+  }
+}
