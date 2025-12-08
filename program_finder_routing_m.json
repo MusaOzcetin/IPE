@@ -50,38 +50,51 @@
         "slot": "field_interest"
       }
     },
+    "data_model": {
+      "programs_path": "root array of study_program_webpages.json",
+      "identity": {
+        "primary_key": ["title", "url"],
+        "notes": "Program identity is the exact pair (title, url) from the same JSON object. Never invent or modify these values."
+      },
+      "required_fields": ["title", "url"],
+      "guardrails": {
+        "no_synthetic_titles": "Do not output any title that does not exactly match a title value from the source objects.",
+        "no_synthetic_urls": "Do not output any URL that does not exactly match a url value from the source objects.",
+        "stupo_not_identity": "StuPo content must never be used to create or alter program identity."
+      }
+    },
     "fields": {
       "title": {
         "source": "study_program_webpages.json",
-        "action": "Extract the value of the key `title`."
+        "action": "Extract EXACT value of `title` from the candidate object. Do not rewrite or translate."
       },
       "degree": {
         "source": "study_program_webpages.json",
-        "action": "Extract the value of the key `Degree` inside `sections.headings.tables.rows`."
+        "action": "Extract the value of `Degree` inside `sections.headings.tables.rows` from the SAME candidate object."
       },
       "duration": {
         "source": "study_program_webpages.json",
-        "action": "Extract the value of the key `Standard period of study` inside `sections.headings.tables.rows`."
+        "action": "Extract the value of `Standard period of study` inside `sections.headings.tables.rows` from the SAME candidate object."
       },
       "language": {
         "source": "study_program_webpages.json",
-        "action": "Extract the value of the key `Language of instruction` inside `sections.headings.tables.rows`."
+        "action": "Extract the value of `Language of instruction` inside `sections.headings.tables.rows` from the SAME candidate object."
       },
       "admission": {
         "source": "study_program_webpages.json",
-        "action": "Extract the value of the key `Admission` inside `sections.headings.tables.rows`."
+        "action": "Extract the value of `Admission` inside `sections.headings.tables.rows` from the SAME candidate object."
       },
       "url": {
         "source": "study_program_webpages.json",
-        "action": "Extract the value of the key `url`."
+        "action": "Extract EXACT value of `url` from the candidate object. Do not rewrite, shorten, or rehost."
       },
       "program_overview": {
         "source": "study_program_webpages.json",
-        "action": "Summarize the factual information from `paragraphs` that follow directly under `sections` by the key: `paragraphs`."
+        "action": "Summarize factual `paragraphs` under the `Program overview` heading from the SAME candidate object."
       },
       "acquired_skills": {
         "source": "study_program_webpages.json",
-        "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Acquired skills`."
+        "action": "Summarize factual `paragraphs` under the `Acquired skills` heading from the SAME candidate object, if present."
       },
       "stupo_modules": {
         "source": [
@@ -91,36 +104,46 @@
           "study_program_stupos_04.md",
           "study_program_stupos_05.md"
         ],
-        "action": "Use module titles/headings/topics for optional keyword matching; cite filenames when referring to modules."
+        "action": "Use module titles/headings/topics ONLY for optional keyword scoring. When referencing modules, cite the StuPo filename. Never use StuPo to form a new program title or URL."
       }
     },
     "actions": {
       "filter_by_degree": {
-        "description": "Keep programs whose `degree` matches slot `degree_type`."
+        "description": "Keep candidates whose `degree` matches slot `degree_type` (bachelor/master). Read `degree` from fields.degree of the SAME object."
       },
       "filter_by_language": {
-        "description": "Apply `language_constraint`: english-only → include programs where `language` contains English (or bilingual); german-only → include programs where `language` contains German (or bilingual); either → no filter."
+        "description": "Apply slot `language_constraint`: english-only → include programs where `language` contains English (or bilingual); german-only → include programs where `language` contains German (or bilingual); either → no filter."
       },
       "match_keywords": {
-        "description": "Score candidates using `field_interest` keywords against `title`, `acquired_skills` (study_program_webpages.json), and optionally `stupo_modules`."
+        "description": "Score candidates using slot `field_interest` keywords against `title`, `program_overview`, and `acquired_skills`. Optionally add +1 if StuPo modules (stupo_modules) show overlap for the SAME program."
       },
       "rank_top3": {
-        "description": "Select top 3 programs by score; break ties by exact language alignment and title/subject matches."
+        "description": "Select top 3 candidates by score; tie-break by language alignment and title/subject matches."
       },
       "present_table": {
-        "description": "Render a Markdown table for up to 3 programs with fields: `title`, `degree`, `duration`, `language`, `admission`, `url`."
+        "description": "Render a Markdown table for up to 3 programs using only the fields specified in the intent.present.fields.",
+        "constraints": {
+          "use_exact_values": ["title", "url"],
+          "validation": "Before rendering each row, assert row.title === candidate.title AND row.url === candidate.url; if not, drop the row."
+        }
       },
       "present_comparison_table": {
-        "description": "Render a Markdown table comparing 2–3 selected programs using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`."
+        "description": "Render a Markdown table comparing 2–3 selected programs using only the fields listed in intent.present.fields.",
+        "constraints": {
+          "use_exact_values": ["title", "url"]
+        }
       },
       "summarize_webpage_facts": {
-        "description": "Provide a brief factual summary using `program_overview` and `acquired_skills`."
+        "description": "Provide a brief factual summary using fields.program_overview and fields.acquired_skills from the SAME candidate object. Do not alter title/url."
       },
       "reference_stupo": {
-        "description": "When discussing modules, reference StuPo filenames from `stupo_modules`."
+        "description": "When discussing modules, reference StuPo filenames; do not change identity."
       },
       "present_details": {
-        "description": "Show concise details for the selected program including `title`, `degree`, `duration`, `language`, `admission`, `url`."
+        "description": "Show concise details for the selected program using fields: `title`, `degree`, `duration`, `language`, `admission`, `url` from the SAME object.",
+        "constraints": {
+          "use_exact_values": ["title", "url"]
+        }
       },
       "offer_exit": {
         "description": "After suggestions or details, offer to exit Program Finder.",
@@ -152,7 +175,7 @@
     },
     "intents": {
       "program.find": {
-        "notes": "Start Program Finder; ask minimal questions, filter by degree and language, match by interest keywords, and suggest up to three programs.",
+        "notes": "Ask minimal questions, filter by degree and language, match by interest keywords, and suggest up to three programs.",
         "ask": ["degree_type", "language_constraint", "field_interest"],
         "actions": [
           "filter_by_degree",
