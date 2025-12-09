@@ -1,10 +1,11 @@
 {
   "program_finder": {
-    "description": "Conversational Program Finder for TU Berlin with questions, verified facts, and up to three suggestions.",
+    "description": "MVP Program Finder: simple filters (degree, language), one interests input, GPT evaluation, up to 3 suggestions.",
     "detect_keywords": {
       "en": [
         "program finder",
         "find programs",
+        "study program",
         "which program",
         "recommend a program",
         "compare programs",
@@ -14,6 +15,7 @@
       "de": [
         "programmfinder",
         "studiengang finden",
+        "studiengangsuche",
         "studienangebot",
         "welcher studiengang",
         "programme vergleichen",
@@ -95,52 +97,36 @@
       "acquired_skills": {
         "source": "study_program_webpages.json",
         "action": "Summarize factual `paragraphs` under the `Acquired skills` heading from the SAME candidate object, if present."
-      },
-      "stupo_modules": {
-        "source": [
-          "study_program_stupos_01.md",
-          "study_program_stupos_02.md",
-          "study_program_stupos_03.md",
-          "study_program_stupos_04.md",
-          "study_program_stupos_05.md"
-        ],
-        "action": "Use module titles/headings/topics ONLY for optional keyword scoring. When referencing modules, cite the StuPo filename. Never use StuPo to form a new program title or URL."
       }
     },
     "actions": {
+      "scan_the_programs": {
+        "description": "Load all program objects from study_program_webpages.json as candidates."
+      },
       "filter_by_degree": {
         "description": "Keep candidates whose `degree` matches slot `degree_type` (bachelor/master). Read `degree` from fields.degree of the SAME object."
       },
       "filter_by_language": {
         "description": "Apply slot `language_constraint`: english-only → include programs where `language` contains English (or bilingual); german-only → include programs where `language` contains German (or bilingual); either → no filter."
       },
-      "match_keywords": {
-        "description": "Score candidates using slot `field_interest` keywords against `title`, `program_overview`, and `acquired_skills`. Optionally add +1 if StuPo modules (stupo_modules) show overlap for the SAME program."
-      },
-      "rank_top3": {
-        "description": "Select top 3 candidates by score; tie-break by language alignment and title/subject matches."
+      "gpt_evaluate": {
+        "description": "Let GPT, using slot `field_interest` and candidate fields (title, program_overview, acquired_skills), decide which programs fit best. No explicit ranking formula; choose up to 3 results."
       },
       "present_table": {
-        "description": "Render a Markdown table for up to 3 programs using only the fields specified in the intent.present.fields.",
+        "description": "Render a Markdown table for up to 3 programs (0–3 allowed) using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`.",
         "constraints": {
           "use_exact_values": ["title", "url"],
           "validation": "Before rendering each row, assert row.title === candidate.title AND row.url === candidate.url; if not, drop the row."
         }
       },
-      "present_comparison_table": {
-        "description": "Render a Markdown table comparing 2–3 selected programs using only the fields listed in intent.present.fields.",
+      "present_details": {
+        "description": "Show concise details for the selected program using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`, plus a short summary from `program_overview`.",
         "constraints": {
           "use_exact_values": ["title", "url"]
         }
       },
-      "summarize_webpage_facts": {
-        "description": "Provide a brief factual summary using fields.program_overview and fields.acquired_skills from the SAME candidate object. Do not alter title/url."
-      },
-      "reference_stupo": {
-        "description": "When discussing modules, reference StuPo filenames; do not change identity."
-      },
-      "present_details": {
-        "description": "Show concise details for the selected program using fields: `title`, `degree`, `duration`, `language`, `admission`, `url` from the SAME object.",
+      "present_comparison_table": {
+        "description": "Render a Markdown table comparing 2–3 selected programs using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`.",
         "constraints": {
           "use_exact_values": ["title", "url"]
         }
@@ -175,13 +161,13 @@
     },
     "intents": {
       "program.find": {
-        "notes": "Ask minimal questions, filter by degree and language, match by interest keywords, and suggest up to three programs.",
+        "notes": "Ask minimal questions, apply simple filters, let GPT evaluate fit, and present up to three programs.",
         "ask": ["degree_type", "language_constraint", "field_interest"],
         "actions": [
+          "scan_the_programs",
           "filter_by_degree",
           "filter_by_language",
-          "match_keywords",
-          "rank_top3",
+          "gpt_evaluate",
           "present_table",
           "offer_exit"
         ],
@@ -197,14 +183,9 @@
         }
       },
       "program.detail": {
-        "notes": "Provide more information for a selected program.",
+        "notes": "Provide concise info for a selected program.",
         "inputs": ["selected_program"],
-        "actions": [
-          "summarize_webpage_facts",
-          "reference_stupo",
-          "present_details",
-          "offer_exit"
-        ],
+        "actions": ["present_details", "offer_exit"],
         "present": {
           "fields": [
             "title",
@@ -217,7 +198,7 @@
         }
       },
       "program.compare": {
-        "notes": "Compare 2–3 selected programs side by side using verified facts. Enforce count: 2–3.",
+        "notes": "Compare 2–3 selected programs side by side with verified facts. Enforce count: 2–3.",
         "inputs": ["selected_programs"],
         "actions": ["present_comparison_table", "offer_exit"],
         "present": {
@@ -246,17 +227,10 @@
     },
     "messaging_rules": {
       "bachelor_english_only": {
-        "notes": "Inform user about German instruction predominance for Bachelor while still proceeding.",
+        "notes": "Inform user about German instruction predominance for Bachelor.",
         "phrases": {
-          "en": "Most TU Berlin Bachelor’s programs are taught in German. If you require English-only, suitable Bachelor options may be limited.",
+          "en": "All TU Berlin Bachelor’s programs are taught in German. If you require English-only, there is no bachelor option available.",
           "de": "Die meisten Bachelorstudiengänge an der TU Berlin werden auf Deutsch unterrichtet. Wenn Sie ausschließlich Englisch benötigen, sind passende Bacheloroptionen möglicherweise begrenzt."
-        }
-      },
-      "master_language_requirements": {
-        "notes": "Optionally remind users to check language requirements for enrollment on the official page.",
-        "phrases": {
-          "en": "Please check language requirements for enrollment on the official program page.",
-          "de": "Bitte beachten Sie die Sprachvoraussetzungen für die Immatrikulation auf der offiziellen Studiengangsseite."
         }
       }
     }
