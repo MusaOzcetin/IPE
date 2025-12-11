@@ -17,7 +17,7 @@
         "english": null,
         "german": null
       },
-      "action": "Infer the user's preferred language (english or german) from their messages and store it in output_language."
+      "action": "Infer the user's preferred language (english or german) from their messages and store it in output_language. Do this silently, without asking the user which language they prefer and without mentioning that you are detecting the language."
     },
     {
       "step_name": "identify_program",
@@ -27,7 +27,7 @@
         "english": "Which TU Berlin degree program are you interested in? Please provide the exact official name.",
         "german": "Für welchen Studiengang der TU Berlin interessierst du dich? Bitte gib die offizielle Bezeichnung an."
       },
-      "action": "Present the question in the language defined by output_language and store the user's answer in program_name."
+      "action": "Present the question in the language defined by output_language and store the user's answer in program_name. Ask the question plainly, without emojis. Do not add commentary such as what will happen next; only ask the question."
     },
     {
       "step_name": "load_admission_requirements",
@@ -45,10 +45,10 @@
       "type": "dynamic_questions",
       "max_questions": 5,
       "question_text": {
-        "english": "Use the internal checklist of admission requirements to generate clear, user-facing questions in English. Aim to cover each checklist item, but if there are many items, group related requirements into combined questions. Example questions include: \"Do you have a certified English language certificate at level B2 or higher?\", \"How many ECTS do you have in subject area Y?\", \"Do you hold a completed Bachelor's degree in field X?\", \"Do you possess a valid higher education entrance qualification (for example, a high school diploma)?\"",
-        "german": "Nutze die interne Checkliste der Zulassungsvoraussetzungen, um klare, nutzerfreundliche Fragen auf Deutsch zu formulieren. Versuche, jeden Punkt der Checkliste abzudecken, gruppiere bei vielen Punkten aber verwandte Anforderungen in gemeinsamen Fragen. Beispielhafte Fragen sind: \"Hast du ein anerkanntes Englisch-Zertifikat auf Niveau B2 oder höher?\", \"Wie viele ECTS hast du im Fachbereich Y?\", \"Hast du einen abgeschlossenen Bachelorabschluss im Fach X?\", \"Hast du eine gültige Hochschulzugangsberechtigung (zum Beispiel ein Abitur)?\""
+        "english": "Use the internal checklist of admission requirements to generate clear, user-facing questions in English. Aim to cover each checklist item, but if there are many items, group related requirements into combined questions. Example questions include: \"Do you have a certified English language certificate at level B2 or higher?\", \"How many ECTS do you have in subject area Y?\", \"Do you hold a completed Bachelor's degree in field X?\", \"Do you possess a valid higher education entrance qualification (for example, a high school diploma)?\" Ask each question plainly, without emojis.",
+        "german": "Nutze die interne Checkliste der Zulassungsvoraussetzungen, um klare, nutzerfreundliche Fragen auf Deutsch zu formulieren. Versuche, jeden Punkt der Checkliste abzudecken, gruppiere bei vielen Punkten aber verwandte Anforderungen in gemeinsamen Fragen. Beispielhafte Fragen sind: \"Hast du ein anerkanntes Englisch-Zertifikat auf Niveau B2 oder höher?\", \"Wie viele ECTS hast du im Fachbereich Y?\", \"Hast du einen abgeschlossenen Bachelorabschluss im Fach X?\", \"Hast du eine gültige Hochschulzugangsberechtigung (zum Beispiel ein Abitur)?\" Stelle jede Frage sachlich und ohne Emojis."
       },
-      "action": "Take user_current_details.requirements_checklist and, starting at the index stored in check_progress, generate user-facing questions in the language defined by output_language. Ask at most max_questions questions in total for one eligibility run. If the checklist contains more items than max_questions, group related items (for example, several ECTS requirements or several document requirements) into a single combined question, while still evaluating each checklist item internally based on the user's answer. After the user responds to a question, interpret the answer with respect to the underlying checklist item or grouped items and update fulfillment_status with objects that contain an identifier for each checklist item, a status such as \"fulfilled\", \"unfulfilled\" or \"pending\", and the raw user_input. Increase check_progress by the number of checklist items that were covered by that question. When check_progress is greater than or equal to total_requirements, proceed to the final_summary step."
+      "action": "Take user_current_details.requirements_checklist and, starting at the index stored in check_progress, generate user-facing questions in the language defined by output_language. Ask at most max_questions questions in total for one eligibility run. If the checklist contains more items than max_questions, group related items (for example, several ECTS requirements or several document requirements) into a single combined question, while still evaluating each checklist item internally based on the user's answer. For each user answer, briefly acknowledge it with a short phrase such as \"Thank you.\" or \"Noted.\" but do not summarize or restate the content of their answer. Do not mention how many requirements remain and do not say things like \"this is the final requirement\" or \"one last question\". After acknowledging the answer, immediately proceed to the next question until all relevant checklist items have been covered. For every checklist item covered by a question, update fulfillment_status with objects that contain an identifier for each checklist item, a status such as \"fulfilled\", \"unfulfilled\" or \"pending\", and the raw user_input. Increase check_progress by the number of checklist items that were covered by that question. When check_progress is greater than or equal to total_requirements, proceed to the final_summary step."
     },
     {
       "step_name": "inform_no_requirements_found",
@@ -58,7 +58,7 @@
         "english": null,
         "german": null
       },
-      "action": "If no clear admission requirements can be found in the stupo files, use the file `study_program_webpages.json` to match program_name with a \"title\" field and read the corresponding \"url\" field. In output_language, inform the user that you currently cannot find reliable information on the admission requirements for this program and direct them to the official study program page. Always include the official url in the message."
+      "action": "If no clear admission requirements can be found in the stupo files, use the file `study_program_webpages.json` to match program_name with a \"title\" field and read the corresponding \"url\" field (program_url). In output_language, inform the user in simple wording that you currently cannot find reliable information on the admission requirements for this program and direct them to the official study program page. Include program_url in the message. Do not use emojis and do not offer additional services such as \"If you want, I can also help you with...\"."
     },
     {
       "step_name": "final_summary",
@@ -68,7 +68,7 @@
         "english": null,
         "german": null
       },
-      "action": "Use the file `study_program_webpages.json` to match program_name with a \"title\" field and read the corresponding \"url\" field. Based on fulfillment_status and the internal checklist stored in user_current_details.requirements_checklist, generate the final eligibility summary using the templates defined in the logic file, in the language specified by output_language. Clearly group the requirements, summarize which appear fulfilled and which are missing or unclear, and provide practical next steps. Always include the official url from `study_program_webpages.json` in the summary."
+      "action": "Use the file `study_program_webpages.json` to match program_name with a \"title\" field and read the corresponding \"url\" field (program_url). Based on fulfillment_status and the internal checklist stored in user_current_details.requirements_checklist, generate the final eligibility summary in the language specified by output_language. Structure the output strictly as follows: (1) a heading line with the wizard emoji and the program name, (2) a markdown table listing each requirement, the user's status (fulfilled / unfulfilled / pending) and short notes or next steps, (3) a short interpretation paragraph summarizing the overall situation, (4) a \"Next steps\" paragraph or short list that includes program_url, and (5) a disclaimer paragraph stating that this is guidance only and that the official admission decision is made by TU Berlin. Do not add any extra text such as offers of further help (for example, do not say \"If you want, I can also help you with...\"). Use no emojis except for the wizard emoji in the heading. Do not use horizontal rules. Keep formatting simple and only use the table specified plus normal paragraphs and bullet lists where appropriate."
     }
   ]
 }
