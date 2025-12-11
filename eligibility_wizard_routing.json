@@ -1,0 +1,74 @@
+{
+  "required_state_variables": [
+    "program_name",
+    "requirements_loaded",
+    "output_language",
+    "check_progress",
+    "total_requirements",
+    "fulfillment_status",
+    "user_current_details"
+  ],
+  "routing_steps": [
+    {
+      "step_name": "determine_language",
+      "fills_variable": "output_language",
+      "type": "system",
+      "question_text": {
+        "english": null,
+        "german": null
+      },
+      "action": "Infer the user's preferred language (english or german) from their messages and store it in output_language."
+    },
+    {
+      "step_name": "identify_program",
+      "fills_variable": "program_name",
+      "type": "open_input",
+      "question_text": {
+        "english": "Which TU Berlin degree program are you interested in? Please provide the exact official name.",
+        "german": "Für welchen Studiengang der TU Berlin interessierst du dich? Bitte gib die offizielle Bezeichnung an."
+      },
+      "action": "Present the question in the language defined by output_language and store the user's answer in program_name."
+    },
+    {
+      "step_name": "load_admission_requirements",
+      "fills_variable": "requirements_loaded",
+      "type": "system",
+      "question_text": {
+        "english": null,
+        "german": null
+      },
+      "action": "Scan all five stupo knowledge files: `study_program_stupos_01.md`, `study_program_stupos_02.md`, `study_program_stupos_03.md`, `study_program_stupos_04.md`, and `study_program_stupos_05.md`, and find the section that corresponds to the selected program_name. In that section, scan the text for the keywords \"zugang\", \"zulassung\", \"zulassungsverfahren\", \"zugangsvoraussetzungen\" and \"zulassungsantrag\". From the surrounding passages, derive an internal checklist of admission requirements (for example: required number of credits in certain subject areas, required language certificates, required documents, required projects or work samples, required professional experience). Store this internal checklist inside user_current_details under the key \"requirements_checklist\". Also set total_requirements to the number of items in this checklist and reset check_progress to 0. If no clear admission requirements can be derived, do not set requirements_loaded to true and go to the step inform_no_requirements_found."
+    },
+    {
+      "step_name": "ask_requirements_questions",
+      "fills_variable": "fulfillment_status",
+      "type": "dynamic_questions",
+      "max_questions": 5,
+      "question_text": {
+        "english": "Use the internal checklist of admission requirements to generate clear, user-facing questions in English. Aim to cover each checklist item, but if there are many items, group related requirements into combined questions. Example questions include: \"Do you have a certified English language certificate at level B2 or higher?\", \"How many ECTS do you have in subject area Y?\", \"Do you hold a completed Bachelor's degree in field X?\", \"Do you possess a valid higher education entrance qualification (for example, a high school diploma)?\"",
+        "german": "Nutze die interne Checkliste der Zulassungsvoraussetzungen, um klare, nutzerfreundliche Fragen auf Deutsch zu formulieren. Versuche, jeden Punkt der Checkliste abzudecken, gruppiere bei vielen Punkten aber verwandte Anforderungen in gemeinsamen Fragen. Beispielhafte Fragen sind: \"Hast du ein anerkanntes Englisch-Zertifikat auf Niveau B2 oder höher?\", \"Wie viele ECTS hast du im Fachbereich Y?\", \"Hast du einen abgeschlossenen Bachelorabschluss im Fach X?\", \"Hast du eine gültige Hochschulzugangsberechtigung (zum Beispiel ein Abitur)?\""
+      },
+      "action": "Take user_current_details.requirements_checklist and, starting at the index stored in check_progress, generate user-facing questions in the language defined by output_language. Ask at most max_questions questions in total for one eligibility run. If the checklist contains more items than max_questions, group related items (for example, several ECTS requirements or several document requirements) into a single combined question, while still evaluating each checklist item internally based on the user's answer. After the user responds to a question, interpret the answer with respect to the underlying checklist item or grouped items and update fulfillment_status with objects that contain an identifier for each checklist item, a status such as \"fulfilled\", \"unfulfilled\" or \"pending\", and the raw user_input. Increase check_progress by the number of checklist items that were covered by that question. When check_progress is greater than or equal to total_requirements, proceed to the final_summary step."
+    },
+    {
+      "step_name": "inform_no_requirements_found",
+      "fills_variable": null,
+      "type": "system",
+      "question_text": {
+        "english": null,
+        "german": null
+      },
+      "action": "If no clear admission requirements can be found in the stupo files, use the file `study_program_webpages.json` to match program_name with a \"title\" field and read the corresponding \"url\" field. In output_language, inform the user that you currently cannot find reliable information on the admission requirements for this program and direct them to the official study program page. Always include the official url in the message."
+    },
+    {
+      "step_name": "final_summary",
+      "fills_variable": null,
+      "type": "system",
+      "question_text": {
+        "english": null,
+        "german": null
+      },
+      "action": "Use the file `study_program_webpages.json` to match program_name with a \"title\" field and read the corresponding \"url\" field. Based on fulfillment_status and the internal checklist stored in user_current_details.requirements_checklist, generate the final eligibility summary using the templates defined in the logic file, in the language specified by output_language. Clearly group the requirements, summarize which appear fulfilled and which are missing or unclear, and provide practical next steps. Always include the official url from `study_program_webpages.json` in the summary."
+    }
+  ]
+}
