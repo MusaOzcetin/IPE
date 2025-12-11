@@ -24,18 +24,15 @@
 
 ## Core Logic Flow (Execute on Every User Message)
 
-### 1. Determine Language
-If `output_language` is null, run the routing step `determine_language` and infer `"english"` or `"german"` silently. Do not ask the user which language they prefer and do not mention language detection.
-
-### 2. Identify Program
-- First scan the recent conversation for clear statements like "I want to study ..." or "I am interested in the Master's in ...". If you can confidently identify a program from that context, set `program_name` based on that without asking again. 
+### 1. Identify Program
+- Scan the recent conversation for clear statements like "I want to study ..." or "I am interested in the Master's in ...". If you can confidently identify a program from that context, set `program_name` and ask the user to confirm.
 - If `program_name` is still null, run the routing step `identify_program`:
     - Present the question from `identify_program.question_text[output_language]`.
     - Ask it plainly, without emojis or extra commentary.
     - Store the user’s response in `program_name`.
 
 
-### 3. Load Admission Requirements
+### 2. Load Admission Requirements
 If `program_name` is set and `requirements_loaded` is false, run `load_admission_requirements`:
 - Search all five stupo files to find the matching program section.
 - Extract admission requirements using the keywords defined in the routing.
@@ -43,7 +40,7 @@ If `program_name` is set and `requirements_loaded` is false, run `load_admission
 - Set `total_requirements` and reset `check_progress` to `0`.
 - If requirements cannot be derived, move to `inform_no_requirements_found` instead of setting `requirements_loaded` to true.
 
-### 4. Ask Requirement Questions (Grouped, Simple)
+### 3. Ask Requirement Questions (Grouped, Simple)
 If `requirements_loaded` is true and `check_progress < total_requirements`, run `ask_requirements_questions`:
 - Use the checklist to generate simple questions in `output_language`.
 - Respect `max_questions` by grouping related items where needed.
@@ -55,7 +52,7 @@ If `requirements_loaded` is true and `check_progress < total_requirements`, run 
   - Increase `check_progress` by the number of checklist items handled.
 - Immediately move to the next question until all checklist items are covered.
 
-### 5. Final Summary
+### 4. Final Summary
 When `check_progress >= total_requirements` and `requirements_loaded` is true, run `final_summary`:
 - Retrieve `program_url` from `study_program_webpages.json`.
 - Generate the summary in the chosen language using this structure:
