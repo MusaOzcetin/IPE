@@ -45,7 +45,16 @@
       "kosten",
       "semesterbeitrag",
       "wohnen",
-      "unterkunft"
+      "unterkunft",
+      "prospective student",
+      "study information",
+      "study counseling",
+      "requirements for studying",
+      "study in Berlin",
+      "studieninteressierte",
+      "bewerbung allgemein",
+      "studienstart",
+      "studienorganisation"
     ],
     "sources": {
       "dates-deadlines": {
@@ -57,7 +66,16 @@
           "termin",
           "frist",
           "fristen",
-          "termine"
+          "termine",
+          "closing date",
+          "application period",
+          "timeline",
+          "important dates",
+          "bewerbungsfrist",
+          "einschreibefrist",
+          "anmeldefrist",
+          "terminkalender",
+          "hochschulstart"
         ]
       },
       "other-studies": {
@@ -68,7 +86,16 @@
           "weiterbildung",
           "summer school",
           "winter school",
-          "studieren ab 16"
+          "studieren ab 16",
+          "exchange program",
+          "short program",
+          "weiterbildungsangebot",
+          "gasthörer",
+          "studienvorbereitung",
+          "propädeutikum",
+          "kursprogramm",
+          "ferienkurs",
+          "weiteres studienangebot"
         ]
       },
       "health-insurance": {
@@ -77,7 +104,15 @@
           "health insurance",
           "krankenkasse",
           "versicherung",
-          "krankenversicherungsnachweis"
+          "krankenversicherungsnachweis",
+          "health coverage",
+          "healthcare for students",
+          "proof of insurance",
+          "public health insurance",
+          "private health insurance",
+          "versicherungspflicht",
+          "krankenkassenbescheinigung",
+          "studentische krankenversicherung"
         ]
       },
       "allocation-procedure": {
@@ -86,7 +121,17 @@
           "allocation",
           "admission process",
           "selection",
-          "vergabeverfahren"
+          "vergabeverfahren",
+          "admission quota",
+          "selection rules",
+          "NC procedure",
+          "numerus clausus",
+          "selection procedure",
+          "ranking list",
+          "zulassungsverfahren",
+          "bewerberauswahl",
+          "wartezeit",
+          "nachrückverfahren"
         ]
       },
       "families": {
@@ -97,7 +142,18 @@
           "parent",
           "pregnant",
           "pflege",
-          "familienbüro"
+          "familienbüro",
+          "family-friendly",
+          "studying with children",
+          "mother",
+          "father",
+          "parenting support",
+          "family services",
+          "kinderbetreuung",
+          "studieren mit familie",
+          "elternzeit",
+          "familienservice",
+          "vereinbarkeit von studium und familie"
         ]
       },
       "disabilities": {
@@ -108,12 +164,36 @@
           "barrier-free",
           "inklusion",
           "krankheit",
-          "behinderung"
+          "behinderung",
+          "special needs",
+          "study with disability",
+          "accessible study",
+          "nachteilsausgleich",
+          "barrierefreiheit",
+          "sehhilfe",
+          "hörbehinderung",
+          "psychische erkrankung",
+          "assistenz im studium"
         ]
       },
       "finance": {
         "url": "https://www.tu.berlin/studieren/studienorganisation/finanzierung",
-        "keywords": ["financing", "BAföG", "finanzierung", "stipendium"]
+        "keywords": [
+          "financing", 
+          "BAföG", 
+          "finanzierung", 
+          "stipendium",
+          "student jobs",
+          "part-time job",
+          "living costs",
+          "lebenshaltungskosten",
+          "studienkredit",
+          "bildungskredit",
+          "finanzielle unterstützung",
+          "stiftungen",
+          "unterhalt",
+          "arbeiten neben dem studium"
+        ]
       },
       "fees": {
         "url": "https://www.tu.berlin/studierendensekretariat/themen-a-z/semesterbeitraege",
@@ -122,12 +202,35 @@
           "fee",
           "semesterbeitrag",
           "semesterkosten",
-          "beitrag"
+          "beitrag",
+          "semester fee",
+          "Studiengebühren",
+          "gebühren",
+          "verwaltungsgebühr",
+          "semesterticket",
+          "kosten des Studiums"
         ]
       },
       "housing": {
         "url": "https://www.tu.berlin/studieren/uni-leben/wohnen",
-        "keywords": ["dorms", "housing", "apartment", "wohnen", "unterkunft"]
+        "keywords": [
+          "dorms", 
+          "housing", 
+          "apartment", 
+          "wohnen", 
+          "unterkunft",
+          "student housing",
+          "student accommodation",
+          "student residence",
+          "studentenwohnheim",
+          "wohnheim",
+          "WG",
+          "wohngemeinschaft",
+          "shared flat",
+          "zimmer mieten",
+          "miete",
+          "frei zimmer"
+        ]
       },
       "orientation": {
         "url": "https://www.tu.berlin/studienberatung",
@@ -136,7 +239,15 @@
           "choose program",
           "beratung",
           "study choice",
-          "studienberatung"
+          "studienberatung",
+          "study decision",
+          "study guidance",
+          "information session",
+          "online beratung",
+          "sprechstunde studienberatung",
+          "studienwahlhilfe",
+          "beratungsangebot",
+          "infoveranstaltung"
         ]
       },
       "student-administration": {
@@ -148,7 +259,14 @@
           "bewerbung",
           "immatrikulation",
           "sprechzeiten",
-          "kontakt"
+          "kontakt",
+          "student office",
+          "rückmeldung",
+          "exmatriculation",
+          "exmatrikulation",
+          "studierendensekretariat",
+          "studierendenverwaltung",
+          "bescheinigung"
         ]
       }
     }
@@ -160,7 +278,19 @@
       "bsc",
       "undergraduate",
       "erststudium",
-      "studiengang bachelor"
+      "studiengang bachelor",
+      "ba degree",
+      "bsc degree",
+      "bachelor program",
+      "bachelor studies",
+      "undergrad program",
+      "undergraduate program",
+      "erstes studium",
+      "grundständiges studium",
+      "bachelorbewerbung",
+      "bachelorzulassung",
+      "bachelorabschluss",
+      "bachelorstudiengang"
     ],
     "programs": {
       "source": {
@@ -185,7 +315,14 @@
             "abschluss",
             "abschlussart",
             "art",
-            "science"
+            "science",
+            "type of degree",
+            "title of degree",
+            "abschlussbezeichnung",
+            "studienabschluss",
+            "abschlussziel",
+            "akademischer grad",
+            "abschlussform"
           ],
           "source": "study_program_webpages.json",
           "action": "Extract the value of the key `Degree` inside `sections.headings.tables.rows`."
@@ -196,13 +333,38 @@
             "duration",
             "regelstudienzeit",
             "semester",
-            "study length"
+            "study length",
+            "study duration",
+            "length of program",
+            "number of semesters",
+            "standard study time",
+            "full-time study",
+            "part-time study",
+            "studiendauer",
+            "anzahl semester",
+            "dauer des studiums",
+            "studienzeit",
+            "regeldauer"
           ],
           "source": "study_program_webpages.json",
           "action": "Extract the value of the key `Standard period of study` inside `sections.headings.tables.rows`."
         },
         "credits": {
-          "keywords": ["credit points", "ects", "credits", "cp"],
+          "keywords": [
+            "credit points", 
+            "ects", 
+            "credits", 
+            "cp",
+            "lp",
+            "study credits",
+            "workload",
+            "credit point transfer",
+            "credit requirements",
+            "studienleistungen",
+            "leistungspunkte",
+            "punktzahl",
+            "anerkennung von leistungen"
+          ],
           "source": "study_program_webpages.json",
           "action": "Extract the value of the key `Credit points` inside `sections.headings.tables.rows`."
         },
@@ -213,7 +375,17 @@
             "start semester",
             "winter",
             "summer",
-            "beginn"
+            "beginn",
+            "start date",
+            "intake semester",
+            "start term",
+            "program start",
+            "only winter intake",
+            "nur wintersemester",
+            "nur sommersemester",
+            "studienbeginn",
+            "erstes fachsemester",
+            "einstiegstermin"
           ],
           "source": "study_program_webpages.json",
           "action": "Extract the value of the key `Program start` inside `sections.headings.tables.rows`."
@@ -224,7 +396,15 @@
             "open",
             "zulassungsfrei",
             "zulassungsbeschränkt",
-            "admission"
+            "admission",
+            "open admission",
+            "selection limit",
+            "admission criteria",
+            "admission status",
+            "restricted admission",
+            "NC",
+            "zulassung",
+            "zulassungsbeschränkung"
           ],
           "source": "study_program_webpages.json",
           "action": "Extract the value of the key `Admission` inside `sections.headings.tables.rows`."
@@ -235,7 +415,19 @@
             "teaching language",
             "unterrichtssprache",
             "german",
-            "english"
+            "english",
+            "language requirements",
+            "course language",
+            "bilingual program",
+            "teaching in german",
+            "teaching in english",
+            "instruction in english",
+            "instruction in german",
+            "unterricht auf deutsch",
+            "unterricht auf english",
+            "deutschsprachig",
+            "englischsprachig",
+            "zweisprachig"
           ],
           "source": "study_program_webpages.json",
           "action": "Extract the value of the key `Language of instruction` inside `sections.headings.tables.rows`."
@@ -245,13 +437,34 @@
             "entry requirements",
             "admission requirements",
             "requirements",
-            "zugangsvoraussetzungen"
+            "zugangsvoraussetzungen",
+            "minimum grade",
+            "required qualification",
+            "entry criteria",
+            "study prerequisites",
+            "school leaving certificate",
+            "high school diploma",
+            "abitur",
+            "fachhochschulreife",
+            "zugangsberechtigung",
+            "notenschnitt"
           ],
           "source": "study_program_webpages.json",
           "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Admission requirements`."
         },
         "internship": {
-          "keywords": ["internship", "praktikum"],
+          "keywords": [
+            "internship", 
+            "praktikum",
+            "mandatory internship",
+            "industry placement",
+            "internship requirement",
+            "vorpraktikum",
+            "pflichtpraktikum",
+            "praxissemester",
+            "berufspraktikum",
+            "praktikumsnachweis"
+          ],
           "source": "study_program_webpages.json",
           "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Internships`."
         },
@@ -260,7 +473,15 @@
             "skills",
             "competencies",
             "learning outcomes",
-            "kompetenzen"
+            "kompetenzen",
+            "learning objectives",
+            "study outcomes",
+            "graduate profile",
+            "fachliche kompetenzen",
+            "methodenkompetenz",
+            "kompetenzziele",
+            "qualifikationsziele",
+            "erworbenes wissen"
           ],
           "source": "study_program_webpages.json",
           "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Acquired skills`."
@@ -271,7 +492,18 @@
             "after graduation",
             "prospects",
             "job opportunities",
-            "berufliche perspektiven"
+            "berufliche perspektiven",
+            "job prospects",
+            "master options",
+            "work in the industry",
+            "employment opportunities",
+            "career outlook",
+            "berufsaussichten",
+            "arbeitsmarkt",
+            "berufsfelder",
+            "weiterstudium",
+            "karrierechancen",
+            "berufliche möglichkeiten"
           ],
           "source": "study_program_webpages.json",
           "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `After your studies`."
@@ -294,11 +526,21 @@
         },
         "stupo": {
           "keywords": [
-            "Modules",
-            "Admission",
+            "modules",
+            "admission",
             "admission requirements",
             "selection criteria",
-            "selection process"
+            "selection process",
+            "study regulations",
+            "study and examination regulations",
+            "curriculum",
+            "course structure",
+            "module catalogue",
+            "modulliste",
+            "modulhandbuch",
+            "prüfungsordnung",
+            "studienordnung",
+            "PO"
           ],
           "source": [
             "study_program_stupos_01.md",
@@ -319,7 +561,18 @@
           "orientation",
           "MINTgrün",
           "choose program",
-          "orientierung"
+          "orientierung",
+          "orientation studies",
+          "study exploration",
+          "finding the right program",
+          "MINT orientierung",
+          "STEM orientation",
+          "trial study",
+          "studienorientierung",
+          "orientierungsprogramm",
+          "schnupperstudium",
+          "probestudium",
+          "orientierungsangebote"
         ]
       },
       "other-study-offers": {
@@ -329,7 +582,16 @@
           "summer school",
           "winter school",
           "studieren ab 16",
-          "weitere studienmöglichkeiten"
+          "weitere studienmöglichkeiten",
+          "side courses",
+          "non-degree program",
+          "short-term study",
+          "summer program",
+          "zusatzstudium",
+          "weiterbildungsstudiengang",
+          "weiteres angebot",
+          "begleitstudium",
+          "gastehörerstudium"
         ]
       },
       "language-requirements": {
@@ -338,7 +600,20 @@
           "language requirements",
           "german requirement",
           "english requirement",
-          "sprachkenntnisse"
+          "sprachkenntnisse",
+          "language certificate",
+          "german level",
+          "english level",
+          "c1 german",
+          "b2 german",
+          "b1 german",
+          "sprachnachweis",
+          "DSH",
+          "TestDaF",
+          "IELTS",
+          "TOEFL",
+          "sprachniveau",
+          "sprachtest"
         ]
       },
       "office-of-student-affairs": {
@@ -349,7 +624,17 @@
           "contact",
           "bewerbung",
           "enrolment",
-          "immatrikulation"
+          "immatrikulation",
+          "student services office",
+          "enrolment office",
+          "office contact",
+          "helpdesk",
+          "zuständigkeitsbereich",
+          "zuständige sachbearbeitung",
+          "sprechzeiten büro",
+          "kontakt studierendensekretariat",
+          "beratung im studentenservice",
+          "zuständiges referat"
         ]
       },
       "admission-requirements": {
@@ -359,7 +644,15 @@
           "admission",
           "higher education entrance",
           "zulassungsvoraussetzungen",
-          "hochschulzugangsberechtigung"
+          "hochschulzugangsberechtigung",
+          "admission requirements",
+          "prior knowledge",
+          "module categories",
+          "fachgebundene hochschulreife",
+          "zugangsordnung",
+          "besondere zugangsbedingungen",
+          "fachliche voraussetzungen",
+          "spezielle zulassung"
         ]
       },
       "application-registration": {
@@ -368,7 +661,17 @@
           "uni-assist",
           "document submission",
           "online-bewerbung",
-          "antragsstellung"
+          "antragsstellung",
+          "online application portal",
+          "registration procedure",
+          "application form",
+          "upload documents",
+          "bewerbungsunterlagen",
+          "bewerbungsportal",
+          "bewerbungsprozess",
+          "bewerbungsanleitung",
+          "einschreibantrag",
+          "bewerbungsstatus"
         ]
       },
       "enrollment": {
@@ -377,7 +680,16 @@
           "matriculation",
           "student ID",
           "immatrikulation",
-          "studierendenausweis"
+          "studierendenausweis",
+          "enrolment process",
+          "online enrollment",
+          "enrolment confirmation",
+          "register as student",
+          "einschreibung",
+          "rückmeldung zum studium",
+          "immatrikulationsunterlagen",
+          "immatrikulationsbescheinigung",
+          "einschreibedatum"
         ]
       }
     }
@@ -390,7 +702,18 @@
       "graduate",
       "postgraduate",
       "masterstudium",
-      "studiengang master"
+      "studiengang master",
+      "msc degree",
+      "ma degree",
+      "master program",
+      "master studies",
+      "graduate program",
+      "weiterführendes studium",
+      "konsekutiver master",
+      "nicht-konsekutiver master",
+      "masterbewerbung",
+      "masterzulassung",
+      "masterstudiengang"
     ],
     "programs": {
       "source": {
@@ -415,7 +738,10 @@
             "abschluss",
             "abschlussart",
             "art",
-            "science"
+            "science",
+            "abschlussbezeichnung master",
+            "masterabschluss",
+            "akademischer grad master"
           ],
           "source": "study_program_webpages.json",
           "action": "Extract the value of the key `Degree` inside `sections.headings.tables.rows`."
@@ -426,13 +752,35 @@
             "duration",
             "regelstudienzeit",
             "semester",
-            "study length"
+            "study length",
+            "full-time master duration",
+            "part-time duration",
+            "standard program length",
+            "program length master",
+            "study duration master",
+            "length of master",
+            "anzahl semester master",
+            "studiendauer master",
+            "regelstudienzeit master"
           ],
           "source": "study_program_webpages.json",
           "action": "Extract the value of the key `Standard period of study` inside `sections.headings.tables.rows`."
         },
         "credits": {
-          "keywords": ["credit points", "ects", "credits", "cp"],
+          "keywords": [
+            "credit points", 
+            "ects", 
+            "credits", 
+            "cp",
+            "lp",
+            "credit requirement",
+            "workload master",
+            "credits needed",
+            "credit structure",
+            "credit distribution",
+            "leistungspunkte gesamt",
+            "leistungspunkte master"
+          ],
           "source": "study_program_webpages.json",
           "action": "Extract the value of the key `Credit points` inside `sections.headings.tables.rows`."
         },
@@ -443,7 +791,17 @@
             "start semester",
             "winter",
             "summer",
-            "beginn"
+            "beginn",
+            "intake for master",
+            "first semester master",
+            "admission semester",
+            "program start date",
+            "start term master",
+            "start semester master",
+            "nur winterstart",
+            "nur sommerstart",
+            "studienbeginn master",
+            "einstieg master"
           ],
           "source": "study_program_webpages.json",
           "action": "Extract the value of the key `Program start` inside `sections.headings.tables.rows`."
@@ -454,7 +812,18 @@
             "open",
             "zulassungsfrei",
             "zulassungsbeschränkt",
-            "admission"
+            "admission",
+            "admission type master",
+            "direct admission",
+            "selection for places",
+            "competitive admission",
+            "limited seats",
+            "selection for master",
+            "master zulassung",
+            "zulassungsmodus",
+            "kapazität master",
+            "NC master",
+            "numerus clausus master"
           ],
           "source": "study_program_webpages.json",
           "action": "Extract the value of the key `Admission` inside `sections.headings.tables.rows`."
@@ -465,7 +834,16 @@
             "teaching language",
             "unterrichtssprache",
             "german",
-            "english"
+            "english",
+            "bilingual master",
+            "sprachvoraussetzungen master",
+            "english-taught master",
+            "german-taught master",
+            "teaching in english",
+            "teaching in german",
+            "deutschsprachiger master",
+            "englischsprachiger master",
+            "zweisprachiger master"
           ],
           "source": "study_program_webpages.json",
           "action": "Extract the value of the key `Language of instruction` inside `sections.headings.tables.rows`."
@@ -475,13 +853,36 @@
             "entry requirements",
             "admission requirements",
             "requirements",
-            "zugangsvoraussetzungen"
+            "zugangsvoraussetzungen",
+            "subject-related requirements",
+            "specific prerequisites",
+            "study background",
+            "required bachelor",
+            "relevant previous degree",
+            "fachlich passender bachelor",
+            "zugang über bachelor",
+            "mindestergebnisse",
+            "note im bachelor",
+            "vorstudium"
           ],
           "source": "study_program_webpages.json",
           "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Admission requirements`."
         },
         "internship": {
-          "keywords": ["internship", "praktikum"],
+          "keywords": [
+            "internship", 
+            "praktikum",
+            "professional experience",
+            "work experience requirement",
+            "praktische erfahrung",
+            "berufserfahrung",
+            "praktikum master",
+            "praxisphase master",
+            "industry project",
+            "praxisanteil",
+            "internship option",
+            "internship master requirement"
+          ],
           "source": "study_program_webpages.json",
           "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Internships`."
         },
@@ -490,7 +891,17 @@
             "skills",
             "competencies",
             "learning outcomes",
-            "kompetenzen"
+            "kompetenzen",
+            "advanced skills",
+            "research skills",
+            "academic skills",
+            "key competences",
+            "wissenschaftliche kompetenzen",
+            "vertiefte kenntnisse",
+            "spezialisierung",
+            "fachspezifische kompetenzen",
+            "methodische fähigkeiten",
+            "kompetenzprofil"
           ],
           "source": "study_program_webpages.json",
           "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `Acquired skills`."
@@ -501,7 +912,17 @@
             "after graduation",
             "prospects",
             "job opportunities",
-            "berufliche perspektiven"
+            "berufliche perspektiven",
+            "research career",
+            "phd options",
+            "promotion",
+            "wissenschaftliche laufbahn",
+            "industriekarriere",
+            "leitungspositionen",
+            "karriere nach master",
+            "arbeitsmöglichkeiten",
+            "jobprofile",
+            "weiterführende forschung"
           ],
           "source": "study_program_webpages.json",
           "action": "Summarize the factual information from `paragraphs` that follow directly under `sections.headings` by the key: `After your studies`."
@@ -528,7 +949,18 @@
             "Admission",
             "admission requirements",
             "selection criteria",
-            "selection process"
+            "selection process",
+            "master regulations",
+            "study regulation document",
+            "graduation requirements",
+            "study plan",
+            "course schedule",
+            "examination rules",
+            "prüfungsbestimmungen",
+            "studienverlauf",
+            "studienordnung",
+            "modulübersicht",
+            "ordnungsdokument"
           ],
           "source": [
             "study_program_stupos_01.md",
@@ -548,7 +980,18 @@
           "weiterbildender master",
           "berufsbegleitend",
           "other master options",
-          "weiterqualifizierung"
+          "weiterqualifizierung",
+          "extra-occupational master",
+          "part-time master",
+          "lifelong learning",
+          "executive program",
+          "professional master",
+          "executive master",
+          "berufsbegleitendes studium",
+          "weiterbildungsstudium master",
+          "weiterqualifizierender studiengang",
+          "berufstätig studieren",
+          "weiterbildungsangebot master"
         ]
       },
       "language-requirements": {
@@ -557,7 +1000,19 @@
           "language requirements",
           "german requirement",
           "english requirement",
-          "sprachkenntnisse"
+          "sprachkenntnisse",
+          "language proof master",
+          "english certificate",
+          "german certificate",
+          "sprachnachweis master",
+          "sprachtest master",
+          "c1 german",
+          "c2 german",
+          "b2 English",
+          "c1 english",
+          "required language level",
+          "sprachvoraussetzung",
+          "sprachzertifikat"
         ]
       },
       "admission-requirements": {
@@ -567,7 +1022,16 @@
           "admission",
           "higher education entrance",
           "zulassungsvoraussetzungen",
-          "hochschulzugangsberechtigung"
+          "hochschulzugangsberechtigung",
+          "access requirements master",
+          "selection criteria master",
+          "eligibility master",
+          "zulassungsordnung",
+          "besondere zugangsvoraussetzungen",
+          "fachliche zugangsbedingungen",
+          "notegrenze master",
+          "spezifische zulassungsregeln",
+          "zugangsregelung"
         ]
       },
       "application": {
@@ -576,7 +1040,17 @@
           "uni-assist",
           "document submission",
           "online-bewerbung",
-          "antragsstellung"
+          "antragsstellung",
+          "application deadline master",
+          "application procedure master",
+          "apply for master",
+          "application checklist",
+          "status of application",
+          "master application portal",
+          "bewerbung master",
+          "bewerbungsunterlagen master",
+          "masterbewerbungsprozess",
+          "online antrag master"
         ]
       }
     }
@@ -587,11 +1061,35 @@
       "matriculation",
       "student ID",
       "immatrikulation",
-      "studierendenausweis"
+      "studierendenausweis",
+      "registration as student",
+      "first enrollment",
+      "enrolment steps",
+      "register for master",
+      "matriculation process",
+      "enrolment deadline",
+      "einschreibefrist master",
+      "immatrikulationsprozess",
+      "immatrikulationsantrag",
+      "einschreibung master"
     ]
   },
   "allocation": {
     "url": "https://www.tu.berlin/en/i-a-office-of-student-affairs/masters-application-enrollment/allocation-of-study-places",
-    "keywords": ["allocation", "study places", "vergabeverfahren master"]
+    "keywords": [
+      "allocation", 
+      "study places", 
+      "vergabeverfahren master",
+      "distribution of places",
+      "admission quota master",
+      "ranking master",
+      "selection list",
+      "admission lottery",
+      "NC master allocation",
+      "platzvergabe",
+      "vergabe der studienplätze",
+      "zulassungsquote",
+      "auswahlgrenzen"
+    ]
   }
 }
