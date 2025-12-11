@@ -63,6 +63,8 @@ While in Eligibility Wizard mode, **prefix every user-facing question with the ð
 2. **Load Admission Requirements**  
    - If `program_name` is set and `requirements_loaded` is `false`, execute the routing step `load_admission_requirements`.  
    - This step handles normalizing the program name, searching all stupos, and creating the internal requirements checklist.  
+   - While running system steps (such as `load_admission_requirements` or `final_summary` setup), do not output anything to the user.  
+   - All system actions run silently; only user-facing question steps produce visible messages.
    - If no valid requirements can be derived, the routing will trigger `inform_no_requirements_found`.
 
 3. **Ask Requirement Questions**  
