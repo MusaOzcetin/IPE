@@ -14,7 +14,6 @@
 {
   "program_name": null,
   "requirements_loaded": false,
-  "output_language": null,
   "check_progress": 0,
   "total_requirements": 0,
   "fulfillment_status": [],

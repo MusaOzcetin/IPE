@@ -2,7 +2,6 @@
   "required_state_variables": [
     "program_name",
     "requirements_loaded",
-    "output_language",
     "check_progress",
     "total_requirements",
     "fulfillment_status",
