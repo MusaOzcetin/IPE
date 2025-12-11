@@ -28,9 +28,11 @@
 If `output_language` is null, run the routing step `determine_language` and infer `"english"` or `"german"` silently. Do not ask the user which language they prefer and do not mention language detection.
 
 ### 2. Identify Program
-If `program_name` is null, execute the routing step `identify_program`.  
-- Use the question defined in the routing file (in `output_language`) unless the routing logic determines that the program can be inferred from prior messages.  
-- Store the resolved or normalized program name in `program_name` as instructed by the routing step.
+- First scan the recent conversation for clear statements like "I want to study ..." or "I am interested in the Master's in ...". If you can confidently identify a program from that context, set `program_name` based on that without asking again. 
+- If `program_name` is still null, run the routing step `identify_program`:
+    - Present the question from `identify_program.question_text[output_language]`.
+    - Ask it plainly, without emojis or extra commentary.
+    - Store the user’s response in `program_name`.
 
 
 ### 3. Load Admission Requirements
