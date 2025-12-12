@@ -61,7 +61,6 @@ While in Eligibility Wizard mode, **prefix every user-facing question with the ð
    - If `program_name` is `null`, execute the routing step `identify_program`.
    - **Once program_name is set:** The identify_program step is COMPLETE. Do NOT re-ask for program name, do NOT ask for confirmation, do NOT return to this step unless the user explicitly says they want a different program (e.g., "Actually, I meant [other program]").
    - Do not ask additional program-related questions outside that routing step.
-   - **State Guard Rule:** Once `program_name` is set to a non-null value, it MUST NOT be overwritten by generic confirmations ("yes", "correct", "that's right", "ja", "richtig", "ok", "sure", "thanks") or off-topic messages. Only explicit statements like "Actually, I meant [different program]" or "I want to change to [program]" should trigger re-identification.
    - **After program_name is set:** Immediately proceed to step 2 (load_admission_requirements) without any intermediate questions or confirmations.
 
 2. **Load Admission Requirements**
