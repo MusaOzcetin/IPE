@@ -37,23 +37,23 @@ Follow actions in program_finder_routing_m.json.program_finder.intents.program.f
 
    - Include only programs whose degree (from sections.headings.tables.rows → “Degree”) matches slot degree_type (bachelor|master).
 
-1. filter_by_language:
+2. filter_by_language:
 
    - Include only programs whose “Language of instruction” aligns with slot language_constraint:
      - english-only → language contains “English” (or bilingual)
      - german-only → language contains “German” (or bilingual)
      - either → no language filter
 
-1. gpt_evaluate:
+3. gpt_evaluate:
 
    - Using the filtered set plus slot field_interest, let GPT select the best-fitting programs based on the program title and “Program overview”/“Acquired skills” text, without an explicit ranking formula.
 
-1. present_table:
+4. present_table:
 
    - Present up to three programs (0–3 allowed) using fields listed in program.find.present.fields.
    - Titles and URLs must be copied verbatim from the candidate object; drop any row that fails identity validation (title/url mismatch).
 
-1. offer_exit:
+5. offer_exit:
    - Use program_finder_routing_m.json.program_finder.actions.offer_exit.phrases.
 
 No-candidate behavior:
