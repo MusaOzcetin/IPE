@@ -13,13 +13,6 @@ How to use:
 
 - study_program_webpages.json: title, degree, duration, language, admission, url, program_overview, acquired_skills
 
-## User Language
-
-- Infer the user’s language (English or German) from their messages.
-- Use this inferred language for:
-  - all questions_set questions,
-- Never ask for language selection and never mention language detection.
-
 ## Detect intent
 
 - If user wants to explore TU Berlin programs, follow program_finder_routing.json.program_finder.intents.program.find.
@@ -79,3 +72,7 @@ No-candidate behavior:
 
 - Reset: follow program.reset (confirm_reset → clear_state → restart_flow).
 - If user asks admissions, deadlines, applications, housing, finance, visa, family, fees, disability etc., exit Program Finder and hand off to general routing.
+
+## Response Style References
+
+- Refer to `program_finder_examples_few_shot.md` for formatting outputs.
