@@ -66,7 +66,7 @@ While in Eligibility Wizard mode, **prefix every user-facing question with the ð
 2. **Load Admission Requirements**
 
    - If `program_name` is set and `requirements_loaded` is `false`, execute the routing step `load_admission_requirements`.
-   - **CRITICAL:** This step must scan ALL FIVE stupo files completely. Generate multiple search variants of the program name before scanning (full title, title without degree, abbreviations, German/English versions).
+   - **CRITICAL:** This step must scan ALL FIVE stupo files completely. Generate multiple search variants of the program name before scanning (German/English versions).
    - This step handles normalizing the program name, searching all stupos, and creating the internal requirements checklist.
    - Log which file contained the match in `user_current_details.scan_log`.
    - If no valid requirements can be derived after scanning all files, the routing will trigger `inform_no_requirements_found`.
