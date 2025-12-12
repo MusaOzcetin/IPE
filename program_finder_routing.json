@@ -1,61 +1,237 @@
 {
-  "required_state_variables": [
-    "target_degree",
-    "prior_degree_field",
-    "language_mode",
-    "study_focus",
-    "user_details"
-  ],
-  "routing_steps": [
-    {
-      "step_name": "determine_degree",
-      "variable_to_fill": "target_degree",
-      "type": "single_choice",
-      "question_text": "Welcome to the TU Berlin Program Finder. To get started, which academic degree are you aiming for?",
-      "options": [
-        { "label": "Bachelor of Science/Arts (B.Sc./B.A.)", "value": "bachelor" },
-        { "label": "Master of Science/Arts/Education (M.Sc./M.A./M.Ed.)", "value": "master" },
-        { "label": "PhD / Doctorate", "value": "phd" }
+  "program_finder": {
+    "description": "MVP Program Finder: simple filters (degree, language), one interests input, GPT evaluation, up to 3 suggestions.",
+    "detect_keywords": {
+      "en": [
+        "program finder",
+        "find programs",
+        "study program",
+        "which program",
+        "recommend a program",
+        "compare programs",
+        "programs for me",
+        "discover programs"
+      ],
+      "de": [
+        "programmfinder",
+        "studiengang finden",
+        "studiengangsuche",
+        "studienangebot",
+        "welcher studiengang",
+        "programme vergleichen",
+        "passender studiengang",
+        "studiengänge entdecken"
       ]
     },
-    {
-      "step_name": "determine_prior_degree",
-      "variable_to_fill": "prior_degree_field",
-      "type": "open_input",
-      "question_text": "Since you are applying for a Master's or PhD program, what was the field of your previous degree (e.g., 'Electrical Engineering', 'Philosophy', or 'Mechanical Engineering')? This helps us find programs that match your background.",
-      "options": []
+    "questions_set": {
+      "degree_type": {
+        "type": "enum",
+        "values": ["bachelor", "master"],
+        "questions": {
+          "en": "Which degree level are you interested in: Bachelor or Master?",
+          "de": "Welches Abschlussniveau interessiert Sie: Bachelor oder Master?"
+        },
+        "slot": "degree_type"
+      },
+      "language_constraint": {
+        "type": "enum",
+        "values": ["english-only", "german-only", "either"],
+        "questions": {
+          "en": "Which language of instruction do you prefer or require? (German, English, or either)",
+          "de": "Welche Unterrichtssprache bevorzugen oder benötigen Sie? (Deutsch, Englisch oder egal)"
+        },
+        "slot": "language_constraint",
+        "notes": "Do not assume language knowledge; always ask explicitly."
+      },
+      "field_interest": {
+        "type": "free-text",
+        "questions": {
+          "en": "What field or interests should the program fit? (e.g., computer science, architecture, sustainability, data, design)",
+          "de": "Welches Fachgebiet oder welche Interessen sollen zum Studiengang passen? (z. B. Informatik, Architektur, Nachhaltigkeit, Daten, Design)"
+        },
+        "slot": "field_interest"
+      }
     },
-    {
-      "step_name": "determine_language",
-      "variable_to_fill": "language_mode",
-      "type": "single_choice",
-      "question_text": "What is your preferred language of instruction?",
-      "options": [
-        { "label": "German (Requires C1 certificate for most programs)", "value": "german" },
-        { "label": "English (Available mostly for Masters)", "value": "english" }
-      ]
+    "data_model": {
+      "programs_path": "root array of study_program_webpages.json",
+      "identity": {
+        "primary_key": ["title", "url"],
+        "notes": "Program identity is the exact pair (title, url) from the same JSON object. Never invent or modify these values."
+      },
+      "required_fields": ["title", "url"],
+      "guardrails": {
+        "no_synthetic_titles": "Do not output any title that does not exactly match a title value from the source objects.",
+        "no_synthetic_urls": "Do not output any URL that does not exactly match a url value from the source objects."
+      }
     },
-    {
-      "step_name": "determine_focus",
-      "variable_to_fill": "study_focus",
-      "type": "single_choice",
-      "question_text": "Which academic area fits your interests best? (Based on TU Berlin Faculties)",
-      "options": [
-        { "label": "Humanities, Culture & Education (Faculty I)", "value": "humanities_education" },
-        { "label": "Math & Natural Sciences (Faculty II)", "value": "math_physics_chem" },
-        { "label": "Process Sciences & Engineering (Faculty III)", "value": "process_sciences_energy" },
-        { "label": "Computer Science & Electrical Engineering (Faculty IV)", "value": "cs_electrical" },
-        { "label": "Mechanical Engineering & Transport Systems (Faculty V)", "value": "mechanical_transport" },
-        { "label": "Architecture, Building & Environment (Faculty VI)", "value": "architecture_planning" },
-        { "label": "Economics & Management (Faculty VII)", "value": "economics_management" }
-      ]
+    "fields": {
+      "title": {
+        "source": "study_program_webpages.json",
+        "action": "Extract EXACT value of `title` from the candidate object. Do not rewrite or translate."
+      },
+      "degree": {
+        "source": "study_program_webpages.json",
+        "action": "Extract the value of `Degree` inside `sections.headings.tables.rows` from the SAME candidate object."
+      },
+      "duration": {
+        "source": "study_program_webpages.json",
+        "action": "Extract the value of `Standard period of study` inside `sections.headings.tables.rows` from the SAME candidate object."
+      },
+      "language": {
+        "source": "study_program_webpages.json",
+        "action": "Extract the value of `Language of instruction` inside `sections.headings.tables.rows` from the SAME candidate object."
+      },
+      "admission": {
+        "source": "study_program_webpages.json",
+        "action": "Extract the value of `Admission` inside `sections.headings.tables.rows` from the SAME candidate object."
+      },
+      "url": {
+        "source": "study_program_webpages.json",
+        "action": "Extract EXACT value of `url` from the candidate object. Do not rewrite, shorten, or rehost."
+      },
+      "program_overview": {
+        "source": "study_program_webpages.json",
+        "action": "Summarize factual `paragraphs` under the `Program overview` heading from the SAME candidate object."
+      },
+      "acquired_skills": {
+        "source": "study_program_webpages.json",
+        "action": "Summarize factual `paragraphs` under the `Acquired skills` heading from the SAME candidate object, if present."
+      }
     },
-    {
-      "step_name": "collect_details",
-      "variable_to_fill": "user_details",
-      "type": "open_input",
-      "question_text": "To finalize the search, please type a few keywords about your specific interests (e.g., 'sustainable urban planning', 'machine learning', 'automotive systems', 'history of technology', 'music and language').",
-      "options": []
+    "actions": {
+      "scan_the_programs": {
+        "description": "Load all program objects from study_program_webpages.json as candidates."
+      },
+      "filter_by_degree": {
+        "description": "Keep candidates whose `degree` matches slot `degree_type` (bachelor/master). Read `degree` from fields.degree of the SAME object."
+      },
+      "filter_by_language": {
+        "description": "Apply slot `language_constraint`: english-only → include programs where `language` contains English (or bilingual); german-only → include programs where `language` contains German (or bilingual); either → no filter."
+      },
+      "gpt_evaluate": {
+        "description": "Let GPT, using slot `field_interest` and candidate fields (title, program_overview, acquired_skills), decide which programs fit best. No explicit ranking formula; choose up to 3 results."
+      },
+      "present_table": {
+        "description": "Render a Markdown table for up to 3 programs (0–3 allowed) using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`.",
+        "constraints": {
+          "use_exact_values": ["title", "url"],
+          "validation": "Before rendering each row, assert row.title === candidate.title AND row.url === candidate.url; if not, drop the row."
+        }
+      },
+      "present_details": {
+        "description": "Show concise details for the selected program using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`, plus a short summary from `program_overview`.",
+        "constraints": {
+          "use_exact_values": ["title", "url"]
+        }
+      },
+      "present_comparison_table": {
+        "description": "Render a Markdown table comparing 2–3 selected programs using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`.",
+        "constraints": {
+          "use_exact_values": ["title", "url"]
+        }
+      },
+      "offer_exit": {
+        "description": "After suggestions or details, offer to exit Program Finder.",
+        "phrases": {
+          "en": "Would you like to exit Program Finder?",
+          "de": "Möchten Sie den Programmfinder beenden?"
+        }
+      },
+      "confirm_reset": {
+        "description": "Ask user to confirm restarting Program Finder.",
+        "phrases": {
+          "en": "Do you want to restart Program Finder?",
+          "de": "Möchten Sie den Programmfinder neu starten?"
+        }
+      },
+      "clear_state": {
+        "description": "Clear collected slots and transient state."
+      },
+      "restart_flow": {
+        "description": "Return to the first question in questions_set (degree_type)."
+      },
+      "handoff_to_general_help": {
+        "description": "Exit Program Finder and route to general help.",
+        "phrases": {
+          "en": "Switching to general TU Berlin help to answer your question.",
+          "de": "Wechsel zur allgemeinen TU-Berlin-Hilfe, um Ihre Frage zu beantworten."
+        }
+      }
+    },
+    "intents": {
+      "program.find": {
+        "notes": "Ask minimal questions, apply simple filters, let GPT evaluate fit, and present up to three programs.",
+        "ask": ["degree_type", "language_constraint", "field_interest"],
+        "actions": [
+          "scan_the_programs",
+          "filter_by_degree",
+          "filter_by_language",
+          "gpt_evaluate",
+          "present_table",
+          "offer_exit"
+        ],
+        "present": {
+          "fields": [
+            "title",
+            "degree",
+            "duration",
+            "language",
+            "admission",
+            "url"
+          ]
+        }
+      },
+      "program.detail": {
+        "notes": "Provide concise info for a selected program.",
+        "inputs": ["selected_program"],
+        "actions": ["present_details", "offer_exit"],
+        "present": {
+          "fields": [
+            "title",
+            "degree",
+            "duration",
+            "language",
+            "admission",
+            "url"
+          ]
+        }
+      },
+      "program.compare": {
+        "notes": "Compare 2–3 selected programs side by side with verified facts. Enforce count: 2–3.",
+        "inputs": ["selected_programs"],
+        "actions": ["present_comparison_table", "offer_exit"],
+        "present": {
+          "fields": [
+            "title",
+            "degree",
+            "duration",
+            "language",
+            "admission",
+            "url"
+          ]
+        },
+        "constraints": {
+          "selected_programs_count_min": 2,
+          "selected_programs_count_max": 3
+        }
+      },
+      "program.reset": {
+        "notes": "Clear collected slots and restart Program Finder.",
+        "actions": ["confirm_reset", "clear_state", "restart_flow"]
+      },
+      "program.exit": {
+        "notes": "Exit Program Finder and hand off to general help.",
+        "actions": ["offer_exit", "handoff_to_general_help"]
+      }
+    },
+    "messaging_rules": {
+      "bachelor_english_only": {
+        "notes": "Inform user about German instruction predominance for Bachelor.",
+        "phrases": {
+          "en": "All TU Berlin Bachelor’s programs are taught in German. If you require English-only, there is no bachelor option available.",
+          "de": "Die meisten Bachelorstudiengänge an der TU Berlin werden auf Deutsch unterrichtet. Wenn Sie ausschließlich Englisch benötigen, sind passende Bacheloroptionen möglicherweise begrenzt."
+        }
+      }
     }
-  ]
+  }
 }
