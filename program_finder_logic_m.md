@@ -74,4 +74,3 @@ No-candidate behavior:
 ## VI. Files referenced (use program_finder_routing_m.json.program_finder.fields)
 
 - study_program_webpages.json: title, degree, duration, language, admission, url, program_overview, acquired_skills
-- study_program_stupos_01.md … study_program_stupos_05.md: optional references; never used to form program identity

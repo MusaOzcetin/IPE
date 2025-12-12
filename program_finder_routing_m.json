@@ -61,8 +61,7 @@
       "required_fields": ["title", "url"],
       "guardrails": {
         "no_synthetic_titles": "Do not output any title that does not exactly match a title value from the source objects.",
-        "no_synthetic_urls": "Do not output any URL that does not exactly match a url value from the source objects.",
-        "stupo_not_identity": "StuPo content must never be used to create or alter program identity."
+        "no_synthetic_urls": "Do not output any URL that does not exactly match a url value from the source objects."
       }
     },
     "fields": {
