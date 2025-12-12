@@ -130,13 +130,6 @@
           "use_exact_values": ["title", "url"]
         }
       },
-      "offer_exit": {
-        "description": "After suggestions or details, offer to exit Program Finder.",
-        "phrases": {
-          "en": "Would you like to exit Program Finder?",
-          "de": "Möchten Sie den Programmfinder beenden?"
-        }
-      },
       "confirm_reset": {
         "description": "Ask user to confirm restarting Program Finder.",
         "phrases": {
@@ -167,8 +160,7 @@
           "filter_by_degree",
           "filter_by_language",
           "gpt_evaluate",
-          "present_table",
-          "offer_exit"
+          "present_table"
         ],
         "present": {
           "fields": [
@@ -184,7 +176,7 @@
       "program.detail": {
         "notes": "Provide concise info for a selected program.",
         "inputs": ["selected_program"],
-        "actions": ["present_details", "offer_exit"],
+        "actions": ["present_details"],
         "present": {
           "fields": [
             "title",
@@ -199,7 +191,7 @@
       "program.compare": {
         "notes": "Compare 2–3 selected programs side by side with verified facts. Enforce count: 2–3.",
         "inputs": ["selected_programs"],
-        "actions": ["present_comparison_table", "offer_exit"],
+        "actions": ["present_comparison_table"],
         "present": {
           "fields": [
             "title",
@@ -221,7 +213,7 @@
       },
       "program.exit": {
         "notes": "Exit Program Finder and hand off to general help.",
-        "actions": ["offer_exit", "handoff_to_general_help"]
+        "actions": ["handoff_to_general_help"]
       }
     },
     "messaging_rules": {
