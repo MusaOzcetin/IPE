@@ -1,14 +1,11 @@
 {
   "required_state_variables": [
     "program_name",
-    "program_name_raw",
     "requirements_loaded",
     "check_progress",
     "total_requirements",
     "fulfillment_status",
-    "user_current_details",
-    "current_step",
-    "wizard_active"
+    "user_current_details"
   ],
   "routing_steps": [
     {
@@ -17,46 +14,33 @@
       "type": "open_input",
       "question_text": {
         "english": "🧙 Which TU Berlin degree program are you interested in? Please provide the exact official name if you know it. Examples: \"Information Systems Management M.Sc.\", \"Architecture B.Sc.\"",
-        "german": "🧙 Für welchen Studiengang der TU Berlin interessierst du dich? Bitte gib die offizielle Bezeichnung an, falls du sie kennst. Beispiele: \"Information Systems Management M.Sc.\", \"Architektur B.Sc.\""
+        "german": "🧙 Für welchen Studiengang der TU Berlin interessierst du dich? Bitte gib die offizielle Bezeichnung an, falls du sie kennst. Beispiele: „Information Systems Management M.Sc.“, „Architektur B.Sc.“"
       },
-      "action": "FIRST: Scan the ENTIRE conversation history (including messages before the wizard was activated) for any program mentions. Look for phrases like \"I am interested in [program]\", \"masters [field]\", \"the [program] program\", etc. If a program is clearly mentioned: normalize it by matching against `study_program_webpages.json` using case-insensitive and partial matching, treating common abbreviations (ISM, CS, etc.) as aliases. If a unique match is found: (1) set program_name to the canonical title, (2) store the URL in user_current_details.program_url, (3) set current_step to 'load_admission_requirements', (4) proceed IMMEDIATELY to load_admission_requirements WITHOUT asking any questions. ONLY if you cannot find any program reference in the conversation history should you present the question_text. When the user answers, normalize their reply and proceed."
-    },
+      "action": "Scan the ENTIRE conversation history (including messages before the wizard was activated) for any program mentions. Look for phrases like \"I am interested in [program]\", \"masters [field]\", \"the [program] program\", etc. If a program is clearly mentioned: normalize it by matching against `study_program_webpages.json` using case-insensitive and partial matching, treating common abbreviations (ISM, CS, etc.) as aliases. If a unique match is found: (1) set program_name to the canonical title, (2) store the URL in user_current_details.program_url, (3) proceed IMMEDIATELY to load_admission_requirements WITHOUT asking any questions. ONLY if you cannot find any program reference in the conversation history should you present the question_text. When the user answers, normalize their reply and proceed."    },
     {
       "step_name": "load_admission_requirements",
       "fills_variable": "requirements_loaded",
       "type": "system",
-      "question_text": {
-        "english": null,
-        "german": null
-      },
-      "action": "Generate search variants: full title, title without degree, German/English translations, abbreviations. Scan ALL FIVE stupo files for headings (## or ###) containing ALL of: (1) 'Studien', (2) 'Masterstudiengang' OR 'Bachelorstudiengang', (3) any search variant. Use case-insensitive partial matching. Once matched, extract from that heading to next same-level heading or end of file. Search extracted section for paragraphs with '§' + 'zugangsvoraussetzung'/'zulassungsvoraussetzung'/'voraussetzung'/'zugang' OR 'admission'/'prerequisite'/'eligibility'. Parse into requirements_checklist with: requirement_id, requirement_type, requirement_text, evaluation_criteria. Set total_requirements to checklist.length, check_progress to 0. If no match after all files, trigger inform_no_requirements_found. Proceed IMMEDIATELY to ask_requirements_questions."
+      "action": "Use the current program_name as the basis to find the correct study program regulations. The StuPo files are ordered alphabetically by program name. Scan the correct file based on the first letter of the program. In the selected file, search for headings (## or ###) containing `Studien- und Prüfungsordnung für den konsekut Masterstudiengang [program_name]` OR `Neufassung der Studien- und Prüfungsordnung für den Masterstudiengang [program_name]` OR `Studienordnung für den internationalen Masterstudiengang [program_name]` OR `Studien- und Prüfungsordnung für den gemeinsamen/internationalen/weiterbildenden Masterstudiengang [program_name]`. Use case-insensitive partial matching. Once matched, extract from that heading to next same-level heading or end of file. Search extracted section for paragraphs with '§' + 'zugangsvoraussetzung'/'zulassungsvoraussetzung'/'voraussetzung'/'zugang' OR 'admission'/'prerequisite'/'eligibility'. From the corresponsing passages, derive an internal checklist of admission requirements (for example: required number of credits in certain subject areas, required language certificates, required documents, required projects or work samples, required professional experience). Store this internal checklist inside user_current_details under the key \"requirements_checklist\". Set total_requirements to the number of items in this checklist and reset check_progress to 0. If no match after all files, trigger inform_no_requirements_found. Proceed IMMEDIATELY to ask_requirements_questions"   
     },
     {
       "step_name": "ask_requirements_questions",
       "fills_variable": "fulfillment_status",
       "type": "dynamic_questions",
-      "max_questions": 8,
-      "action": "Take user_current_details.requirements_checklist and, starting at the index stored in check_progress, generate user-facing questions in the user's language. Group related items (e.g., several ECTS requirements or document requirements) into a single combined question, but never group more than 4 items per question. Prefix each question with 🧙 and keep it short and direct. For each user answer: (1) If the answer is a clarification question or off-topic, respond appropriately without modifying wizard state, then re-ask the current question with '🧙 To continue with your eligibility check: [question]'. (2) If the answer is direct, acknowledge briefly with varied phrases: \"Got it.\", \"Thank you.\", \"Understood.\", \"Thanks.\", \"Noted.\" (EN) or \"Verstanden.\", \"Danke.\", \"Notiert.\", \"Alles klar.\" (DE). Rotate these phrases. CRITICAL: NEVER say \"I'm now processing your answers\", \"Let me evaluate\", \"One moment while I check\", or similar completion phrases. These cause the response to stop prematurely. Do not mention how many requirements remain and do not say \"this is the final requirement\" or \"one last question\". After acknowledging, evaluate the answer and update fulfillment_status with objects containing: requirement_id, requirement_text, status (\"fulfilled\"/\"unfulfilled\"/\"pending\"), user_input, notes. If user expressed uncertainty (\"I think\", \"probably\", \"maybe\", \"not sure\"), set status to \"pending\". Increase check_progress by the number of checklist items covered. Immediately proceed to the next question. When check_progress >= total_requirements, proceed directly to final_summary with NO transitional text."
+      "max_questions": 6,
+      "action": "Take user_current_details.requirements_checklist and, starting at the index stored in check_progress, generate user-facing questions in that language. Ask at most max_questions questions in total for one eligibility run. If the checklist contains more items than max_questions, group related items (for example, several ECTS requirements or several document requirements) into a single combined question, while still evaluating each checklist item internally based on the user's answer. Prefix each question with the wizard emoji and keep the question itself short and direct. For each user answer, briefly acknowledge it with a short phrase such as \"Thanks.\" or \"Noted.\" (in the user's language) but do not summarize or restate the content of their answer. Do not mention how many requirements remain and do not say things like \"this is the final requirement\" or \"one last question\". After acknowledging the answer, immediately proceed to the next question until all relevant checklist items have been covered. For every checklist item covered by a question, update fulfillment_status with objects that contain an identifier for each checklist item, a status such as \"fulfilled\", \"unfulfilled\" or \"pending\", and the raw user_input. Increase check_progress by the number of checklist items that were covered by that question. When check_progress is greater than or equal to total_requirements, proceed to the final_summary step."
     },
     {
       "step_name": "inform_no_requirements_found",
       "fills_variable": null,
       "type": "system",
-      "question_text": {
-        "english": null,
-        "german": null
-      },
-      "action": "Use `study_program_webpages.json` to match program_name with a \"title\" field and read the corresponding \"url\" field (program_url). If no match found, use general programs page as fallback. In the user's language, inform them that you currently cannot find reliable information on the admission requirements for this program and direct them to the official program page. Include program_url and the admissions office contact: https://www.tu.berlin/en/studienberatung/studieninfoservice (EN) or https://www.tu.berlin/studienberatung/studieninfoservice (DE). Do not use emojis and do not offer additional services such as \"If you want, I can also help you with...\"."
+      "action": "If no clear admission requirements can be found in the stupo files or no reliable program section can be identified, use the file `study_program_webpages.json` to match program_name with a \"title\" field and read the corresponding \"url\" field (program_url). In the user's language, inform them in simple wording that you currently cannot find reliable information on the admission requirements for this program and direct them to the official study program page. Include program_url in the message. Do not use emojis and do not offer additional services such as \"If you want, I can also help you with...\"."
     },
     {
       "step_name": "final_summary",
       "fills_variable": null,
       "type": "system",
-      "question_text": {
-        "english": null,
-        "german": null
-      },
-      "action": "Use `study_program_webpages.json` to match program_name with a \"title\" field and read the corresponding \"url\" field (program_url). Based on fulfillment_status and user_current_details.requirements_checklist, generate the final eligibility summary in the user's language using the templates from eligibility_wizard_logic.md. Structure MUST be: (1) heading with 🧙 emoji and program name, (2) markdown table with columns: Requirement | Your Status | Notes / Next Steps, using status labels Fulfilled/Unfulfilled/Pending (EN) or Erfüllt/Nicht erfüllt/Offen (DE), (3) interpretation paragraph (2-4 sentences) summarizing overall eligibility, (4) \"Next steps\" section including program_url, (5) disclaimer paragraph with ⚠️ stating this is guidance only and official decisions are made by TU Berlin admissions office (include advisory URL: https://www.tu.berlin/en/studienberatung/studieninfoservice or German equivalent). CRITICAL: Start output immediately with the heading. Do NOT say \"Let me create your summary\" or similar transitional phrases. Do NOT add any text after the disclaimer. No offers of further help, no closing remarks. Use no emojis except 🧙 in heading and ⚠️ in disclaimer. Do not use horizontal rules."
+      "action": "Use the file `study_program_webpages.json` to match program_name with a \"title\" field and read the corresponding \"url\" field (program_url). Based on fulfillment_status and the internal checklist stored in user_current_details.requirements_checklist, generate the final eligibility summary in the user's language. Structure the output strictly as follows: (1) a heading line with the wizard emoji and the program name, (2) a markdown table listing each requirement, the user's status (fulfilled / unfulfilled / pending) and short notes or next steps, (3) a short interpretation paragraph summarizing the overall situation, (4) a \"Next steps\" paragraph or short list that includes program_url, and (5) a disclaimer paragraph stating that this is guidance only and that the official admission decision is made by TU Berlin (also mentioning the central advisory URL). Do not add any extra text such as offers of further help (for example, do not say \"If you want, I can also help you with...\"). Use no emojis except for the wizard emoji in the heading. Do not use horizontal rules. Keep formatting simple and only use the table specified plus normal paragraphs and bullet lists where appropriate."
     }
   ]
 }
