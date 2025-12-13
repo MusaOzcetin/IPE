@@ -3,21 +3,21 @@
     "notes": "Defines the canonical file for program-specific answers (both Bachelor and Master).",
     "bachelor": {
       "file": [
-        "study_program_stupos_01.md",
-        "study_program_stupos_02.md",
-        "study_program_stupos_03.md",
-        "study_program_stupos_04.md",
-        "study_program_stupos_05.md",
+        "[Arbeitslehre (A) TO Computational Neuroscience (C)] study_program_stupos_01.md",
+        "[Computer Engineering (C) TO Human Factors (H)] study_program_stupos_02.md",
+        "[Informatik (I) TO Medienwissenschaft (M)] study_program_stupos_03.md",
+        "[Metalltechnik (M) TO Psychologie (P)] study_program_stupos_04.md",
+        "[Regenerative Energien (R) TO Wissenschaftsmarketing (W)] study_program_stupos_05.md",
         "study_program_webpages.json"
       ]
     },
     "master": {
       "file": [
-        "study_program_stupos_01.md",
-        "study_program_stupos_02.md",
-        "study_program_stupos_03.md",
-        "study_program_stupos_04.md",
-        "study_program_stupos_05.md",
+        "[Arbeitslehre (A) TO Computational Neuroscience (C)] study_program_stupos_01.md",
+        "[Computer Engineering (C) TO Human Factors (H)] study_program_stupos_02.md",
+        "[Informatik (I) TO Medienwissenschaft (M)] study_program_stupos_03.md",
+        "[Metalltechnik (M) TO Psychologie (P)] study_program_stupos_04.md",
+        "[Regenerative Energien (R) TO Wissenschaftsmarketing (W)] study_program_stupos_05.md",
         "study_program_webpages.json"
       ]
     }
@@ -543,11 +543,11 @@
             "PO"
           ],
           "source": [
-            "study_program_stupos_01.md",
-            "study_program_stupos_02.md",
-            "study_program_stupos_03.md",
-            "study_program_stupos_04.md",
-            "study_program_stupos_05.md"
+            "[Arbeitslehre (A) TO Computational Neuroscience (C)] study_program_stupos_01.md",
+            "[Computer Engineering (C) TO Human Factors (H)] study_program_stupos_02.md",
+            "[Informatik (I) TO Medienwissenschaft (M)] study_program_stupos_03.md",
+            "[Metalltechnik (M) TO Psychologie (P)] study_program_stupos_04.md",
+            "[Regenerative Energien (R) TO Wissenschaftsmarketing (W)] study_program_stupos_05.md"
           ],
           "action": "Extract information from StuPo."
         }
@@ -963,11 +963,11 @@
             "ordnungsdokument"
           ],
           "source": [
-            "study_program_stupos_01.md",
-            "study_program_stupos_02.md",
-            "study_program_stupos_03.md",
-            "study_program_stupos_04.md",
-            "study_program_stupos_05.md"
+            "[Arbeitslehre (A) TO Computational Neuroscience (C)] study_program_stupos_01.md",
+            "[Computer Engineering (C) TO Human Factors (H)] study_program_stupos_02.md",
+            "[Informatik (I) TO Medienwissenschaft (M)] study_program_stupos_03.md",
+            "[Metalltechnik (M) TO Psychologie (P)] study_program_stupos_04.md",
+            "[Regenerative Energien (R) TO Wissenschaftsmarketing (W)] study_program_stupos_05.md"
           ]
         }
       }

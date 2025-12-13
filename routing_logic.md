@@ -37,8 +37,13 @@ This handles questions specific to a named study program.
     For a given study program name (e.g., 'Aeronautics and Astronautics'), find the corresponding JSON object in `study_program_webpages.json` by matching the program name and level against the object's `title` field.
 3.  **Source Retrieval and Action:**
     * Perform the precise **`action`** defined in the matching topic node.
-    * **StuPo Files:** If the topic is **`stupo`** (e.g., "Modules," "Selection Process"), search across **all** specified `.md` files (e.g., `study_program_stupos_01.md`, etc.) for the relevant program section 
-    * The relevant program section is derived from the bold part of the following header patterns found in the stupos: "## Studien- und Prüfungsordnung für den Bachelorstudiengang **Technische Informatik** ..." or "## Neufassung der Studien- und Prüfungsordnung für den weiterbildenden Masterstudiengang **Urban Management**..."
+    * **StuPo files:** If the topic is `stupo`, use the program name from step 2 to select the StuPo file by alphabetical range. Match the first letter of the program name to the file range. 
+        Example: Bauingenieurwesen, B.Sc. is in the file `[Arbeitslehre (A) TO Computational Neuroscience (C)] study_program_stupos_01.md`.
+    * The relevant program section is derived from the bold part of the following header patterns found in the StuPos: 
+        - `## Studien- und Prüfungsordnung für den konsekutiven Masterstudiengang [Program]`
+        - `## Neufassung der Studien- und Prüfungsordnung für den Masterstudiengang [Program]`
+        - `### Studienordnung für den internationalen Masterstudiengang [Program]`
+        - `## Studien- und Prüfungsordnung für den gemeinsamen/internationalen/weiterbildenden Masterstudiengang [Program]`
     * Extract factual information.
 
 ---
