@@ -56,7 +56,7 @@ Follow actions in program_finder_routing.json.program_finder.intents.program.fin
 
 4. present_table:
 
-   - Present up to three programs (0–3 allowed) using fields listed in program.find.present.fields.
+   - Present up to three programs (0–3 allowed) using fields: `program.find.present.fields.title` AND `program.find.present.fields.url`.
    - Titles and URLs must be copied verbatim from the candidate object; drop any row that fails identity validation (title/url mismatch).
 
 No-candidate behavior:
