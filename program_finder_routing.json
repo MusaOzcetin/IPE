@@ -77,10 +77,6 @@
         "source": "study_program_webpages.json",
         "action": "Extract the value of `Language of instruction` inside `sections.headings.tables.rows` from the SAME candidate object."
       },
-      "admission": {
-        "source": "study_program_webpages.json",
-        "action": "Extract the value of `Admission` inside `sections.headings.tables.rows` from the SAME candidate object."
-      },
       "url": {
         "source": "study_program_webpages.json",
         "action": "Extract EXACT value of `url` from the candidate object. Do not rewrite, shorten, or rehost."
@@ -108,7 +104,7 @@
         "description": "Let GPT, using slot `field_interest` and candidate fields (title, program_overview, acquired_skills), decide which programs fit best. No explicit ranking formula; choose up to 3 results."
       },
       "present_table": {
-        "description": "Render a Markdown table for up to 3 programs (0–3 allowed) using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`.",
+        "description": "Render a Markdown table for up to 3 programs (0–3 allowed) using fields: `title` and `url`.",
         "constraints": {
           "use_exact_values": ["title", "url"],
           "validation": "Before rendering each row, assert row.title === candidate.title AND row.url === candidate.url; if not, drop the row."
@@ -117,13 +113,13 @@
           "description": "Add disclaimer and contact point below the table."
         },
         "present_details": {
-          "description": "Show concise details for the selected program using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`, plus a short summary from `program_overview`.",
+          "description": "Show concise details for the selected program using fields: `title` and `url`, plus a short summary from `program_overview`.",
           "constraints": {
             "use_exact_values": ["title", "url"]
           }
         },
         "present_comparison_table": {
-          "description": "Render a Markdown table comparing 2–3 selected programs using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`.",
+          "description": "Render a Markdown table comparing 2–3 selected programs using fields: `title` and `url`.",
           "constraints": {
             "use_exact_values": ["title", "url"]
           }
