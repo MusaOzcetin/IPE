@@ -112,112 +112,115 @@
         "constraints": {
           "use_exact_values": ["title", "url"],
           "validation": "Before rendering each row, assert row.title === candidate.title AND row.url === candidate.url; if not, drop the row."
-        }
-      },
-      "present_details": {
-        "description": "Show concise details for the selected program using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`, plus a short summary from `program_overview`.",
-        "constraints": {
-          "use_exact_values": ["title", "url"]
-        }
-      },
-      "present_comparison_table": {
-        "description": "Render a Markdown table comparing 2–3 selected programs using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`.",
-        "constraints": {
-          "use_exact_values": ["title", "url"]
-        }
-      },
-      "confirm_reset": {
-        "description": "Ask user to confirm restarting Program Finder.",
-        "phrases": {
-          "en": "Do you want to restart Program Finder?",
-          "de": "Möchten Sie den Programmfinder neu starten?"
-        }
-      },
-      "clear_state": {
-        "description": "Clear collected slots and transient state."
-      },
-      "restart_flow": {
-        "description": "Return to the first question in questions_set (degree_type)."
-      },
-      "handoff_to_general_help": {
-        "description": "Exit Program Finder and route to general help.",
-        "phrases": {
-          "en": "Switching to general TU Berlin help to answer your question.",
-          "de": "Wechsel zur allgemeinen TU-Berlin-Hilfe, um Ihre Frage zu beantworten."
-        }
-      }
-    },
-    "intents": {
-      "program.find": {
-        "notes": "Ask minimal questions, apply simple filters, let GPT evaluate fit, and present up to three programs.",
-        "ask": ["degree_type", "language_constraint", "field_interest"],
-        "actions": [
-          "scan_the_programs",
-          "filter_by_degree",
-          "filter_by_language",
-          "gpt_evaluate",
-          "present_table"
-        ],
-        "present": {
-          "fields": [
-            "title",
-            "degree",
-            "duration",
-            "language",
-            "admission",
-            "url"
-          ]
-        }
-      },
-      "program.detail": {
-        "notes": "Provide concise info for a selected program.",
-        "inputs": ["selected_program"],
-        "actions": ["present_details"],
-        "present": {
-          "fields": [
-            "title",
-            "degree",
-            "duration",
-            "language",
-            "admission",
-            "url"
-          ]
-        }
-      },
-      "program.compare": {
-        "notes": "Compare 2–3 selected programs side by side with verified facts. Enforce count: 2–3.",
-        "inputs": ["selected_programs"],
-        "actions": ["present_comparison_table"],
-        "present": {
-          "fields": [
-            "title",
-            "degree",
-            "duration",
-            "language",
-            "admission",
-            "url"
-          ]
         },
-        "constraints": {
-          "selected_programs_count_min": 2,
-          "selected_programs_count_max": 3
+        "add_disclaimer": {
+          "description": "Add disclaimer and contact point below the table."
+        },
+        "present_details": {
+          "description": "Show concise details for the selected program using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`, plus a short summary from `program_overview`.",
+          "constraints": {
+            "use_exact_values": ["title", "url"]
+          }
+        },
+        "present_comparison_table": {
+          "description": "Render a Markdown table comparing 2–3 selected programs using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`.",
+          "constraints": {
+            "use_exact_values": ["title", "url"]
+          }
+        },
+        "confirm_reset": {
+          "description": "Ask user to confirm restarting Program Finder.",
+          "phrases": {
+            "en": "Do you want to restart Program Finder?",
+            "de": "Möchten Sie den Programmfinder neu starten?"
+          }
+        },
+        "clear_state": {
+          "description": "Clear collected slots and transient state."
+        },
+        "restart_flow": {
+          "description": "Return to the first question in questions_set (degree_type)."
+        },
+        "handoff_to_general_help": {
+          "description": "Exit Program Finder and route to general help.",
+          "phrases": {
+            "en": "Switching to general TU Berlin help to answer your question.",
+            "de": "Wechsel zur allgemeinen TU-Berlin-Hilfe, um Ihre Frage zu beantworten."
+          }
         }
       },
-      "program.reset": {
-        "notes": "Clear collected slots and restart Program Finder.",
-        "actions": ["confirm_reset", "clear_state", "restart_flow"]
+      "intents": {
+        "program.find": {
+          "notes": "Ask minimal questions, apply simple filters, let GPT evaluate fit, and present up to three programs.",
+          "ask": ["degree_type", "language_constraint", "field_interest"],
+          "actions": [
+            "scan_the_programs",
+            "filter_by_degree",
+            "filter_by_language",
+            "gpt_evaluate",
+            "present_table"
+          ],
+          "present": {
+            "fields": [
+              "title",
+              "degree",
+              "duration",
+              "language",
+              "admission",
+              "url"
+            ]
+          }
+        },
+        "program.detail": {
+          "notes": "Provide concise info for a selected program.",
+          "inputs": ["selected_program"],
+          "actions": ["present_details"],
+          "present": {
+            "fields": [
+              "title",
+              "degree",
+              "duration",
+              "language",
+              "admission",
+              "url"
+            ]
+          }
+        },
+        "program.compare": {
+          "notes": "Compare 2–3 selected programs side by side with verified facts. Enforce count: 2–3.",
+          "inputs": ["selected_programs"],
+          "actions": ["present_comparison_table"],
+          "present": {
+            "fields": [
+              "title",
+              "degree",
+              "duration",
+              "language",
+              "admission",
+              "url"
+            ]
+          },
+          "constraints": {
+            "selected_programs_count_min": 2,
+            "selected_programs_count_max": 3
+          }
+        },
+        "program.reset": {
+          "notes": "Clear collected slots and restart Program Finder.",
+          "actions": ["confirm_reset", "clear_state", "restart_flow"]
+        },
+        "program.exit": {
+          "notes": "Exit Program Finder and hand off to general help.",
+          "actions": ["handoff_to_general_help"]
+        }
       },
-      "program.exit": {
-        "notes": "Exit Program Finder and hand off to general help.",
-        "actions": ["handoff_to_general_help"]
-      }
-    },
-    "messaging_rules": {
-      "bachelor_english_only": {
-        "notes": "Inform user about German instruction predominance for Bachelor.",
-        "phrases": {
-          "en": "All TU Berlin Bachelor’s programs are taught in German. If you require English-only, there is no bachelor option available.",
-          "de": "Die meisten Bachelorstudiengänge an der TU Berlin werden auf Deutsch unterrichtet. Wenn Sie ausschließlich Englisch benötigen, sind passende Bacheloroptionen möglicherweise begrenzt."
+      "messaging_rules": {
+        "bachelor_english_only": {
+          "notes": "Inform user about German instruction predominance for Bachelor.",
+          "phrases": {
+            "en": "All TU Berlin Bachelor’s programs are taught in German. If you require English-only, there is no bachelor option available.",
+            "de": "Die meisten Bachelorstudiengänge an der TU Berlin werden auf Deutsch unterrichtet. Wenn Sie ausschließlich Englisch benötigen, sind passende Bacheloroptionen möglicherweise begrenzt."
+          }
         }
       }
     }

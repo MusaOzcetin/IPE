@@ -57,11 +57,32 @@ Follow actions in program_finder_routing.json.program_finder.intents.program.fin
 4. present_table:
 
    - Present up to three programs (0–3 allowed) using fields: `program.find.present.fields.title` AND `program.find.present.fields.url`.
+   - Presentation must be in a table format. Summarize the reasoning of the selection of candidates present it paragraphs.
    - Titles and URLs must be copied verbatim from the candidate object; drop any row that fails identity validation (title/url mismatch).
 
 No-candidate behavior:
 
 - If the filtered set is empty or GPT finds no suitable programs, inform the user briefly and offer to reset (program.reset) or adjust filters/interests.
+
+5.  add_disclaimer:
+
+    - Attach disclamier below the presentation table if there is at least one candidate program.
+    - Attachment:
+      For the most up-to-date information about study programs, please visit the study program's url.
+      Always refer to https://www.tu.berlin/en/studying/study-programs/all-programs-offered for all programs offered by TU Berlin.
+
+    For further assistance with all questions about applying, admissions, enrollment, and student administration services.
+
+    ## Contact
+
+            **Email:** studienberatung@tu-berlin.de
+            **Building:** Hauptgebäude (Main Building)
+            **Room:** H 0070
+            **Address:** Straße des 17. Juni 135, 10623 Berlin
+
+            ## Further Contact & Zoom Appointments
+
+            **English:** [Contact and Zoom call information (EN)](https://www.tu.berlin/en/studierendensekretariat/contact-office-hours)
 
 ## Details and comparison
 
