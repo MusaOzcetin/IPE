@@ -1,0 +1,1303 @@
+{
+  "source": {
+    "url": "https://www.tu.berlin/en/studying/applying-and-enrolling/dates-deadlines",
+    "local_html_file": "Dates & Deadlines - TU Berlin.html",
+    "generated_at": "2025-12-19T15:27:14+00:00"
+  },
+  "semesters": [
+    {
+      "semester": "Winter semester 2025/2026",
+      "application_and_enrollment_deadlines": [
+        {
+          "title": "For bachelor's programs",
+          "groups": [
+            {
+              "title": "Applicants with a German higher education entrance qualification",
+              "items": [
+                {
+                  "label": "For bachelor's programmes with restricted admission (NC)",
+                  "value": {
+                    "raw": ""
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application period (After the application period, applications for this semester are excluded):",
+                  "value": {
+                    "raw": "01.06.2025 until 15.07.2025",
+                    "start_iso": "2025-06-01",
+                    "end_iso": "2025-07-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrolment deadline:",
+                  "value": {
+                    "raw": "see letter of acceptance / tuPORT"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "for bachelor's programmes with open admission (no NC)",
+                  "value": {
+                    "raw": ""
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Registration period (After the registration period, enrolments for this semester are excluded):",
+                  "value": {
+                    "raw": "expected 16.06.2025 until 31.08.2025",
+                    "start_iso": "2025-06-16",
+                    "end_iso": "2025-08-31"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrollment deadline:",
+                  "value": {
+                    "raw": "see registration / tuPORT"
+                  },
+                  "links": []
+                }
+              ]
+            },
+            {
+              "title": "Applicants with an international higher education entrance qualification",
+              "items": [
+                {
+                  "label": "Application for bachelor’s programs with restricted admission (NC):",
+                  "value": {
+                    "raw": "01.05.2025 until 15.07.2025",
+                    "start_iso": "2025-05-01",
+                    "end_iso": "2025-07-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for bachelor’s programs with open admission (no NC):",
+                  "value": {
+                    "raw": "01.05.2025 until 31.08.2025",
+                    "start_iso": "2025-05-01",
+                    "end_iso": "2025-08-31"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrollment for all bachelor’s programs:",
+                  "value": {
+                    "raw": "see letter of acceptance in tuPORT"
+                  },
+                  "links": []
+                }
+              ]
+            },
+            {
+              "title": "TU lottery system",
+              "items": [
+                {
+                  "label": "Dates and deadlines",
+                  "value": {
+                    "raw": "see here"
+                  },
+                  "links": [
+                    {
+                      "text": "see here",
+                      "href": "https://www.tu.berlin/en/go23664/"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For master's programs",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Application for German-language master’s programs with restricted admission: (including Urban Ecosystem Sciences as well as Urban and Regional Planning)",
+                  "value": {
+                    "raw": "01.04.2025 until 15.06.2025",
+                    "start_iso": "2025-04-01",
+                    "end_iso": "2025-06-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for English-language master’s programs with restricted admission:",
+                  "value": {
+                    "raw": "01.04.2025 until 15.05.2025",
+                    "start_iso": "2025-04-01",
+                    "end_iso": "2025-05-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for \"Computional Neuroscience\":",
+                  "value": {
+                    "raw": "01.02.2025 until 15.03.2025",
+                    "start_iso": "2025-02-01",
+                    "end_iso": "2025-03-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for \"Design and Computation\":",
+                  "value": {
+                    "raw": "01.04.2025 until 15.05.2025",
+                    "start_iso": "2025-04-01",
+                    "end_iso": "2025-05-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for master’s programs with open admission:",
+                  "value": {
+                    "raw": "01.06.2025 until 31.08.2025",
+                    "start_iso": "2025-06-01",
+                    "end_iso": "2025-08-31"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for continuing education master’s programs:",
+                  "value": {
+                    "raw": "see information for the degree program"
+                  },
+                  "links": [
+                    {
+                      "text": "see information for the degree program",
+                      "href": "https://www.tu.berlin/en/studying/study-programs/continuing-education/"
+                    }
+                  ]
+                },
+                {
+                  "label": "Application for participation in the lottery system",
+                  "value": {
+                    "raw": "until 01.10.2025",
+                    "iso": "2025-10-01"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrollment for all master’s programs with restricted admission:",
+                  "value": {
+                    "raw": "see letter of acceptance in tuPORT"
+                  },
+                  "links": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For preparatory school/precourse",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Application for preparatory school and precourse:",
+                  "value": {
+                    "raw": "01.05.2025 until 30.06.2025",
+                    "start_iso": "2025-05-01",
+                    "end_iso": "2025-06-30"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for the external assessment test and supplementary test:",
+                  "value": {
+                    "raw": "01.05.2025 until 31.08.2025",
+                    "start_iso": "2025-05-01",
+                    "end_iso": "2025-08-31"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Other dates of preparatory school",
+                  "value": {
+                    "raw": "see here"
+                  },
+                  "links": [
+                    {
+                      "text": "see here",
+                      "href": "https://www.tu.berlin/en/go16705/"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For professionally qualified applicants (without an Abitur)",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Entry examination for all undergraduate programs (excluding Bachelor of Arts):",
+                  "value": {
+                    "raw": "probably end of June 2025 (registration deadline approx. 2,5 months before)"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "For bachelor's programmes with restricted admission (NC)",
+                  "value": {
+                    "raw": ""
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application period (After the application period, applications for this semester are excluded):",
+                  "value": {
+                    "raw": "01.06.2025 until 15.07.2025",
+                    "start_iso": "2025-06-01",
+                    "end_iso": "2025-07-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrolment deadline:",
+                  "value": {
+                    "raw": "see letter of acceptance / tuPORT"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "For bachelor's programmes with open admission (no NC)",
+                  "value": {
+                    "raw": ""
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Registration period (After the registration period, enrolments for this semester are excluded):",
+                  "value": {
+                    "raw": "expected 16.06.2025 until 31.08.2025",
+                    "start_iso": "2025-06-16",
+                    "end_iso": "2025-08-31"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrolment deadline:",
+                  "value": {
+                    "raw": "see registration/ tuPORT"
+                  },
+                  "links": []
+                }
+              ]
+            },
+            {
+              "title": "TU lottery system",
+              "items": [
+                {
+                  "label": "Dates and deadlines",
+                  "value": {
+                    "raw": "see here"
+                  },
+                  "links": [
+                    {
+                      "text": "see here",
+                      "href": "https://www.tu.berlin/en/go23664/"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For exchange students",
+          "links": [
+            {
+              "text": "Dates vary, please see here",
+              "href": "https://www.tu.berlin/en/international/students-1/international-students/exchange-studies-at-tu-berlin/exchange-application/dates-and-deadlines"
+            }
+          ]
+        },
+        {
+          "title": "For guest auditors (Gasthörerschaft)/visiting students (Nebenhörerschaft)",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Application for guest auditors (Gasthörerschaft) and visiting students (Nebenhörerschaft):",
+                  "value": {
+                    "raw": "probably 15.09.2025 until 31.01.2026",
+                    "start_iso": "2025-09-15",
+                    "end_iso": "2026-01-31"
+                  },
+                  "links": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "semester_dates": [
+        {
+          "label": "Duration of semester:",
+          "value": {
+            "raw": "01.10.2025 until 31.03.2026",
+            "start_iso": "2025-10-01",
+            "end_iso": "2026-03-31"
+          },
+          "links": []
+        },
+        {
+          "label": "Lecture period:",
+          "value": {
+            "raw": "13.10.2025 until 14.02.2026",
+            "start_iso": "2025-10-13",
+            "end_iso": "2026-02-14"
+          },
+          "links": []
+        },
+        {
+          "label": "Lecture-free period:",
+          "value": {
+            "raw": "22.12.2025 until 03.01.2026 as well as public holidays",
+            "start_iso": "2025-12-22",
+            "end_iso": "2026-01-03"
+          },
+          "links": []
+        },
+        {
+          "label": "Re-registration:",
+          "value": {
+            "raw": "until 19.07.2025",
+            "iso": "2025-07-19"
+          },
+          "links": []
+        },
+        {
+          "label": "Application for leave of absence:",
+          "value": {
+            "raw": "until 15.11.2025",
+            "iso": "2025-11-15"
+          },
+          "links": []
+        },
+        {
+          "label": "Application for part-time studies:",
+          "value": {
+            "raw": "until 15.11.2025",
+            "iso": "2025-11-15"
+          },
+          "links": []
+        }
+      ]
+    },
+    {
+      "semester": "Summer semester 2026",
+      "application_and_enrollment_deadlines": [
+        {
+          "title": "For bachelor's programs",
+          "groups": [
+            {
+              "title": "Applicants with a German higher education entrance qualification",
+              "items": [
+                {
+                  "label": "For bachelor's programmes with restricted admission (NC)",
+                  "value": {
+                    "raw": ""
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application period (After the application period, applications for this semester are excluded):",
+                  "value": {
+                    "raw": "01.12.2025 until 15.01.2026",
+                    "start_iso": "2025-12-01",
+                    "end_iso": "2026-01-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrolment deadline:",
+                  "value": {
+                    "raw": "see letter of acceptance / tuPORT"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "for bachelor's programmes with open admission (no NC)",
+                  "value": {
+                    "raw": ""
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Registration period (After the registration period, enrolments for this semester are excluded):",
+                  "value": {
+                    "raw": "probably 01.12.2025 until 28.02.2026",
+                    "start_iso": "2025-12-01",
+                    "end_iso": "2026-02-28"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrolment deadline:",
+                  "value": {
+                    "raw": "see registration / tuPORT"
+                  },
+                  "links": []
+                }
+              ]
+            },
+            {
+              "title": "Applicants with an international higher education entrance qualification",
+              "items": [
+                {
+                  "label": "Application for bachelor´s programs with restricted admission (NC):",
+                  "value": {
+                    "raw": "01.12.2025 until 15.01.2026",
+                    "start_iso": "2025-12-01",
+                    "end_iso": "2026-01-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for bachelor´s programs with open admission (no NC):",
+                  "value": {
+                    "raw": "01.12.2025 until 28.02.2026",
+                    "start_iso": "2025-12-01",
+                    "end_iso": "2026-02-28"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrollment for all bachelor’s programs:",
+                  "value": {
+                    "raw": "see letter of acceptance in tuPORT"
+                  },
+                  "links": []
+                }
+              ]
+            },
+            {
+              "title": "TU lottery system",
+              "items": [
+                {
+                  "label": "application period lottery system 1st degree semester",
+                  "value": {
+                    "raw": "expected 01.03.2026 bis 01.04.2026",
+                    "start_iso": "2026-03-01",
+                    "end_iso": "2026-04-01"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "application period lottery system higher degree semester",
+                  "value": {
+                    "raw": "expected 01.03.2026 bis 01.04.2026",
+                    "start_iso": "2026-03-01",
+                    "end_iso": "2026-04-01"
+                  },
+                  "links": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For master's programs",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Application for master’s programs with restricted admission:",
+                  "value": {
+                    "raw": "01.12.2025 until 15.01.2026",
+                    "start_iso": "2025-12-01",
+                    "end_iso": "2026-01-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for master’s programs with open admission:",
+                  "value": {
+                    "raw": "01.12.2025 until 28.02.2026",
+                    "start_iso": "2025-12-01",
+                    "end_iso": "2026-02-28"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for participation in the lottery system",
+                  "value": {
+                    "raw": "until 01.04.2026",
+                    "iso": "2026-04-01"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrollment for all master’s programs:",
+                  "value": {
+                    "raw": "see letter of acceptance in tuPORT"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Registration period for multiple enrollment/enrollment after admission :",
+                  "value": {
+                    "raw": "15.01.2026 until 30.06.2026",
+                    "start_iso": "2026-01-15",
+                    "end_iso": "2026-06-30"
+                  },
+                  "links": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For continuing education master's programs",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Application for continuing education master's programs:",
+                  "value": {
+                    "raw": "see information for the degree program"
+                  },
+                  "links": [
+                    {
+                      "text": "see information for the degree program",
+                      "href": "https://www.tu.berlin/en/go1487/"
+                    }
+                  ]
+                },
+                {
+                  "label": "Registration period for continuing education master's programs:",
+                  "value": {
+                    "raw": "01.02.2026 until 15.03.2026",
+                    "start_iso": "2026-02-01",
+                    "end_iso": "2026-03-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrollment for continuing education master's programs:",
+                  "value": {
+                    "raw": "see letter of acceptance in tuPORT"
+                  },
+                  "links": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For preparatory school",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Application for preparatory school:",
+                  "value": {
+                    "raw": "03.11.2025 extended until 04.01.2026",
+                    "start_iso": "2025-11-03",
+                    "end_iso": "2026-01-04"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for the external assessment test and supplementary test:",
+                  "value": {
+                    "raw": "03.11.2025 until 28.02.2026",
+                    "start_iso": "2025-11-03",
+                    "end_iso": "2026-02-28"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Other dates of preparatory school",
+                  "value": {
+                    "raw": "see here"
+                  },
+                  "links": [
+                    {
+                      "text": "see here",
+                      "href": "https://www.tu.berlin/en/go16705/"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For professionally qualified applicants",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Entry examination for all undergraduate programs (excluding Bachelor of Arts):",
+                  "value": {
+                    "raw": "Beginning of December 2025 (registration deadline approx. 2 months before)"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "For bachelor's programmes with restricted admission (NC)",
+                  "value": {
+                    "raw": ""
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application period (After the application period, applications for this semester are excluded):",
+                  "value": {
+                    "raw": "01.12.2025 until 15.01.2026",
+                    "start_iso": "2025-12-01",
+                    "end_iso": "2026-01-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrolment deadline:",
+                  "value": {
+                    "raw": "see letter of acceptance / tuPORT"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "For bachelor's programmes with open admission (no NC)",
+                  "value": {
+                    "raw": ""
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Registration period (After the registration period, enrolments for this semester are excluded):",
+                  "value": {
+                    "raw": "probably 01.12.2025 until 28.02.2026",
+                    "start_iso": "2025-12-01",
+                    "end_iso": "2026-02-28"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrolment deadline:",
+                  "value": {
+                    "raw": "see registration/ tuPORT"
+                  },
+                  "links": []
+                }
+              ]
+            },
+            {
+              "title": "TU lottery system",
+              "items": [
+                {
+                  "label": "application period lottery system 1st degree semester",
+                  "value": {
+                    "raw": "expected 01.03.2026 bis 01.04.2026",
+                    "start_iso": "2026-03-01",
+                    "end_iso": "2026-04-01"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "application period lottery system higher degree semester",
+                  "value": {
+                    "raw": "expected 01.03.2026 bis 01.04.2026",
+                    "start_iso": "2026-03-01",
+                    "end_iso": "2026-04-01"
+                  },
+                  "links": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For exchange students",
+          "links": [
+            {
+              "text": "Dates vary, please see here",
+              "href": "https://www.tu.berlin/en/international/students-1/international-students/exchange-studies-at-tu-berlin/exchange-application/dates-and-deadlines"
+            }
+          ]
+        },
+        {
+          "title": "For doctoral studies",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Registration period for doctoral studies:",
+                  "value": {
+                    "raw": "15.01.2026 until 31.08.2026",
+                    "start_iso": "2026-01-15",
+                    "end_iso": "2026-08-31"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrollment period for doctoral studies:",
+                  "value": {
+                    "raw": "01.04.2026 until 30.09.2026",
+                    "start_iso": "2026-04-01",
+                    "end_iso": "2026-09-30"
+                  },
+                  "links": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For guest auditors (Gasthörerschaft)/visiting students (Nebenhörerschaft)",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Application for guest auditors (Gasthörerschaft) and visiting students (Nebenhörerschaft):",
+                  "value": {
+                    "raw": "probably 15.02.2026 until 31.07.2026",
+                    "start_iso": "2026-02-15",
+                    "end_iso": "2026-07-31"
+                  },
+                  "links": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "semester_dates": [
+        {
+          "label": "Duration of semester:",
+          "value": {
+            "raw": "01.04.2026 until 30.09.2026",
+            "start_iso": "2026-04-01",
+            "end_iso": "2026-09-30"
+          },
+          "links": []
+        },
+        {
+          "label": "Lecture period:",
+          "value": {
+            "raw": "13.04.2026 until 18.07.2026",
+            "start_iso": "2026-04-13",
+            "end_iso": "2026-07-18"
+          },
+          "links": []
+        },
+        {
+          "label": "Lecture-free period:",
+          "value": {
+            "raw": "public holidays"
+          },
+          "links": []
+        },
+        {
+          "label": "Re-registration:",
+          "value": {
+            "raw": "until 14.02.2026",
+            "iso": "2026-02-14"
+          },
+          "links": []
+        },
+        {
+          "label": "Application for leave of absence:",
+          "value": {
+            "raw": "until 15.05.2026",
+            "iso": "2026-05-15"
+          },
+          "links": []
+        },
+        {
+          "label": "Application for part-time studies:",
+          "value": {
+            "raw": "until 15.05.2026",
+            "iso": "2026-05-15"
+          },
+          "links": []
+        }
+      ]
+    },
+    {
+      "semester": "Winter semester 2026/2027",
+      "application_and_enrollment_deadlines": [
+        {
+          "title": "For bachelor's programs",
+          "groups": [
+            {
+              "title": "Applicants with a German higher education entrance qualification",
+              "items": [
+                {
+                  "label": "For bachelor's programmes with restricted admission (NC)",
+                  "value": {
+                    "raw": ""
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application period (After the application period, applications for this semester are excluded):",
+                  "value": {
+                    "raw": "01.06.2026 until 15.07.2026",
+                    "start_iso": "2026-06-01",
+                    "end_iso": "2026-07-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrolment deadline:",
+                  "value": {
+                    "raw": "see letter of acceptance / tuPORT"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "for bachelor's programmes with open admission (no NC)",
+                  "value": {
+                    "raw": ""
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Registration period (After the registration period, enrolments for this semester are excluded):",
+                  "value": {
+                    "raw": "01.06.2026 until 31.08.2026",
+                    "start_iso": "2026-06-01",
+                    "end_iso": "2026-08-31"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrollment deadline:",
+                  "value": {
+                    "raw": "see registration / tuPORT"
+                  },
+                  "links": []
+                }
+              ]
+            },
+            {
+              "title": "Applicants with an international higher education entrance qualification",
+              "items": [
+                {
+                  "label": "Application for bachelor’s programs with restricted admission (NC):",
+                  "value": {
+                    "raw": "01.06.2026 until 15.07.2026",
+                    "start_iso": "2026-06-01",
+                    "end_iso": "2026-07-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for bachelor’s programs with open admission (no NC):",
+                  "value": {
+                    "raw": "01.06.2026 until 31.08.2026",
+                    "start_iso": "2026-06-01",
+                    "end_iso": "2026-08-31"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrollment for all bachelor’s programs:",
+                  "value": {
+                    "raw": "see letter of acceptance in tuPORT"
+                  },
+                  "links": []
+                }
+              ]
+            },
+            {
+              "title": "TU lottery system",
+              "items": [
+                {
+                  "label": "application period lottery system 1st degree semester",
+                  "value": {
+                    "raw": "expected 01.09.2026 bis 01.10.2026",
+                    "start_iso": "2026-09-01",
+                    "end_iso": "2026-10-01"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "application period lottery system higher degree semester",
+                  "value": {
+                    "raw": "01.09.2026 bis 01.10.2026",
+                    "start_iso": "2026-09-01",
+                    "end_iso": "2026-10-01"
+                  },
+                  "links": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For master's programs",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Application for German-language master’s programs with restricted admission: (including Urban Ecosystem Sciences as well as Urban and Regional Planning)",
+                  "value": {
+                    "raw": "01.04.2026 until 15.06.2026",
+                    "start_iso": "2026-04-01",
+                    "end_iso": "2026-06-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for English-language master’s programs with restricted admission:",
+                  "value": {
+                    "raw": "01.04.2026 until 15.05.2026",
+                    "start_iso": "2026-04-01",
+                    "end_iso": "2026-05-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for \"Computional Neuroscience\":",
+                  "value": {
+                    "raw": "01.02.2026 until 15.03.2026",
+                    "start_iso": "2026-02-01",
+                    "end_iso": "2026-03-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for \"Design and Computation\":",
+                  "value": {
+                    "raw": "01.04.2026 until 15.05.2026",
+                    "start_iso": "2026-04-01",
+                    "end_iso": "2026-05-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for master’s programs with open admission:",
+                  "value": {
+                    "raw": "01.06.2026 until 31.08.2026",
+                    "start_iso": "2026-06-01",
+                    "end_iso": "2026-08-31"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for participation in the lottery system",
+                  "value": {
+                    "raw": "until 01.10.2026",
+                    "iso": "2026-10-01"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrollment for all master’s programs with restricted admission:",
+                  "value": {
+                    "raw": "see letter of acceptance in tuPORT"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Registration period for multiple enrollment/enrollment after admission :",
+                  "value": {
+                    "raw": "15.07.2026 until 31.12.2026",
+                    "start_iso": "2026-07-15",
+                    "end_iso": "2026-12-31"
+                  },
+                  "links": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For continuing education master's programs",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Application for continuing education master's programs:",
+                  "value": {
+                    "raw": "see information for the degree program"
+                  },
+                  "links": [
+                    {
+                      "text": "see information for the degree program",
+                      "href": "https://www.tu.berlin/en/go1487/"
+                    }
+                  ]
+                },
+                {
+                  "label": "Registration period for continuing education master's programs:",
+                  "value": {
+                    "raw": "01.06.2026 until 15.09.2026",
+                    "start_iso": "2026-06-01",
+                    "end_iso": "2026-09-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrollment for continuing education master's programs:",
+                  "value": {
+                    "raw": "see letter of acceptance in tuPORT"
+                  },
+                  "links": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For preparatory school",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Application for preparatory school and precourse:",
+                  "value": {
+                    "raw": "01.05.2026 until 30.06.2026",
+                    "start_iso": "2026-05-01",
+                    "end_iso": "2026-06-30"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application for the external assessment test and supplementary test:",
+                  "value": {
+                    "raw": "01.05.2026 until 31.08.2026",
+                    "start_iso": "2026-05-01",
+                    "end_iso": "2026-08-31"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Other dates of preparatory school",
+                  "value": {
+                    "raw": "see here"
+                  },
+                  "links": [
+                    {
+                      "text": "see here",
+                      "href": "https://www.tu.berlin/en/go16705/"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For professionally qualified applicants (without an Abitur)",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Entry examination for all undergraduate programs (excluding Bachelor of Arts):",
+                  "value": {
+                    "raw": "probably end of June 2026 (registration deadline approx. 2,5 months before)"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "For bachelor's programmes with restricted admission (NC)",
+                  "value": {
+                    "raw": ""
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Application period (After the application period, applications for this semester are excluded):",
+                  "value": {
+                    "raw": "01.06.2026 until 15.07.2026",
+                    "start_iso": "2026-06-01",
+                    "end_iso": "2026-07-15"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrolment deadline:",
+                  "value": {
+                    "raw": "see letter of acceptance / tuPORT"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "For bachelor's programmes with open admission (no NC)",
+                  "value": {
+                    "raw": ""
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Registration period (After the registration period, enrolments for this semester are excluded):",
+                  "value": {
+                    "raw": "01.06.2026 until 31.08.2026",
+                    "start_iso": "2026-06-01",
+                    "end_iso": "2026-08-31"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrolment deadline:",
+                  "value": {
+                    "raw": "see registration/ tuPORT"
+                  },
+                  "links": []
+                }
+              ]
+            },
+            {
+              "title": "TU lottery system",
+              "items": [
+                {
+                  "label": "application period lottery system 1st degree semester",
+                  "value": {
+                    "raw": "expected 01.09.2026 bis 01.10.2026",
+                    "start_iso": "2026-09-01",
+                    "end_iso": "2026-10-01"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "application period lottery system higher degree semester",
+                  "value": {
+                    "raw": "01.09.2026 bis 01.10.2026",
+                    "start_iso": "2026-09-01",
+                    "end_iso": "2026-10-01"
+                  },
+                  "links": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For exchange students",
+          "links": [
+            {
+              "text": "Dates vary, please see here",
+              "href": "https://www.tu.berlin/en/international/students-1/international-students/exchange-studies-at-tu-berlin/exchange-application/dates-and-deadlines"
+            }
+          ]
+        },
+        {
+          "title": "For doctoral studies",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Registration period for doctoral studies:",
+                  "value": {
+                    "raw": "15.07.2026 until 28.02.2027",
+                    "start_iso": "2026-07-15",
+                    "end_iso": "2027-02-28"
+                  },
+                  "links": []
+                },
+                {
+                  "label": "Enrollment period for doctoral studies:",
+                  "value": {
+                    "raw": "01.10.2026 until 31.03.2027",
+                    "start_iso": "2026-10-01",
+                    "end_iso": "2027-03-31"
+                  },
+                  "links": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "For guest auditors (Gasthörerschaft)/visiting students (Nebenhörerschaft)",
+          "groups": [
+            {
+              "title": "General",
+              "items": [
+                {
+                  "label": "Application for guest auditors (Gasthörerschaft) and visiting students (Nebenhörerschaft):",
+                  "value": {
+                    "raw": "15.08.2026 until 31.01.2027",
+                    "start_iso": "2026-08-15",
+                    "end_iso": "2027-01-31"
+                  },
+                  "links": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "semester_dates": [
+        {
+          "label": "Duration of semester:",
+          "value": {
+            "raw": "01.10.2026 until 31.03.2027",
+            "start_iso": "2026-10-01",
+            "end_iso": "2027-03-31"
+          },
+          "links": []
+        },
+        {
+          "label": "Lecture period:",
+          "value": {
+            "raw": "12.10.2026 until 13.02.2027",
+            "start_iso": "2026-10-12",
+            "end_iso": "2027-02-13"
+          },
+          "links": []
+        },
+        {
+          "label": "Lecture-free period:",
+          "value": {
+            "raw": "21.12.2026 until 02.01.2027 as well as public holidays",
+            "start_iso": "2026-12-21",
+            "end_iso": "2027-01-02"
+          },
+          "links": []
+        },
+        {
+          "label": "Re-registration:",
+          "value": {
+            "raw": "18.07.2026",
+            "iso": "2026-07-18"
+          },
+          "links": []
+        },
+        {
+          "label": "Application for leave of absence:",
+          "value": {
+            "raw": "until 15.11.2026",
+            "iso": "2026-11-15"
+          },
+          "links": []
+        },
+        {
+          "label": "Application for part-time studies:",
+          "value": {
+            "raw": "until 15.11.2026",
+            "iso": "2026-11-15"
+          },
+          "links": []
+        }
+      ]
+    }
+  ]
+}
