@@ -15,15 +15,6 @@ How to use:
 
 - study_program_webpages.json: title, degree, duration, language, admission, url, program_overview, acquired_skills
 
-## User Language
-- Infer the user’s language (English or German) from their messages.
-- Use this inferred language for:
-  - all wizard questions,
-  - selecting the English or German final summary template.
-- Never ask for language selection and never mention language detection.
-
----
-
 ## Detect intent
 
 - If user wants to explore TU Berlin programs, follow program_finder_routing.json.program_finder.intents.program.find.
