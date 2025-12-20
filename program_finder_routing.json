@@ -28,8 +28,7 @@
         "type": "enum",
         "values": ["bachelor", "master"],
         "questions": {
-          "en": "🦉 Which degree level are you interested in: Bachelor or Master?",
-          "de": "🦉 Welches Abschlussniveau interessiert Sie: Bachelor oder Master?"
+          "en": "🦉 Which degree level are you interested in: Bachelor or Master?"
         },
         "slot": "degree_type"
       },
@@ -37,8 +36,7 @@
         "type": "enum",
         "values": ["english-only", "german-only", "either"],
         "questions": {
-          "en": "🦉 Which language of instruction do you prefer or require? (German, English, or either)",
-          "de": "🦉 Welche Unterrichtssprache bevorzugen oder benötigen Sie? (Deutsch, Englisch oder egal)"
+          "en": "🦉 Which language of instruction do you prefer or require? (German, English, or either)"
         },
         "slot": "language_constraint",
         "notes": "Do not assume language knowledge; always ask explicitly."
@@ -46,8 +44,7 @@
       "field_interest": {
         "type": "free-text",
         "questions": {
-          "en": "🦉 What field or interests should the program fit? (e.g., computer science, architecture, sustainability, data, design)",
-          "de": "🦉 Welches Fachgebiet oder welche Interessen sollen zum Studiengang passen? (z. B. Informatik, Architektur, Nachhaltigkeit, Daten, Design)"
+          "en": "🦉 What field or interests should the program fit? (e.g., computer science, architecture, sustainability, data, design)"
         },
         "slot": "field_interest"
       }
@@ -146,8 +143,7 @@
       "handoff_to_general_help": {
         "description": "Exit Program Finder and route to general help.",
         "phrases": {
-          "en": "Switching to general TU Berlin help to answer your question.",
-          "de": "Wechsel zur allgemeinen TU-Berlin-Hilfe, um Ihre Frage zu beantworten."
+          "en": "Switching to general TU Berlin help to answer your question."
         }
       }
     },
@@ -220,8 +216,7 @@
       "bachelor_english_only": {
         "notes": "Inform user about German instruction predominance for Bachelor.",
         "phrases": {
-          "en": "All TU Berlin Bachelor’s programs are taught in German. If you require English-only, there is no bachelor option available.",
-          "de": "Die meisten Bachelorstudiengänge an der TU Berlin werden auf Deutsch unterrichtet. Wenn Sie ausschließlich Englisch benötigen, sind passende Bacheloroptionen möglicherweise begrenzt."
+          "en": "All TU Berlin Bachelor’s programs are taught in German. If you require English-only, there is no bachelor option available."
         }
       }
     }
