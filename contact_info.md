@@ -15,4 +15,3 @@ For the most up-to-date information on contact options and online consultation (
 When citing or using this knowledge file, these links **must always be included**:
 
 - **English:** [Contact and Zoom call information (EN)](https://www.tu.berlin/en/studierendensekretariat/contact-office-hours)  
-- **German:** [Kontakt und Zoom-Sprechzeiten (DE)](https://www.tu.berlin/studierendensekretariat/kontakt-sprechzeiten)
