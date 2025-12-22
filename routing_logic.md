@@ -31,20 +31,32 @@ Once the primary category is determined, follow the precise steps below to find 
 
 This handles questions specific to a named study program.
 
-1.  **Identify Program-Generic Topic:**
-    * Match the remaining keywords against the **`keywords`** in `level.programs.generic-topics`.
-2.  **Identify Program and Level:**
-    For a given study program name (e.g., 'Aeronautics and Astronautics'), find the corresponding JSON object in `study_program_webpages.json` by matching the program name and level against the object's `title` field.
-3.  **Source Retrieval and Action:**
-    * Perform the precise **`action`** defined in the matching topic node.
-    * **StuPo files:** If the topic is `stupo`, use the program name from step 2 to select the StuPo file by alphabetical range. Match the first letter of the program name to the file range. 
+1. Identify Program-Generic Topic
+   - Match remaining **`keywords`** against `level.programs.generic-topics`.
+
+2. Verify Program Existence 
+   - Check for an exact title match in `study_program_webpages.json`.
+   - If no match:
+     - Stop.
+     - Do not infer or generalize.
+     - Respond: program cannot be confirmed; refer to the official program list.
+
+3. Identify Program and Level
+   - If the program exists:
+     - Match the JSON object by exact `title` and degree level (Bachelor/Master).
+   - If multiple levels match:
+     - Ask the user to clarify the intended level.
+
+4. Source Retrieval and Action:
+    - Perform the precise **`action`** defined in the matching topic node.
+    - **StuPo files:** If the topic is `stupo`, use the program name from step 2 to select the StuPo file by alphabetical range. Match the first letter of the program name to the file range. 
         Example: Bauingenieurwesen, B.Sc. is in the file `[Arbeitslehre (A) TO Computational Neuroscience (C)] study_program_stupos_01.md`.
-    * The relevant program section is derived from the bold part of the following header patterns found in the StuPos: 
+    - The relevant program section is derived from the bold part of the following header patterns found in the StuPos: 
         - `## Studien- und Prüfungsordnung für den konsekutiven Masterstudiengang [Program]`
         - `## Neufassung der Studien- und Prüfungsordnung für den Masterstudiengang [Program]`
         - `### Studienordnung für den internationalen Masterstudiengang [Program]`
         - `## Studien- und Prüfungsordnung für den gemeinsamen/internationalen/weiterbildenden Masterstudiengang [Program]`
-    * Extract factual information.
+    - Extract factual information.
 
 ---
 
