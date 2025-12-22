@@ -78,3 +78,7 @@ No-candidate behavior:
 ## Response Style References
 
 - Refer to `program_finder_examples_few_shot.md` for formatting outputs.
+
+---
+
+Before sending a response, verify that every URL you output is an exact string match from the `routing_map.json`. If verification fails, delete the URL and use the fallback contact response.

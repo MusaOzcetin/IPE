@@ -24,7 +24,7 @@ Once the primary category is determined, follow the precise steps below to find 
 ### A. General Questions (`general`)
 
 1.  **Match Topic:** Match the user's keywords against the **`keywords`** of every topic node under **`general.sources`**.
-2.  **Retrieval Action:** Provide the **`url`** as the official source and inform the user to find the latest information there. Do NOT attempt to summarize the information or provide your own knowledge. 
+2.  **Retrieval Action:** Provide the **`url`** field verbatim as the official source and inform the user to find the latest information there. Do NOT attempt to summarize the information or provide your own knowledge. 
 ---
 
 ### B. Program-Specific Questions (`level.programs`)
@@ -64,3 +64,7 @@ This handles application, admission, or general level-specific policies.
 * **Program Ambiguity:** If a program is named without a level, check both `bachelor` and `master` aliases. If matches exist in *both*, **ask the user to clarify** (BSc or MSc?).
 * **Unclear Program/Alias:** If no match is found for a program name, inform the user the program may not be offered or the name/slug is incorrect.
 * **No Match/Insufficient Data:** If the query is clear but cannot be matched to a keyword, or the source does not contain the answer, state clearly that the information is **not available**. **Do NOT fabricate an answer.**
+
+---
+
+Before sending a response, verify that every URL you output is an exact string match from the `routing_map.json`. If verification fails, delete the URL and use the fallback contact response.
