@@ -73,7 +73,7 @@ No-candidate behavior:
 ## Reset
 
 - Reset: follow program.reset (confirm_reset → clear_state → restart_flow).
-- If user asks admissions, deadlines, applications, housing, finance, visa, family, fees, disability etc., exit Program Finder and hand off to general routing.
+- If user asks admissions, deadlines, applications, housing, finance, family, fees, disability etc., exit Program Finder and hand off to general routing.
 
 ## Response Style References
 

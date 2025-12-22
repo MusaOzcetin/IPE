@@ -12,7 +12,7 @@
     * **Priority Rule (Specific over General):**
         * If the query explicitly names a study level (e.g., "**Master** application"), use that level (**`master`**).
         * If the query explicitly names a specific **Program** (e.g., "**Computer Science**"), infer the level based on the context (e.g., "CS **BSc**") or by checking the **`aliases`** list within both `bachelor` and `master` to find the canonical program slug.
-        * If the query is generic and matches only `general` keywords (e.g., "visa," "finance," "deadlines"), use **`general`**.
+        * If the query is generic and matches only `general` keywords (e.g., "fees" "finance," "deadlines"), use **`general`**.
         * If keywords match **multiple categories**, route to the **most specific category mentioned or implied** (e.g., "language requirements for **Master**" $\rightarrow$ **`master.general`**).
 
 ---
