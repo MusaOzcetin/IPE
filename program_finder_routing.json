@@ -44,7 +44,7 @@
       "field_interest": {
         "type": "free-text",
         "questions": {
-          "en": "🦉 What field or interests should the program fit? (e.g., computer science, architecture, sustainability, data, design)"
+          "en": "🦉 What field or interests should the program fit? (e.g., computer science, architecture, sustainability, teaching, design)"
         },
         "slot": "field_interest"
       }
