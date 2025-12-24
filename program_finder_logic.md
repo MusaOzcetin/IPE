@@ -58,7 +58,7 @@ Follow actions in program_finder_routing.json.program_finder.intents.program.fin
    - After finishing the evaluation, immediately proceed with step 4. Do not output your internal evaluation process.
 
 4. present_table:
-   - Output up to three programs (0–3 allowed) using fields listed in program.find.present.fields.
+   - Output up to three programs (0–3 allowed) using fields program.find.present.fields.title and program.find.present.fields.url
    - Titles and URLs must be copied verbatim from the candidate object; drop any row that fails identity validation (title/url mismatch).
 
 No-candidate behavior:
