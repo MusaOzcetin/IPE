@@ -11,7 +11,7 @@ How to use:
 
 ---
 
-## Knowledge Sources (use program_finder_routing_m.json.program_finder.fields)
+## Knowledge Sources (use program_finder_routing.json.program_finder.fields)
 
 - study_program_webpages.json: title, degree, duration, language, admission, url, program_overview, acquired_skills
 
@@ -81,4 +81,4 @@ No-candidate behavior:
 
 ---
 
-Before sending a response, verify that every URL you output is an exact string match from the `routing_map.json`. If verification fails, delete the URL and use the fallback contact response.
+Before sending a response, verify that every URL you output is an exact string match from the `study_program_webpages.json`. If verification fails, delete the URL and use the fallback contact response.
