@@ -44,21 +44,9 @@
       "field_interest": {
         "type": "free-text",
         "questions": {
-          "en": "🦉 What field or interests should the program fit? (e.g., computer science, architecture, sustainability, teaching, design)"
+          "en": "🦉 What field or interests should the program fit?"
         },
         "slot": "field_interest"
-      }
-    },
-    "data_model": {
-      "programs_path": "root array of study_program_webpages.json",
-      "identity": {
-        "primary_key": ["title", "url"],
-        "notes": "Program identity is the exact pair (title, url) from the same JSON object. Never invent or modify these values."
-      },
-      "required_fields": ["title", "url"],
-      "guardrails": {
-        "no_synthetic_titles": "Do not output any title that does not exactly match a title value from the source objects.",
-        "no_synthetic_urls": "Do not output any URL that does not exactly match a url value from the source objects."
       }
     },
     "fields": {
@@ -70,10 +58,6 @@
         "source": "study_program_webpages.json",
         "action": "Extract the value of `Degree` inside `sections.headings.tables.rows` from the SAME candidate object."
       },
-      "duration": {
-        "source": "study_program_webpages.json",
-        "action": "Extract the value of `Standard period of study` inside `sections.headings.tables.rows` from the SAME candidate object."
-      },
       "language": {
         "source": "study_program_webpages.json",
         "action": "Extract the value of `Language of instruction` inside `sections.headings.tables.rows` from the SAME candidate object."
@@ -81,10 +65,6 @@
       "admission": {
         "source": "study_program_webpages.json",
         "action": "Extract the value of `Admission` inside `sections.headings.tables.rows` from the SAME candidate object."
-      },
-      "url": {
-        "source": "study_program_webpages.json",
-        "action": "Extract EXACT value of `url` from the candidate object. Do not rewrite, shorten, or rehost."
       },
       "program_overview": {
         "source": "study_program_webpages.json",
@@ -109,29 +89,31 @@
         "description": "Let GPT, using slot `field_interest` and candidate fields (title, program_overview, acquired_skills), decide which programs fit best. No explicit ranking formula; choose up to 3 results."
       },
       "present_table": {
-        "description": "Render a Markdown table for up to 3 programs (0–3 allowed) using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`.",
+        "description": "Render a Markdown table for up to 3 programs (0–3 allowed) using fields: `title`.",
         "constraints": {
-          "use_exact_values": ["title", "url"],
-          "validation": "Before rendering each row, assert row.title === candidate.title AND row.url === candidate.url; if not, drop the row."
+          "use_exact_values": ["title"],
+          "validation": "Before rendering each row, assert row.title === candidate.title; if not, drop the row."
         }
       },
+      "disclaimer": {
+        "description": "Present disclaimer about all studies offered by TU Berlin."
+      },
       "present_details": {
-        "description": "Show concise details for the selected program using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`, plus a short summary from `program_overview`.",
+        "description": "Show concise details for the selected program using fields: `title` plus a short summary from `program_overview`.",
         "constraints": {
-          "use_exact_values": ["title", "url"]
+          "use_exact_values": ["title"]
         }
       },
       "present_comparison_table": {
-        "description": "Render a Markdown table comparing 2–3 selected programs using fields: `title`, `degree`, `duration`, `language`, `admission`, `url`.",
+        "description": "Render a Markdown table comparing 2–3 selected programs using fields: `title`.",
         "constraints": {
-          "use_exact_values": ["title", "url"]
+          "use_exact_values": ["title"]
         }
       },
       "confirm_reset": {
         "description": "Ask user to confirm restarting Program Finder.",
         "phrases": {
-          "en": "Do you want to restart Program Finder?",
-          "de": "Möchten Sie den Programmfinder neu starten?"
+          "en": "Do you want to restart Program Finder?"
         }
       },
       "clear_state": {
@@ -159,14 +141,7 @@
           "present_table"
         ],
         "present": {
-          "fields": [
-            "title",
-            "degree",
-            "duration",
-            "language",
-            "admission",
-            "url"
-          ]
+          "fields": ["title"]
         }
       },
       "program.detail": {
@@ -174,14 +149,7 @@
         "inputs": ["selected_program"],
         "actions": ["present_details"],
         "present": {
-          "fields": [
-            "title",
-            "degree",
-            "duration",
-            "language",
-            "admission",
-            "url"
-          ]
+          "fields": ["title", "degree", "duration", "admission"]
         }
       },
       "program.compare": {
@@ -189,14 +157,7 @@
         "inputs": ["selected_programs"],
         "actions": ["present_comparison_table"],
         "present": {
-          "fields": [
-            "title",
-            "degree",
-            "duration",
-            "language",
-            "admission",
-            "url"
-          ]
+          "fields": ["title", "degree", "duration", "admission"]
         },
         "constraints": {
           "selected_programs_count_min": 2,
@@ -210,14 +171,6 @@
       "program.exit": {
         "notes": "Exit Program Finder and hand off to general help.",
         "actions": ["handoff_to_general_help"]
-      }
-    },
-    "messaging_rules": {
-      "bachelor_english_only": {
-        "notes": "Inform user about German instruction predominance for Bachelor.",
-        "phrases": {
-          "en": "All TU Berlin Bachelor’s programs are taught in German. If you require English-only, there is no bachelor option available."
-        }
       }
     }
   }
