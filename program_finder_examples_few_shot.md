@@ -26,7 +26,7 @@ Would you like me to start the **Program Finder** to help you discover which mas
 
 **User:** "I’d like to study in English at TU Berlin, but I don’t really know what program or subject yet."  
 **Answer:** From your message, I understand that your main preference is an **English-taught study program** at TU Berlin, and the subject is still open.  
-The Program Finder can narrow down suitable English-taught bachelor’s and master’s programs based on your interests and background.  
+The Program Finder can narrow down suitable English-taught master’s programs based on your interests and background.  
 Should I start the **TU Berlin Program Finder** so we can explore English-language options together?
 
 ### Example 06 - Study Focus (IT / Tech, no degree specified)

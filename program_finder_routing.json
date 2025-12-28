@@ -89,7 +89,7 @@
         "description": "Let GPT, using slot `field_interest` and candidate fields (title, program_overview, acquired_skills), decide which programs fit best. No explicit ranking formula; choose up to 3 results."
       },
       "present_table": {
-        "description": "Render a Markdown table for up to 3 programs (0–3 allowed) using fields: `title`.",
+        "description": "Render a bullet list for up to 3 programs (0–3 allowed) using fields: `title`.",
         "constraints": {
           "use_exact_values": ["title"],
           "validation": "Before rendering each row, assert row.title === candidate.title; if not, drop the row."
@@ -105,7 +105,7 @@
         }
       },
       "present_comparison_table": {
-        "description": "Render a Markdown table comparing 2–3 selected programs using fields: `title`.",
+        "description": "Render a bullet list comparing 2–3 selected programs using fields: `title`.",
         "constraints": {
           "use_exact_values": ["title"]
         }
