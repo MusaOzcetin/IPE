@@ -57,15 +57,14 @@
     ],
     "sources": {
       "dates-deadlines": {
-        "url": "https://www.tu.berlin/studieren/bewerben-und-einschreiben/fristen-termine",
+        "file": "dates_deadlines.json",
         "keywords": [
           "deadline",
+          "date",
+          "dates", 
+          "enrollment deadline",
           "application date",
           "admission date",
-          "termin",
-          "frist",
-          "fristen",
-          "termine",
           "closing date",
           "application period",
           "timeline",
@@ -74,7 +73,11 @@
           "einschreibefrist",
           "anmeldefrist",
           "terminkalender",
-          "hochschulstart"
+          "hochschulstart",
+          "termin",
+          "frist",
+          "fristen",
+          "termine"
         ]
       },
       "other-studies": {
@@ -512,16 +515,29 @@
           "action": "Extract the value of the key `url`"
         },
         "dates-deadlines": {
-          "url": "https://www.tu.berlin/studieren/bewerben-und-einschreiben/fristen-termine",
+          "source": "dates_deadlines.json",
           "keywords": [
             "deadline",
+            "date",
+            "dates", 
+            "enrollment deadline",
             "application date",
             "admission date",
+            "closing date",
+            "application period",
+            "timeline",
+            "important dates",
+            "bewerbungsfrist",
+            "einschreibefrist",
+            "anmeldefrist",
+            "terminkalender",
+            "hochschulstart",
             "termin",
             "frist",
             "fristen",
             "termine"
-          ]
+          ], 
+          "action": "Recognize the deadlines that the user cares for and serve the CORRECT dates."
         },
         "stupo": {
           "keywords": [
@@ -931,16 +947,29 @@
           "action": "Extract the value of the key `url"
         },
         "dates-deadlines": {
-          "url": "https://www.tu.berlin/studieren/bewerben-und-einschreiben/fristen-termine",
+          "source": "dates_deadlines.json",
           "keywords": [
             "deadline",
+            "date",
+            "dates", 
+            "enrollment deadline",
             "application date",
             "admission date",
+            "closing date",
+            "application period",
+            "timeline",
+            "important dates",
+            "bewerbungsfrist",
+            "einschreibefrist",
+            "anmeldefrist",
+            "terminkalender",
+            "hochschulstart",
             "termin",
             "frist",
             "fristen",
             "termine"
-          ]
+          ], 
+          "action": "Recognize the deadlines that the user cares for and serve the CORRECT dates."
         },
         "stupo": {
           "keywords": [
