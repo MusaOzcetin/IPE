@@ -2,7 +2,7 @@
 
 **Purpose:** First contact for prospective students (study choices, application questions, orientation).  
 **Use when:** User asks for study advisory contact OR as fallback when a request cannot be answered.  
-**As of:** November 2025
+**As of:** January 2026
 
 ## Contact
 - **Email:** studienberatung@tu-berlin.de  
