@@ -18,7 +18,7 @@ It runs **offline**: you first save the webpage as an HTML file, then run the sc
 
 ```
 dates_deadlines/
-├─ README.md
+├─ dates_deadlines_README.md
 ├─ script/
 │  └─ extract_tu_berlin_dates_deadlines.py
 │  └─ dependencies.txt
